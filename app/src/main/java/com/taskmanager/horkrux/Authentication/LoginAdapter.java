@@ -30,8 +30,8 @@ public class LoginAdapter extends FragmentPagerAdapter {
                 return loginTabfragment;
 
             case 1:
-                sign_up_fragment sign_up_fragment = new sign_up_fragment();
-                return sign_up_fragment;
+                sign_up_fragment signUpFragment = new sign_up_fragment();
+                return signUpFragment;
 
             default:
                 return null;

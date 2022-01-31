@@ -3,6 +3,13 @@
   <component name="DesignSurface">
     <option name="filePathToZoomLevelMap">
       <map>
+        <entry key="..\:/Users/Rohit/AndroidStudioProjects/TaskManager/app/src/main/res/layout/activity_login_and_sign_up.xml" value="0.19444444444444445" />
+        <entry key="..\:/Users/Rohit/AndroidStudioProjects/TaskManager/app/src/main/res/layout/activity_main.xml" value="0.23229166666666667" />
+        <entry key="..\:/Users/Rohit/AndroidStudioProjects/TaskManager/app/src/main/res/layout/fragment_gallery.xml" value="0.23229166666666667" />
+        <entry key="..\:/Users/Rohit/AndroidStudioProjects/TaskManager/app/src/main/res/layout/login_fragment.xml" value="0.23229166666666667" />
+        <entry key="..\:/Users/Rohit/AndroidStudioProjects/TaskManager/app/src/main/res/layout/signup_fragment.xml" value="0.19444444444444445" />
+        <entry key="..\:/Users/Rohit/AndroidStudioProjects/TaskManager/app/src/main/res/menu/activity_main_drawer.xml" value="0.23229166666666667" />
+        <entry key="..\:/Users/Rohit/AndroidStudioProjects/TaskManager/app/src/main/res/menu/main.xml" value="0.23229166666666667" />
         <entry key="..\:/Users/mushe/AndroidStudioProjects/TaskManager/app/src/main/res/drawable/button_bg.xml" value="0.13148148148148148" />
         <entry key="..\:/Users/mushe/AndroidStudioProjects/TaskManager/app/src/main/res/layout/activity_main.xml" value="0.2046875" />
         <entry key="..\:/Users/mushe/AndroidStudioProjects/TaskManager/app/src/main/res/layout/app_bar_main.xml" value="0.2046875" />
@@ -13,7 +20,7 @@
       </map>
     </option>
   </component>
-  <component name="ProjectRootManager" version="2" languageLevel="JDK_11" default="true" project-jdk-name="1.8" project-jdk-type="JavaSDK">
+  <component name="ProjectRootManager" version="2" languageLevel="JDK_11" project-jdk-name="1.8" project-jdk-type="JavaSDK">
     <output url="file://$PROJECT_DIR$/build/classes" />
   </component>
   <component name="ProjectType">
