@@ -12,10 +12,15 @@
     <string name="menu_slideshow">Slideshow</string>
 
 
+    <string name="home">Home</string>>
     <string name="profile">Profile</string>
     <string name="tasks">Tasks</string>
     <string name="pending_task">Pending Task</string>
     <string name="completed">Completed</string>
+
+
+    <string name="nav_open">Open</string>
+    <string name="nav_close">Close</string>
 
 
 </resources>

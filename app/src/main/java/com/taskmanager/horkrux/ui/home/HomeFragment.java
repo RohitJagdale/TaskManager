@@ -16,12 +16,10 @@ import androidx.lifecycle.ViewModelProvider;
 
 import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.Task;
-import com.google.firebase.FirebaseApp;
 import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.firestore.DocumentReference;
 import com.google.firebase.firestore.DocumentSnapshot;
 import com.google.firebase.firestore.FirebaseFirestore;
-import com.google.firebase.firestore.QueryDocumentSnapshot;
 import com.google.firebase.firestore.QuerySnapshot;
 import com.taskmanager.horkrux.R;
 import com.taskmanager.horkrux.databinding.FragmentHomeBinding;
@@ -58,18 +56,7 @@ public class HomeFragment extends Fragment {
 //                    }
 //                });
 
-                HashMap<String, String> hashMap = new HashMap<>();
-                hashMap.put("task", "complete");
-                hashMap.put("status", "todo");
-                hashMap.put("decpt", "complete");
-
-                FirebaseFirestore db = FirebaseFirestore.getInstance();
-                db.collection("tasks").document("user-tasks").collection("UID").add(hashMap).addOnCompleteListener(new OnCompleteListener<DocumentReference>() {
-                    @Override
-                    public void onComplete(@NonNull Task<DocumentReference> task) {
-
-                    }
-                });
+                FirebaseFirestore.getInstance().collection("tasks").document("user-tasks").get();
 
             }
         });
