@@ -10,10 +10,10 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.TaskManager">
         <activity
-            android:name=".Authentication.LoginAndSignUp"
+            android:name=".Activites.MainActivity"
             android:exported="false" />
         <activity
-            android:name=".Activites.MainActivity"
+            android:name=".Authentication.LoginAndSignUp"
             android:exported="true"
             android:label="@string/app_name"
             android:theme="@style/Theme.TaskManager.NoActionBar">
