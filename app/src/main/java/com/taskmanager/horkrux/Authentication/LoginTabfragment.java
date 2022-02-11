@@ -80,6 +80,7 @@ public class LoginTabfragment extends Fragment {
         login.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+
                 String mail = email.getText().toString().trim();
                 String password = pass.getText().toString().trim();
 
@@ -115,7 +116,6 @@ public class LoginTabfragment extends Fragment {
     {
         FirebaseUser firebaseUser = firebaseAuth.getCurrentUser();
 
-        Log.d("firebaseuser", "checkMailVerification: "+ firebaseUser);
         if(firebaseUser.isEmailVerified() == true)
         {
             Toast.makeText(getActivity(),"logged in",Toast.LENGTH_SHORT).show();
