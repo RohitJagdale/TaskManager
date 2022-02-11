@@ -31,6 +31,8 @@ public class sign_up_fragment extends Fragment {
     private FirebaseAuth firebaseAuth;
     FirebaseDatabase firebaseDatabase;
 
+    Users user = new Users();
+
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState){
         ViewGroup root = (ViewGroup) inflater.inflate(R.layout.signup_fragment,container,false);
@@ -66,11 +68,6 @@ public class sign_up_fragment extends Fragment {
         signup.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Users user = new Users();
-                user.setUserEmail(uemail.getText().toString().trim());
-                user.setUserPass(upass.getText().toString().trim());
-                user.setUserName(uname.getText().toString().trim());
-
 
                 String email = uemail.getText().toString().trim();
                 String password = upass.getText().toString().trim();
@@ -86,6 +83,10 @@ public class sign_up_fragment extends Fragment {
                 }
                 else
                 {
+                    user.setUserEmail(uemail.getText().toString().trim());
+                    user.setUserPass(upass.getText().toString().trim());
+                    user.setUserName(uname.getText().toString().trim());
+
                     //register user
                     firebaseAuth.createUserWithEmailAndPassword(email,password).addOnCompleteListener(new OnCompleteListener<AuthResult>() {
                         @Override
@@ -93,23 +94,9 @@ public class sign_up_fragment extends Fragment {
 
                             if(task.isSuccessful()){
                                 Toast.makeText(getActivity(),"Resgistration Succesfull",Toast.LENGTH_SHORT).show();
-//                               sendEmailVerification();
-//                                updateUser(user);
-
-                                firebaseDatabase.getReference().child("Users").child(firebaseAuth.getUid()).setValue(user).addOnCompleteListener(new OnCompleteListener<Void>() {
-                                    @Override
-                                    public void onComplete(@NonNull Task<Void> task) {
-
-                                        if(task.isSuccessful()){
-                                            Toast.makeText(getActivity(),"user is in database",Toast.LENGTH_SHORT).show();
-                                        }
-                                        else{
-                                            Log.d("result", "onComplete: " + task.getException());
-                                            Toast.makeText(getActivity(),"user is not add in database",Toast.LENGTH_SHORT).show();
-                                        }
-
-                                    }
-                                });
+                               sendEmailVerification();
+                               user.setFireuserid(firebaseAuth.getUid());
+                                updateUser(user);
 
                             }
                             else{
@@ -125,7 +112,7 @@ public class sign_up_fragment extends Fragment {
         return root;
     }
 //  update the user in database
-    private void updateUser(String username) {
+    private void updateUser(Users username) {
         firebaseDatabase.getReference().child("Users").child(firebaseAuth.getUid()).setValue(username).addOnCompleteListener(new OnCompleteListener<Void>() {
             @Override
             public void onComplete(@NonNull Task<Void> task) {

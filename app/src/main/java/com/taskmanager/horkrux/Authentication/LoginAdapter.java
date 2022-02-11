@@ -12,7 +12,7 @@ public class LoginAdapter extends FragmentPagerAdapter {
     private Context context;
     int totaltabs;
 
-    public LoginAdapter(@NonNull FragmentManager fm, int totaltabs) {
+    public LoginAdapter(@NonNull FragmentManager fm,Context context, int totaltabs) {
         super(fm);
         this.context = context;
         this.totaltabs = totaltabs;
