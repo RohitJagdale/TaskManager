@@ -40,34 +40,6 @@ public class HomeFragment extends Fragment {
         binding = FragmentHomeBinding.inflate(inflater, container, false);
         View root = binding.getRoot();
 
-
-//        Map<String, Object> user = new HashMap<>();
-//        user.put("first", "Alan");
-//        user.put("middle", "Mathison");
-//        user.put("last", "Turing");
-//        user.put("born", 1912);
-        binding.addData.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-//                FirebaseFirestore.getInstance().collection("tasks").document("all-tasks").collection("UID").add(user).addOnCompleteListener(new OnCompleteListener<DocumentReference>() {
-//                    @Override
-//                    public void onComplete(@NonNull Task<DocumentReference> task) {
-//                        Toast.makeText(getActivity(), task.getResult().toString(), Toast.LENGTH_SHORT).show();
-//                    }
-//                });
-
-                FirebaseFirestore.getInstance().collection("tasks").document("user-tasks").get();
-
-            }
-        });
-
-        final TextView textView = binding.textHome;
-        homeViewModel.getText().observe(getViewLifecycleOwner(), new Observer<String>() {
-            @Override
-            public void onChanged(@Nullable String s) {
-                textView.setText(s);
-            }
-        });
         return root;
     }
 
