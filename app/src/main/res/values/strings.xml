@@ -23,4 +23,15 @@
     <string name="nav_close">Close</string>
 
 
+    <!--    Task Assignment-->
+    <string name="task_title">Enter Task Title</string>
+    <string name="task_description">Enter Task Description</string>
+    <string name="task_priority">Task Priority</string>
+
+    <!--    Date Pick-->
+    <string name="start_date_msg">Pick Start Date ....</string>
+    <string name="due_date_msg">Pick Due Date ....</string>
+    <string name="assign">Task Priority</string>
+
+
 </resources>
