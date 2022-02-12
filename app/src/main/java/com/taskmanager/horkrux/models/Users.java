@@ -1,4 +1,4 @@
-package com.taskmanager.horkrux.models;
+package com.taskmanager.horkrux.Models;
 
 import java.io.Serializable;
 

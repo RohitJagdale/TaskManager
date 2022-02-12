@@ -20,7 +20,7 @@ import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
 import com.google.firebase.database.FirebaseDatabase;
 import com.taskmanager.horkrux.R;
-import com.taskmanager.horkrux.models.Users;
+import com.taskmanager.horkrux.Models.Users;
 
 public class sign_up_fragment extends Fragment {
 
