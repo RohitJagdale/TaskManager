@@ -4,44 +4,66 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@color/white"
-    tools:context=".Activites.AssignTaskActivity">
+    android:background="#f2f2f2"
+    tools:context=".Activites.AssignTaskActivity"
+    >
 
     <ScrollView
         android:id="@+id/scrollView2"
-        android:layout_width="0dp"
-        android:layout_height="0dp"
-        android:layout_margin="10dp"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:padding="10dp"
+        app:layout_constraintVertical_bias="0"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent">
+        app:layout_constraintTop_toTopOf="parent"
+        >
+
+
 
         <LinearLayout
             android:id="@+id/taskAssignLayout"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
+            android:layout_height="match_parent"
             android:layout_marginTop="12dp"
             android:orientation="vertical">
 
-            <TextView
+<!--            text view-->
+            <androidx.cardview.widget.CardView
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="Task Assignment"
-                android:textAlignment="center"
-                android:textColor="@color/black"
-                android:textSize="22sp"
-                android:textStyle="bold" />
+                app:cardElevation="5dp"
+                app:cardMaxElevation="7dp"
+                app:cardUseCompatPadding="false"
+                >
 
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="Task Assignment"
+                    android:textAlignment="center"
+                    android:textColor="@color/black"
+                    android:textSize="30sp"
+                    android:textStyle="bold"
+                    />
+
+            </androidx.cardview.widget.CardView>
+
+
+<!--          edit text  -->
             <com.google.android.material.textfield.TextInputLayout
                 android:id="@+id/taskTitleLayout"
                 style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_marginTop="15dp"
-                android:hint="@string/task_title">
+                android:layout_marginTop="10dp"
+                android:hint="@string/task_title"
+                >
 
-                <com.google.android.material.textfield.TextInputEditText
+                <EditText
+                    android:inputType="text"
+                    android:background="@color/white"
                     android:id="@+id/taskTitle"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
@@ -54,10 +76,13 @@
                 style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
-                android:layout_marginTop="15dp"
-                android:hint="@string/task_description">
+                android:layout_marginTop="10dp"
+                android:hint="@string/task_description"
 
-                <com.google.android.material.textfield.TextInputEditText
+                >
+
+                <EditText
+                    android:background="@color/white"
                     android:id="@+id/taskDescription"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
@@ -65,77 +90,142 @@
 
             </com.google.android.material.textfield.TextInputLayout>
 
-            <LinearLayout
+<!--            priority-->
+            <androidx.cardview.widget.CardView
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:orientation="horizontal">
+                android:layout_marginTop="10dp"
 
-                <com.google.android.material.chip.ChipGroup
-                    android:id="@+id/priorityGroup"
+                >
+
+                <ImageView
+                    android:layout_width="25dp"
+                    android:layout_height="25dp"
+                    android:layout_gravity="top"
+                    android:layout_marginLeft="10dp"
+                    android:layout_marginTop="5dp"
+                    android:background="@color/purple_200"/>
+
+
+                <TextView
+                    android:layout_marginTop="5dp"
+                    android:layout_marginLeft="40dp"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:layout_marginLeft="10dp"
-                    android:layout_marginTop="15dp"
-                    app:singleSelection="true">
+                    android:text="Priority"
+                    android:textStyle="bold"
+                    android:textSize="16sp"/>
 
-                    <com.google.android.material.chip.Chip
-                        android:id="@+id/highPriority"
-                        style="@style/Widget.MaterialComponents.Chip.Choice"
-                        android:layout_width="wrap_content"
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal"
+                    android:layout_marginTop="10dp">
+
+
+                    <com.google.android.material.chip.ChipGroup
+                        android:id="@+id/priorityGroup"
+                        android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:checked="true"
-                        android:text="High Priority"
-                        android:textAlignment="center"
-                        app:chipCornerRadius="5dp"
-                        tools:ignore="TouchTargetSizeCheck" />
+                        android:layout_gravity="top"
+                        android:layout_marginLeft="10dp"
+                        android:layout_marginTop="20dp"
+                        app:singleSelection="true">
 
-                    <com.google.android.material.chip.Chip
-                        android:id="@+id/mediumPriority"
-                        style="@style/Widget.MaterialComponents.Chip.Choice"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:checked="true"
-                        android:text="Medium Priority"
-                        android:textAlignment="center"
-                        app:chipCornerRadius="5dp"
-                        tools:ignore="TouchTargetSizeCheck" />
+                        <com.google.android.material.chip.Chip
+                            android:id="@+id/highPriority"
+                            style="@style/Widget.MaterialComponents.Chip.Choice"
+                            android:layout_width="100dp"
+                            android:layout_height="wrap_content"
+                            android:checked="true"
+                            android:text="High"
+                            android:textAlignment="center"
+                            app:chipCornerRadius="5dp"
+                            tools:ignore="TouchTargetSizeCheck" />
 
-                    <com.google.android.material.chip.Chip
-                        android:id="@+id/lowPriority"
-                        style="@style/Widget.MaterialComponents.Chip.Choice"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:checked="true"
-                        android:text="Low Priority"
-                        android:textAlignment="center"
-                        app:chipCornerRadius="5dp"
-                        tools:ignore="TouchTargetSizeCheck" />
+                        <com.google.android.material.chip.Chip
+                            android:id="@+id/mediumPriority"
+                            style="@style/Widget.MaterialComponents.Chip.Choice"
+                            android:layout_width="100dp"
+                            android:layout_height="wrap_content"
+                            android:checked="true"
+                            android:text="Medium"
+                            android:textAlignment="center"
+                            app:chipCornerRadius="5dp"
+                            tools:ignore="TouchTargetSizeCheck" />
 
-                </com.google.android.material.chip.ChipGroup>
+                        <com.google.android.material.chip.Chip
+                            android:id="@+id/lowPriority"
+                            style="@style/Widget.MaterialComponents.Chip.Choice"
+                            android:layout_width="100dp"
+                            android:layout_height="wrap_content"
+                            android:checked="true"
+                            android:text="Low"
+                            android:textAlignment="center"
+                            app:chipCornerRadius="5dp"
+                            tools:ignore="TouchTargetSizeCheck" />
 
-            </LinearLayout>
+                    </com.google.android.material.chip.ChipGroup>
+
+                </LinearLayout>
+
+            </androidx.cardview.widget.CardView>
 
 
-            <com.google.android.material.floatingactionbutton.FloatingActionButton
-                android:id="@+id/assignTaskToUserBtn"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_gravity="bottom|left"
-                android:layout_margin="16dp"
-                app:fabSize="mini"
-                app:srcCompat="@android:drawable/ic_input_add"
-                tools:ignore="SpeakableTextPresentCheck" />
-
-
-            <androidx.recyclerview.widget.RecyclerView
-                android:id="@+id/taskAssignTo"
+            <androidx.cardview.widget.CardView
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                app:layout_constraintBottom_toBottomOf="parent"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toTopOf="parent" />
+                android:layout_marginTop="10dp"
+                >
 
+                <ImageView
+                    android:layout_width="25dp"
+                    android:layout_height="25dp"
+                    android:layout_gravity="top"
+                    android:layout_marginLeft="10dp"
+                    android:layout_marginTop="5dp"
+                    android:background="@color/purple_200"/>
+
+                <TextView
+                    android:layout_marginTop="5dp"
+                    android:layout_marginLeft="40dp"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="Add Members"
+                    android:textStyle="bold"
+                    android:textSize="16sp"/>
+
+                <LinearLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal"
+                    android:layout_marginTop="30dp"
+                    >
+
+                    <com.google.android.material.floatingactionbutton.FloatingActionButton
+                        android:id="@+id/assignTaskToUserBtn"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        app:fabSize="mini"
+                        android:layout_marginLeft="10dp"
+                        app:srcCompat="@android:drawable/ic_input_add"
+                        tools:ignore="SpeakableTextPresentCheck" />
+
+                        <androidx.recyclerview.widget.RecyclerView
+                            android:id="@+id/taskAssignTo"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            />
+
+
+                </LinearLayout>
+
+
+
+            </androidx.cardview.widget.CardView>
+
+
+<!--pick date-->
             <com.google.android.material.card.MaterialCardView
 
                 android:layout_width="match_parent"
@@ -148,7 +238,8 @@
                     android:layout_height="match_parent"
                     android:layout_marginLeft="10dp"
                     android:layout_marginTop="30dp"
-                    android:orientation="vertical">
+                    android:orientation="vertical"
+                    android:outlineProvider="none">
 
                     <TextView
                         android:id="@+id/startDate"
@@ -156,7 +247,7 @@
                         android:layout_height="wrap_content"
                         android:text="@string/start_date_msg"
                         android:textColor="@color/black"
-                        android:textSize="16sp" />
+                        android:textSize="20sp" />
 
                     <TextView
                         android:id="@+id/dueDate"
@@ -165,7 +256,7 @@
                         android:layout_marginTop="20dp"
                         android:text="@string/due_date_msg"
                         android:textColor="@color/black"
-                        android:textSize="16sp" />
+                        android:textSize="20sp" />
                 </LinearLayout>
 
             </com.google.android.material.card.MaterialCardView>
@@ -177,7 +268,8 @@
                 android:layout_gravity="center"
                 android:layout_marginTop="20dp"
                 android:gravity="center"
-                android:text="Assign Task" />
+                android:text="Assign Task"
+                android:background="@drawable/button_bg"/>
 
 
         </LinearLayout>

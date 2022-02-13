@@ -9,6 +9,7 @@ import android.widget.ArrayAdapter;
 import android.widget.ListPopupWindow;
 import android.widget.Toast;
 
+import androidx.appcompat.app.ActionBar;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.recyclerview.widget.GridLayoutManager;
 
@@ -52,6 +53,7 @@ public class AssignTaskActivity extends AppCompatActivity {
         Objects.requireNonNull(getSupportActionBar()).hide();
 
 
+
         materialDateBuilder = MaterialDatePicker.Builder.datePicker();
         materialDateBuilder.setTitleText("SELECT A DATE");
         startDatePicker = materialDateBuilder.build();
@@ -81,13 +83,17 @@ public class AssignTaskActivity extends AppCompatActivity {
 
 
         //sample items
-        items.add("Musheer");
-        items.add("rohit");
-        items.add("prathamesh");
-        items.add("adarsh");
-        items.add("sainath");
-        items.add("karan");
-        items.add("soham");
+        items.add("Musheerxcscssc");
+        items.add("jaggya");
+        items.add("kallya");
+        items.add("iqbal");
+        items.add("jadu");
+        items.add("adu");
+        items.add("sai");
+        items.add("tatti");
+        items.add("soma");
+        items.add("pintya");
+        items.add("gobya");
 
     }
 
