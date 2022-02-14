@@ -1,6 +1,7 @@
 package com.taskmanager.horkrux.Activites;
 
 import android.annotation.SuppressLint;
+import android.app.ProgressDialog;
 import android.content.Context;
 import android.os.Bundle;
 import android.util.Log;
@@ -34,11 +35,10 @@ import java.util.Date;
 import java.util.Objects;
 
 public class AssignTaskActivity extends AppCompatActivity {
-
-
     final Context context = AssignTaskActivity.this;
     final String USER_TASK_PATH = "all-tasks/user-tasks";
     final String USERS_PATH = "Users";
+    final String PROGRESS_MESSAGE = "Assigning Task";
 
     private ActivityAssignTaskBinding binding;
     private Task task;
@@ -56,26 +56,27 @@ public class AssignTaskActivity extends AppCompatActivity {
     public static ArrayList<Users> items;
     public static ArrayList<String> showingItems;
 
+    ProgressDialog progressDialog;
+
     @SuppressLint("NotifyDataSetChanged")
     @Override
-
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         binding = ActivityAssignTaskBinding.inflate(getLayoutInflater());
         setContentView(binding.getRoot());
         Objects.requireNonNull(getSupportActionBar()).hide();
+        initTaskUtils();
+        loadUsers();
 
+    }
 
+    private void initTaskUtils() {
         //init database variables
         auth = FirebaseAuth.getInstance();
         firebaseFirestore = FirebaseFirestore.getInstance();
         database = FirebaseDatabase.getInstance();
 
-
-        //loading users from firebase
-        loadUsers();
-
-
+        //init variables
         materialDateBuilder = MaterialDatePicker.Builder.datePicker();
         materialDateBuilder.setTitleText("SELECT A DATE");
         startDatePicker = materialDateBuilder.build();
@@ -86,6 +87,8 @@ public class AssignTaskActivity extends AppCompatActivity {
         userList = new ListPopupWindow(context);
         adapter = new UserAdapter(AssignTaskActivity.this, assignedList);
         userListAdapter = new ArrayAdapter(context, R.layout.user_list, showingItems);
+        progressDialog = new ProgressDialog(context);
+        progressDialog.setMessage(PROGRESS_MESSAGE);
 
 
         //date picker
@@ -97,29 +100,12 @@ public class AssignTaskActivity extends AppCompatActivity {
 
         //action on add button
         binding.assignTaskToUserBtn.setOnClickListener(assignUserToTask);
-
         binding.taskAssignTo.setLayoutManager(new GridLayoutManager(AssignTaskActivity.this, 1));
         binding.taskAssignTo.setAdapter(adapter);
         adapter.notifyDataSetChanged();
 
-
         //action on submit task btn
         binding.submitTask.setOnClickListener(assignTask);
-
-
-        //sample items
-//        items.add("Musheerxcscssc");
-//        items.add("jaggya");
-//        items.add("kallya");
-//        items.add("iqbal");
-//        items.add("jadu");
-//        items.add("adu");
-//        items.add("sai");
-//        items.add("tatti");
-//        items.add("soma");
-//        items.add("pintya");
-//        items.add("gobya");
-
     }
 
 
@@ -171,6 +157,7 @@ public class AssignTaskActivity extends AppCompatActivity {
 
             //add task to database
 
+            progressDialog.show();
             addTaskToDatabase();
 
         }
@@ -178,7 +165,8 @@ public class AssignTaskActivity extends AppCompatActivity {
 
 
     //add data to database
-    private void addTaskToDatabase() {
+    synchronized private void addTaskToDatabase() {
+
 
         for (Users user : assignedList) {
             String path = USER_TASK_PATH + "/" + user.getFireuserid() + "/" + task.getTaskID();
@@ -187,16 +175,32 @@ public class AssignTaskActivity extends AppCompatActivity {
                     .setValue(task)
                     .addOnCompleteListener(new OnCompleteListener<Void>() {
                         @Override
-                        public void onComplete(@NonNull com.google.android.gms.tasks.Task<Void> task) {
-                            Toast.makeText(context, task.isSuccessful() + "", Toast.LENGTH_SHORT).show();
+                        synchronized public void onComplete(@NonNull com.google.android.gms.tasks.Task<Void> task) {
+                            progressDialog.dismiss();
+                            Toast.makeText(context, "Task Assigned", Toast.LENGTH_SHORT).show();
+                            resetAllInputs();
 
                         }
                     });
 
         }
 
+
     }
 
+    void resetAllInputs() {
+        binding.taskTitle.setText(null);
+        binding.taskDescription.setText(null);
+        binding.highPriority.setChecked(false);
+        binding.mediumPriority.setChecked(false);
+        binding.lowPriority.setChecked(false);
+        assignedList.clear();
+        adapter.notifyDataSetChanged();
+        binding.startDate.setText("Pick Start Date");
+        binding.dueDate.setText("Pick Due Date");
+        binding.taskTitle.requestFocus();
+
+    }
 
     //action when click on + button
     View.OnClickListener assignUserToTask = new View.OnClickListener() {
