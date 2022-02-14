@@ -9,7 +9,7 @@
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:background="@drawable/edit_text_bg"
-        android:hint="Enter Name"
+        android:hint="Enter email"
         android:minHeight="48dp"
         android:paddingVertical="10dp"
         android:paddingLeft="20dp"
@@ -26,9 +26,9 @@
         android:id="@+id/fullname"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
-        android:layout_marginTop="20dp"
+        android:layout_marginTop="15dp"
         android:background="@drawable/edit_text_bg"
-        android:hint="Enter Middle Name"
+        android:hint="Enter Name"
         android:minHeight="48dp"
         android:paddingVertical="10dp"
         android:paddingLeft="20dp"
@@ -41,12 +41,12 @@
         app:layout_constraintWidth_percent=".8" />
 
     <EditText
-        android:id="@+id/password"
+        android:id="@+id/signpassword"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
-        android:layout_marginTop="20dp"
+        android:layout_marginTop="15dp"
         android:background="@drawable/edit_text_bg"
-        android:hint="Enter Last Name"
+        android:hint="Password"
         android:minHeight="48dp"
         android:paddingVertical="10dp"
         android:paddingLeft="20dp"
@@ -59,26 +59,9 @@
         app:layout_constraintVertical_bias="0"
         app:layout_constraintWidth_percent=".8" />
 
-    <EditText
-        android:id="@+id/confirmpass"
-        android:layout_width="0dp"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="20dp"
-        android:background="@drawable/edit_text_bg"
-        android:hint="Confirm Password"
-        android:minHeight="48dp"
-        android:paddingVertical="10dp"
-        android:paddingLeft="20dp"
-        android:textSize="16sp"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias=".5"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/password"
-        app:layout_constraintVertical_bias="0"
-        app:layout_constraintWidth_percent=".8" />
 
     <Button
+        android:id="@+id/signupbutton"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:backgroundTint="@color/pink"
@@ -89,7 +72,7 @@
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/confirmpass"
+        app:layout_constraintTop_toBottomOf="@+id/signpassword"
         app:layout_constraintVertical_bias=".7"
         app:layout_constraintWidth_percent=".8" />
 

@@ -1,0 +1,308 @@
+package com.taskmanager.horkrux.Activites;
+
+import android.annotation.SuppressLint;
+import android.content.Context;
+import android.os.Bundle;
+import android.util.Log;
+import android.view.View;
+import android.widget.AdapterView;
+import android.widget.ArrayAdapter;
+import android.widget.ListPopupWindow;
+import android.widget.Toast;
+
+import androidx.annotation.NonNull;
+import androidx.appcompat.app.AppCompatActivity;
+import androidx.recyclerview.widget.GridLayoutManager;
+
+import com.google.android.gms.tasks.OnCompleteListener;
+import com.google.android.material.datepicker.MaterialDatePicker;
+import com.google.android.material.datepicker.MaterialPickerOnPositiveButtonClickListener;
+import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.database.DataSnapshot;
+import com.google.firebase.database.DatabaseError;
+import com.google.firebase.database.FirebaseDatabase;
+import com.google.firebase.database.ValueEventListener;
+import com.google.firebase.firestore.FirebaseFirestore;
+import com.taskmanager.horkrux.Adapters.UserAdapter;
+import com.taskmanager.horkrux.Models.Task;
+import com.taskmanager.horkrux.Models.Users;
+import com.taskmanager.horkrux.R;
+import com.taskmanager.horkrux.databinding.ActivityAssignTaskBinding;
+
+import java.util.ArrayList;
+import java.util.Date;
+import java.util.Objects;
+
+public class AssignTaskActivity extends AppCompatActivity {
+
+
+    final Context context = AssignTaskActivity.this;
+    final String USER_TASK_PATH = "all-tasks/user-tasks";
+    final String USERS_PATH = "Users";
+
+    private ActivityAssignTaskBinding binding;
+    private Task task;
+    private FirebaseDatabase database;
+    private FirebaseFirestore firebaseFirestore;
+    private FirebaseAuth auth;
+
+    MaterialDatePicker.Builder materialDateBuilder;
+    MaterialDatePicker startDatePicker;
+    MaterialDatePicker dueDatePicker;
+    ListPopupWindow userList;
+    UserAdapter adapter;
+    ArrayAdapter userListAdapter;
+    ArrayList<Users> assignedList;
+    public static ArrayList<Users> items;
+    public static ArrayList<String> showingItems;
+
+    @SuppressLint("NotifyDataSetChanged")
+    @Override
+
+    protected void onCreate(Bundle savedInstanceState) {
+        super.onCreate(savedInstanceState);
+        binding = ActivityAssignTaskBinding.inflate(getLayoutInflater());
+        setContentView(binding.getRoot());
+        Objects.requireNonNull(getSupportActionBar()).hide();
+
+
+        //init database variables
+        auth = FirebaseAuth.getInstance();
+        firebaseFirestore = FirebaseFirestore.getInstance();
+        database = FirebaseDatabase.getInstance();
+
+
+        //loading users from firebase
+        loadUsers();
+
+
+        materialDateBuilder = MaterialDatePicker.Builder.datePicker();
+        materialDateBuilder.setTitleText("SELECT A DATE");
+        startDatePicker = materialDateBuilder.build();
+        dueDatePicker = materialDateBuilder.build();
+        assignedList = new ArrayList<>();
+        items = new ArrayList<>();
+        showingItems = new ArrayList<>();
+        userList = new ListPopupWindow(context);
+        adapter = new UserAdapter(AssignTaskActivity.this, assignedList);
+        userListAdapter = new ArrayAdapter(context, R.layout.user_list, showingItems);
+
+
+        //date picker
+        binding.startDate.setOnClickListener(startDatePick);
+        binding.dueDate.setOnClickListener(dueDatePick);
+        dueDatePicker.addOnPositiveButtonClickListener(dueDateOnPositive);
+        startDatePicker.addOnPositiveButtonClickListener(startDateOnPositive);
+
+
+        //action on add button
+        binding.assignTaskToUserBtn.setOnClickListener(assignUserToTask);
+
+        binding.taskAssignTo.setLayoutManager(new GridLayoutManager(AssignTaskActivity.this, 1));
+        binding.taskAssignTo.setAdapter(adapter);
+        adapter.notifyDataSetChanged();
+
+
+        //action on submit task btn
+        binding.submitTask.setOnClickListener(assignTask);
+
+
+        //sample items
+//        items.add("Musheerxcscssc");
+//        items.add("jaggya");
+//        items.add("kallya");
+//        items.add("iqbal");
+//        items.add("jadu");
+//        items.add("adu");
+//        items.add("sai");
+//        items.add("tatti");
+//        items.add("soma");
+//        items.add("pintya");
+//        items.add("gobya");
+
+    }
+
+
+    // action on submit task
+    View.OnClickListener assignTask = new View.OnClickListener() {
+        @Override
+        public void onClick(View v) {
+            if (binding.taskTitle.getText().toString().isEmpty() || binding.taskDescription.getText().toString().isEmpty()) {
+                Toast.makeText(context, "Please fill all details", Toast.LENGTH_SHORT).show();
+                return;
+
+            }
+
+            if (binding.priorityGroup.getCheckedChipId() == -1) {
+                Toast.makeText(context, "Please select priority", Toast.LENGTH_SHORT).show();
+                return;
+            }
+
+            if (assignedList.isEmpty()) {
+                Toast.makeText(context, "Please Assign task to someone", Toast.LENGTH_SHORT).show();
+                return;
+            }
+
+            if (binding.startDate.getText().toString().equals("Pick Start Date ....")) {
+                Toast.makeText(context, "Please Pick start date", Toast.LENGTH_SHORT).show();
+                return;
+
+            }
+
+            if (binding.dueDate.getText().toString().equals("Pick Due Date ....")) {
+                Toast.makeText(context, "Please Pick a due date", Toast.LENGTH_SHORT).show();
+                return;
+
+            }
+
+            for (Users user : assignedList) {
+                Log.d("TAG", "onClick: " + user.getFireuserid());
+            }
+            //assign task values
+            task = new Task();
+            task.setTaskID(generateTaskId());
+            task.setTaskTitle(binding.taskTitle.getText().toString());
+            task.setTaskDescription(binding.taskDescription.getText().toString());
+            task.setTaskPriority(getSelectedPriority());
+            task.setGrpTask(assignedList);
+            task.setTaskAssigned(binding.startDate.getText().toString());
+            task.setTaskDeadline(binding.dueDate.getText().toString());
+
+
+            //add task to database
+
+            addTaskToDatabase();
+
+        }
+    };
+
+
+    //add data to database
+    private void addTaskToDatabase() {
+
+        for (Users user : assignedList) {
+            String path = USER_TASK_PATH + "/" + user.getFireuserid() + "/" + task.getTaskID();
+            database.getReference()
+                    .child(path)
+                    .setValue(task)
+                    .addOnCompleteListener(new OnCompleteListener<Void>() {
+                        @Override
+                        public void onComplete(@NonNull com.google.android.gms.tasks.Task<Void> task) {
+                            Toast.makeText(context, task.isSuccessful() + "", Toast.LENGTH_SHORT).show();
+
+                        }
+                    });
+
+        }
+
+    }
+
+
+    //action when click on + button
+    View.OnClickListener assignUserToTask = new View.OnClickListener() {
+        @Override
+        public void onClick(View v) {
+
+
+            userList.setHeight(ListPopupWindow.WRAP_CONTENT);
+            userList.setWidth(600);
+            userList.setAnchorView(v);
+            userList.setAdapter(userListAdapter);
+
+            userList.setOnItemClickListener(userClicked);
+            userList.show();
+
+        }
+    };
+
+    //load users from database
+    private void loadUsers() {
+        database.getReference().child(USERS_PATH).addValueEventListener(new ValueEventListener() {
+            @Override
+            public void onDataChange(@NonNull DataSnapshot snapshot) {
+                items.clear();
+                for (DataSnapshot snap : snapshot.getChildren()) {
+                    Users user = snap.getValue(Users.class);
+                    items.add(user);
+                    showingItems.add(user.getUserName());
+                }
+                userListAdapter.notifyDataSetChanged();
+
+
+            }
+
+            @Override
+            public void onCancelled(@NonNull DatabaseError error) {
+
+            }
+        });
+
+    }
+
+    //action when user from list is clicked
+    AdapterView.OnItemClickListener userClicked = new AdapterView.OnItemClickListener() {
+        @Override
+        public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
+            assignedList.add(items.get(position));
+            items.remove(position);
+            showingItems.remove(position);
+            userList.dismiss();
+            adapter.notifyDataSetChanged();
+        }
+    };
+
+    //action when pick start date is clicked
+    View.OnClickListener startDatePick = new View.OnClickListener() {
+        @Override
+        public void onClick(View v) {
+            startDatePicker.show(getSupportFragmentManager(), "MATERIAL_DATE_PICKER");
+        }
+    };
+
+
+    //action when pick due date is clicked
+    View.OnClickListener dueDatePick = new View.OnClickListener() {
+        @Override
+        public void onClick(View v) {
+            dueDatePicker.show(getSupportFragmentManager(), "MATERIAL_DATE_PICKER");
+        }
+    };
+
+    // shows the calender
+    MaterialPickerOnPositiveButtonClickListener startDateOnPositive = new MaterialPickerOnPositiveButtonClickListener() {
+        @Override
+        public void onPositiveButtonClick(Object selection) {
+            binding.startDate.setText("Start Date is, " + startDatePicker.getHeaderText());
+        }
+    };
+
+
+    //shows the calender
+    MaterialPickerOnPositiveButtonClickListener dueDateOnPositive = new MaterialPickerOnPositiveButtonClickListener() {
+        @Override
+        public void onPositiveButtonClick(Object selection) {
+            binding.dueDate.setText("Due Date is, " + dueDatePicker.getHeaderText());
+        }
+    };
+
+
+    //generate task ID
+    private String generateTaskId() {
+
+        return String.valueOf(new Date().getTime());
+    }
+
+
+    // for getting the selected priority
+    private String getSelectedPriority() {
+        if (binding.highPriority.isChecked()) {
+            return "high";
+        } else if (binding.mediumPriority.isChecked()) {
+            return "medium";
+        } else {
+            return "low";
+        }
+    }
+
+
+}

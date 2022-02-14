@@ -12,10 +12,29 @@
     <string name="menu_slideshow">Slideshow</string>
 
 
+    <string name="home">Home</string>>
     <string name="profile">Profile</string>
     <string name="tasks">Tasks</string>
     <string name="pending_task">Pending Task</string>
     <string name="completed">Completed</string>
+
+
+    <string name="nav_open">Open</string>
+    <string name="nav_close">Close</string>
+
+
+    <!--    Home Fragment-->
+    <string name="current_category">Current Category</string>
+
+    <!--    Task Assignment-->
+    <string name="task_title">Enter Task Title</string>
+    <string name="task_description">Enter Task Description</string>
+    <string name="task_priority">Task Priority</string>
+
+    <!--    Date Pick-->
+    <string name="start_date_msg">Pick Start Date ....</string>
+    <string name="due_date_msg">Pick Due Date ....</string>
+    <string name="assign">Task Priority</string>
 
 
 </resources>

@@ -30,8 +30,10 @@ public class LoginAndSignUp extends AppCompatActivity {
         tabLayout.addTab(tabLayout.newTab().setText("Sign Up"));
         tabLayout.setTabGravity(TabLayout.GRAVITY_FILL);
 
-        final LoginAdapter adapter = new LoginAdapter(getSupportFragmentManager(),this.tabLayout.getTabCount());
+        final LoginAdapter adapter = new LoginAdapter(getSupportFragmentManager(),this,tabLayout.getTabCount());
         viewPager.setAdapter(adapter);
+
+        viewPager.addOnPageChangeListener(new TabLayout.TabLayoutOnPageChangeListener(tabLayout));
 
         fb.setTranslationY(300);
         google.setTranslationY(300);
