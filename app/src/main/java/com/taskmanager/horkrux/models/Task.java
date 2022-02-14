@@ -1,10 +1,28 @@
 package com.taskmanager.horkrux.Models;
 
+import java.util.ArrayList;
 import java.util.Date;
 
 public class Task {
-    protected String taskID, taskTitle, taskDescription, taskAssigned, taskDeadline, taskAssignedTo, taskAssignedFrom, taskStatus;
-    protected String[] grpTask;
+    protected String taskID;
+    protected String taskTitle;
+    protected String taskDescription;
+    protected String taskAssigned;
+    protected String taskDeadline;
+    protected String taskAssignedTo;
+    protected String taskAssignedFrom;
+    protected String taskStatus;
+
+    public String getTaskPriority() {
+        return taskPriority;
+    }
+
+    public void setTaskPriority(String taskPriority) {
+        this.taskPriority = taskPriority;
+    }
+
+    protected String taskPriority;
+    protected ArrayList<Users> grpTask;
     protected boolean isSeen = false;
     protected Date taskAssignedDate;
     protected Date taskDeadlineDate;
@@ -12,7 +30,7 @@ public class Task {
     public Task() {
     }
 
-    public Task(String taskID, String taskTitle, String taskDescription, String taskAssigned, String taskDeadline, String taskAssignedTo, String taskAssignedFrom, String taskStatus, String[] grpTask, boolean isSeen, Date taskAssignedDate, Date taskDeadlineDate) {
+    public Task(String taskID, String taskTitle, String taskDescription, String taskAssigned, String taskDeadline, String taskAssignedTo, String taskAssignedFrom, String taskStatus, ArrayList<Users> grpTask, boolean isSeen, Date taskAssignedDate, Date taskDeadlineDate) {
         this.taskID = taskID;
         this.taskTitle = taskTitle;
         this.taskDescription = taskDescription;
@@ -92,11 +110,11 @@ public class Task {
         this.taskStatus = taskStatus;
     }
 
-    public String[] getGrpTask() {
+    public ArrayList<Users> getGrpTask() {
         return grpTask;
     }
 
-    public void setGrpTask(String[] grpTask) {
+    public void setGrpTask(ArrayList<Users> grpTask) {
         this.grpTask = grpTask;
     }
 

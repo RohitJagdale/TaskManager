@@ -9,6 +9,8 @@ import android.view.ViewGroup;
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
+import com.taskmanager.horkrux.Activites.AssignTaskActivity;
+import com.taskmanager.horkrux.Models.Users;
 import com.taskmanager.horkrux.R;
 import com.taskmanager.horkrux.databinding.UserItemBinding;
 
@@ -16,9 +18,9 @@ import java.util.ArrayList;
 
 public class UserAdapter extends RecyclerView.Adapter<UserAdapter.UsersViewHolder> {
     Context context;
-    ArrayList<String> users;
+    ArrayList<Users> users;
 
-    public UserAdapter(Context context, ArrayList<String> users) {
+    public UserAdapter(Context context, ArrayList<Users> users) {
         this.context = context;
         this.users = users;
     }
@@ -33,7 +35,7 @@ public class UserAdapter extends RecyclerView.Adapter<UserAdapter.UsersViewHolde
     @Override
     public void onBindViewHolder(@NonNull UsersViewHolder holder, int position) {
 
-        holder.binding.userName.setText(users.get(position));
+        holder.binding.userName.setText(users.get(position).getUserName());
 
         holder.binding.userName.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -45,7 +47,9 @@ public class UserAdapter extends RecyclerView.Adapter<UserAdapter.UsersViewHolde
     }
 
     public void removeItem(int poi) {
-        users.remove(poi);
+        AssignTaskActivity.showingItems.add(users.get(poi).getUserName());
+        AssignTaskActivity.items.add(users.remove(poi));
+
         notifyItemRemoved(poi);
         notifyItemRangeChanged(poi, users.size());
     }

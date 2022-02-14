@@ -11,6 +11,7 @@ import androidx.annotation.NonNull;
 import androidx.fragment.app.Fragment;
 import androidx.lifecycle.ViewModelProvider;
 
+import com.google.firebase.auth.FirebaseAuth;
 import com.taskmanager.horkrux.R;
 import com.taskmanager.horkrux.databinding.FragmentHomeBinding;
 
@@ -32,6 +33,7 @@ public class HomeFragment extends Fragment {
         binding.taskCategory.setAdapter(taskCategoryAdapter);
 
         binding.taskCategory.setOnItemClickListener(taskCategoryListener);
+//        FirebaseAuth.getInstance().signOut();
 
         return binding.getRoot();
     }
