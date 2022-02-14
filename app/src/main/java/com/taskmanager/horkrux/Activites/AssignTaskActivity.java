@@ -98,7 +98,7 @@ public class AssignTaskActivity extends AppCompatActivity {
         //action on add button
         binding.assignTaskToUserBtn.setOnClickListener(assignUserToTask);
 
-        binding.taskAssignTo.setLayoutManager(new GridLayoutManager(AssignTaskActivity.this, 2));
+        binding.taskAssignTo.setLayoutManager(new GridLayoutManager(AssignTaskActivity.this, 1));
         binding.taskAssignTo.setAdapter(adapter);
         adapter.notifyDataSetChanged();
 

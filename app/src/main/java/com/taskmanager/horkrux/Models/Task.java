@@ -2,6 +2,7 @@ package com.taskmanager.horkrux.Models;
 
 import java.util.ArrayList;
 import java.util.Date;
+import com.taskmanager.horkrux.Models.Users;
 
 public class Task {
     protected String taskID;
@@ -110,11 +111,11 @@ public class Task {
         this.taskStatus = taskStatus;
     }
 
-    public ArrayList<Users> getGrpTask() {
+    public ArrayList<com.taskmanager.horkrux.Models.Users> getGrpTask() {
         return grpTask;
     }
 
-    public void setGrpTask(ArrayList<Users> grpTask) {
+    public void setGrpTask(ArrayList<com.taskmanager.horkrux.Models.Users> grpTask) {
         this.grpTask = grpTask;
     }
 
