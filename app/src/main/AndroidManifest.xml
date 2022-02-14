@@ -10,12 +10,12 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.TaskManager">
         <activity
-            android:name=".Activites.AssignTaskActivity"
+            android:name=".Activites.MainActivity"
             android:exported="true">
 
         </activity>
         <activity
-            android:name=".Activites.MainActivity"
+            android:name=".Activites.AssignTaskActivity"
             android:exported="true">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
