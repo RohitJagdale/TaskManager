@@ -1,5 +1,6 @@
 package com.taskmanager.horkrux.Activites;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuItem;
@@ -18,6 +19,7 @@ import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.ValueEventListener;
+import com.taskmanager.horkrux.Authentication.LoginAndSignUp;
 import com.taskmanager.horkrux.Models.Users;
 import com.taskmanager.horkrux.R;
 import com.taskmanager.horkrux.databinding.ActivityMainBinding;
@@ -101,6 +103,12 @@ public class MainActivity extends AppCompatActivity {
                 }
                 if (item.getItemId() == R.id.nav_profile) {
                     fragment = new GalleryFragment();
+                }
+                if (item.getItemId() == R.id.nav_sign_out) {
+                    auth.signOut();
+                    startActivity(new Intent(MainActivity.this, LoginAndSignUp.class));
+                    finishAffinity();
+                    return true;
                 }
 
                 FragmentTransaction transaction = getSupportFragmentManager().beginTransaction();

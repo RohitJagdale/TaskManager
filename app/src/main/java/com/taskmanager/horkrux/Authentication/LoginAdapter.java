@@ -12,7 +12,7 @@ public class LoginAdapter extends FragmentPagerAdapter {
     private Context context;
     int totaltabs;
 
-    public LoginAdapter(@NonNull FragmentManager fm,Context context, int totaltabs) {
+    public LoginAdapter(@NonNull FragmentManager fm, Context context, int totaltabs) {
         super(fm);
         this.context = context;
         this.totaltabs = totaltabs;
@@ -23,8 +23,8 @@ public class LoginAdapter extends FragmentPagerAdapter {
         return totaltabs;
     }
 
-    public Fragment getItem (int position){
-        switch(position) {
+    public Fragment getItem(int position) {
+        switch (position) {
             case 0:
                 LoginTabfragment loginTabfragment = new LoginTabfragment();
                 return loginTabfragment;

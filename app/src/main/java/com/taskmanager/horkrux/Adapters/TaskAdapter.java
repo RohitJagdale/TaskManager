@@ -5,6 +5,7 @@ import android.content.Intent;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Toast;
 
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
@@ -36,7 +37,15 @@ public class TaskAdapter extends RecyclerView.Adapter<TaskAdapter.TaskViewHolder
     public void onBindViewHolder(@NonNull TaskAdapter.TaskViewHolder holder, int position) {
 
         holder.binding.userTaskTitle.setText(tasks.get(position).getTaskTitle());
-        holder.binding.userTaskDescription.setText(tasks.get(position).getTaskDescription());
+        if (tasks.get(position).getTaskDescription().length() < 30) {
+            holder.binding.userTaskDescription.setText(tasks.get(position).getTaskDescription());
+        } else {
+
+            String smg = tasks.get(position).getTaskDescription().substring(0, 30) + "... ";
+            Toast.makeText(context, smg, Toast.LENGTH_SHORT).show();
+            holder.binding.userTaskDescription.setText(smg);
+        }
+
 
         holder.binding.taskItem.setOnClickListener(new View.OnClickListener() {
             @Override
