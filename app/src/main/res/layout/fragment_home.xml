@@ -7,8 +7,19 @@
     tools:context=".ui.home.HomeFragment">
 
 
+    <com.google.android.material.floatingactionbutton.FloatingActionButton
+        android:id="@+id/assignTaskButton"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginEnd="16dp"
+        android:layout_marginBottom="16dp"
+        android:clickable="true"
+        android:src="@drawable/ic_baseline_add_24"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent" />
+
     <LinearLayout
-        android:id="@+id/linearLayout"
+        android:id="@+id/linearLayout3"
         android:layout_width="0dp"
         android:layout_height="0dp"
         android:orientation="vertical"
@@ -17,33 +28,39 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent">
 
-        <com.google.android.material.textfield.TextInputLayout
-            android:id="@+id/TaskCategory"
-            style="@style/Widget.MaterialComponents.TextInputLayout.FilledBox.ExposedDropdownMenu"
+        <LinearLayout
+            android:id="@+id/linearLayout"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:hint="@string/current_category">
+            android:orientation="vertical">
 
-            <AutoCompleteTextView
-                android:id="@+id/taskCategory"
+            <com.google.android.material.textfield.TextInputLayout
+                android:id="@+id/TaskCategory"
+                style="@style/Widget.MaterialComponents.TextInputLayout.FilledBox.ExposedDropdownMenu"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:backgroundTint="@color/white"
-                android:inputType="none"
-                android:text="ALL"
-                tools:ignore="SpeakableTextPresentCheck,SpeakableTextPresentCheck" />
+                android:hint="@string/current_category">
 
-        </com.google.android.material.textfield.TextInputLayout>
+                <AutoCompleteTextView
+                    android:id="@+id/taskCategory"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:backgroundTint="@color/white"
+                    android:inputType="none"
+                    android:text="ALL"
+                    tools:ignore="SpeakableTextPresentCheck,SpeakableTextPresentCheck" />
 
-        <TextView
-            android:id="@+id/currentTaskCategory"
+            </com.google.android.material.textfield.TextInputLayout>
+
+        </LinearLayout>
+
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/userTaskRecylerView"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_gravity="center"
-            android:layout_marginTop="350dp"
-            android:gravity="center"
-            android:text="TextView"
-            android:textSize="20sp" />
+            android:layout_height="match_parent"
+            android:layout_margin="20dp"
+            tools:listitem="@layout/task_layout" />
+
     </LinearLayout>
 
 </androidx.constraintlayout.widget.ConstraintLayout>

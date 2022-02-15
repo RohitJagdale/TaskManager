@@ -9,4 +9,15 @@
     <color name="white">#FFFFFFFF</color>
     <color name="pink">#FFC0CB</color>
     <color name="red">#FF0000</color>
+
+
+    <!--?xml version="1.0" encoding="UTF-8"?-->
+    <color name="primaryColor">#304ffe</color>
+    <color name="primaryLightColor">#7a7cff</color>
+    <color name="primaryDarkColor">#0026ca</color>
+    <color name="secondaryColor">#304ffe</color>
+    <color name="secondaryLightColor">#7a7cff</color>
+    <color name="secondaryDarkColor">#0026ca</color>
+    <color name="primaryTextColor">#ffffff</color>
+    <color name="secondaryTextColor">#ffffff</color>
 </resources>

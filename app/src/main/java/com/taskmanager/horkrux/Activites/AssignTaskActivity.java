@@ -153,6 +153,7 @@ public class AssignTaskActivity extends AppCompatActivity {
             task.setGrpTask(assignedList);
             task.setTaskAssigned(binding.startDate.getText().toString());
             task.setTaskDeadline(binding.dueDate.getText().toString());
+            task.setTaskStatus(Task.DONE);
 
 
             //add task to database

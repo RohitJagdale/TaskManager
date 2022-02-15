@@ -1,28 +1,27 @@
 package com.taskmanager.horkrux.Activites;
 
-import android.annotation.SuppressLint;
 import android.os.Bundle;
-import android.view.MenuItem;
-import android.view.View;
 import android.view.Menu;
-import android.widget.Toast;
-
-import com.google.android.material.snackbar.Snackbar;
-import com.google.android.material.navigation.NavigationView;
+import android.view.MenuItem;
 
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.ActionBarDrawerToggle;
+import androidx.appcompat.app.AppCompatActivity;
+import androidx.drawerlayout.widget.DrawerLayout;
 import androidx.fragment.app.Fragment;
 import androidx.fragment.app.FragmentTransaction;
-import androidx.navigation.NavController;
-import androidx.navigation.Navigation;
 import androidx.navigation.ui.AppBarConfiguration;
-import androidx.navigation.ui.NavigationUI;
-import androidx.drawerlayout.widget.DrawerLayout;
-import androidx.appcompat.app.AppCompatActivity;
 
+import com.google.android.material.navigation.NavigationView;
+import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.database.DataSnapshot;
+import com.google.firebase.database.DatabaseError;
+import com.google.firebase.database.FirebaseDatabase;
+import com.google.firebase.database.ValueEventListener;
+import com.taskmanager.horkrux.Models.Users;
 import com.taskmanager.horkrux.R;
 import com.taskmanager.horkrux.databinding.ActivityMainBinding;
+import com.taskmanager.horkrux.databinding.NavHeaderMainBinding;
 import com.taskmanager.horkrux.ui.gallery.GalleryFragment;
 import com.taskmanager.horkrux.ui.home.HomeFragment;
 
@@ -34,6 +33,11 @@ public class MainActivity extends AppCompatActivity {
     public ActionBarDrawerToggle actionBarDrawerToggle;
     HomeFragment homeFragment;
     FragmentTransaction fragmentTransaction;
+    FirebaseDatabase database;
+    FirebaseAuth auth;
+    NavHeaderMainBinding navHeaderMainBinding;
+    NavigationView navigationView;
+    String USER_PATH;
 
 
     @Override
@@ -42,10 +46,17 @@ public class MainActivity extends AppCompatActivity {
 
         binding = ActivityMainBinding.inflate(getLayoutInflater());
         setContentView(binding.getRoot());
+        database = FirebaseDatabase.getInstance();
+        auth = FirebaseAuth.getInstance();
+        USER_PATH = "Users/" + auth.getUid() + "/";
+
+
         fragmentTransaction = getSupportFragmentManager().beginTransaction();
         homeFragment = new HomeFragment();
         drawerLayout = findViewById(R.id.my_drawer_layout);
         actionBarDrawerToggle = new ActionBarDrawerToggle(this, drawerLayout, R.string.nav_open, R.string.nav_close);
+
+
         // pass the Open and Close toggle for the drawer layout listener
         // to toggle the button
         drawerLayout.addDrawerListener(actionBarDrawerToggle);
@@ -62,7 +73,24 @@ public class MainActivity extends AppCompatActivity {
     }
 
     private void setNavigation() {
-        NavigationView navigationView = findViewById(R.id.navView);
+        navigationView = findViewById(R.id.navView);
+        navHeaderMainBinding = NavHeaderMainBinding.bind(navigationView.getHeaderView(0));
+
+
+        database.getReference().child(USER_PATH).addValueEventListener(new ValueEventListener() {
+            @Override
+            public void onDataChange(@NonNull DataSnapshot snapshot) {
+                Users user = snapshot.getValue(Users.class);
+                navHeaderMainBinding.loggedInUserName.setText(user.getUserName());
+                navHeaderMainBinding.loggedInUserMail.setText(user.getUserEmail());
+            }
+
+            @Override
+            public void onCancelled(@NonNull DatabaseError error) {
+
+            }
+        });
+
 
         navigationView.setNavigationItemSelectedListener(new NavigationView.OnNavigationItemSelectedListener() {
             @Override

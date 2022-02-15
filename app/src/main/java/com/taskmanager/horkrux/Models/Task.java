@@ -1,10 +1,14 @@
 package com.taskmanager.horkrux.Models;
 
+import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.Date;
-import com.taskmanager.horkrux.Models.Users;
 
-public class Task {
+public class Task implements Serializable {
+    static final public String TODO = "To do";
+    static final public String IN_PROGRESS = "In Progress";
+    static final public String DONE = "Done";
+
     protected String taskID;
     protected String taskTitle;
     protected String taskDescription;
