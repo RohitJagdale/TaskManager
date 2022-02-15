@@ -8,6 +8,9 @@ public class Task implements Serializable {
     static final public String TODO = "To do";
     static final public String IN_PROGRESS = "In Progress";
     static final public String DONE = "Done";
+    static final public String LOW = "low";
+    static final public String MEDIUM = "medium";
+    static final public String HIGH = "high";
 
     protected String taskID;
     protected String taskTitle;

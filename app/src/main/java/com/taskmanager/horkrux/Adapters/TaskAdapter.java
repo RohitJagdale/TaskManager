@@ -2,10 +2,10 @@ package com.taskmanager.horkrux.Adapters;
 
 import android.content.Context;
 import android.content.Intent;
+import android.graphics.Color;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.Toast;
 
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
@@ -36,15 +36,16 @@ public class TaskAdapter extends RecyclerView.Adapter<TaskAdapter.TaskViewHolder
     @Override
     public void onBindViewHolder(@NonNull TaskAdapter.TaskViewHolder holder, int position) {
 
-        holder.binding.userTaskTitle.setText(tasks.get(position).getTaskTitle());
-        if (tasks.get(position).getTaskDescription().length() < 30) {
-            holder.binding.userTaskDescription.setText(tasks.get(position).getTaskDescription());
-        } else {
+        String priority = tasks.get(position).getTaskPriority();
+        if (priority.equals(Task.LOW)) {
 
-            String smg = tasks.get(position).getTaskDescription().substring(0, 30) + "... ";
-            Toast.makeText(context, smg, Toast.LENGTH_SHORT).show();
-            holder.binding.userTaskDescription.setText(smg);
+            holder.binding.taskItem.setCardBackgroundColor(Color.parseColor("#d50000"));
         }
+        holder.binding.userTaskTitle.setText(tasks.get(position).getTaskTitle());
+        holder.binding.userTaskDescription.setText(tasks.get(position).getTaskDescription());
+        holder.binding.startingDate.setText(tasks.get(position).getTaskAssigned().substring(14));
+        holder.binding.deadlineDate.setText(tasks.get(position).getTaskDeadline().substring(13));
+        holder.binding.priorityShow.setText(tasks.get(position).getTaskPriority());
 
 
         holder.binding.taskItem.setOnClickListener(new View.OnClickListener() {

@@ -1,5 +1,6 @@
 package com.taskmanager.horkrux.Authentication;
 
+import android.content.Intent;
 import android.os.Bundle;
 
 import androidx.appcompat.app.AppCompatActivity;
@@ -7,6 +8,8 @@ import androidx.viewpager.widget.ViewPager;
 
 import com.google.android.material.floatingactionbutton.FloatingActionButton;
 import com.google.android.material.tabs.TabLayout;
+import com.google.firebase.auth.FirebaseAuth;
+import com.taskmanager.horkrux.Activites.MainActivity;
 import com.taskmanager.horkrux.R;
 
 public class LoginAndSignUp extends AppCompatActivity {
@@ -20,6 +23,11 @@ public class LoginAndSignUp extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_login_and_sign_up);
+
+        if (FirebaseAuth.getInstance().getCurrentUser() != null) {
+            startActivity(new Intent(LoginAndSignUp.this, MainActivity.class));
+            finish();
+        }
 
         tabLayout = findViewById(R.id.tab_layout);
         viewPager = findViewById(R.id.view_pager);
