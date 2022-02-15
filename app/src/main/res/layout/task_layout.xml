@@ -19,7 +19,9 @@
         app:contentPaddingLeft="20dp"
         app:contentPaddingBottom="20dp"
         app:contentPaddingTop="15dp"
-        app:contentPaddingRight="20dp">
+        app:contentPaddingRight="20dp"
+        app:cardElevation="5sp"
+        app:cardMaxElevation="7sp">
 
         <TextView
             android:id="@+id/userTaskTitle"
