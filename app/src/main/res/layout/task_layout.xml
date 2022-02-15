@@ -6,27 +6,75 @@
     android:layout_height="wrap_content"
     android:layout_margin="10dp">
 
-    <LinearLayout
-        android:id="@+id/linearLayout2"
-        android:layout_width="0dp"
-        android:layout_height="wrap_content"
-        android:orientation="vertical"
+
+    <androidx.cardview.widget.CardView
+        android:layout_width="match_parent"
+        android:layout_height="130dp"
+        android:backgroundTint="#e7e7e7"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent">
+        app:layout_constraintTop_toTopOf="parent"
+        app:cardCornerRadius="20dp"
+        app:contentPaddingLeft="20dp"
+        app:contentPaddingBottom="20dp"
+        app:contentPaddingTop="15dp"
+        app:contentPaddingRight="20dp">
 
         <TextView
             android:id="@+id/userTaskTitle"
-            android:layout_width="match_parent"
+            android:layout_width="200dp"
             android:layout_height="wrap_content"
-            android:text="TextView" />
+            android:text="TextView"
+            android:textSize="16sp"
+            android:textStyle="bold"
+            />
+
+        <TextView
+            android:id="@+id/deadlineDate"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textSize="12sp"
+            android:text="16/23/33"
+            android:layout_marginTop="25dp"/>
+
+        <TextView
+            android:id="@+id/startingDate"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textSize="12sp"
+            android:text="16/23/33"
+            android:layout_gravity="right"/>
+
+        <TextView
+            android:id="@+id/priorityShow"
+            android:layout_width="80dp"
+            android:layout_height="wrap_content"
+            android:layout_gravity="right|bottom"
+            android:textSize="14sp"
+            android:padding="3dp"
+            android:backgroundTint="@color/pink"
+            android:background="@drawable/edit_text_bg"
+            android:text="Medium"
+            android:gravity="center"
+            android:elevation="20dp"
+            />
 
         <TextView
             android:id="@+id/userTaskDescription"
-            android:layout_width="match_parent"
+            android:layout_width="240dp"
             android:layout_height="wrap_content"
-            android:text="TextView" />
+            android:layout_gravity="bottom|left"
+            android:text="Ellipsis is triple dots (...) at the end of the line. It is required when you want to keep your sentence in a single line. If your test reached the end of the line then automatically create ... at the end"
+            android:scrollHorizontally="true"
+            android:ellipsize="end"
+            android:maxLines="2"/>
 
-    </LinearLayout>
+
+
+
+
+    </androidx.cardview.widget.CardView>
+
+
 </androidx.constraintlayout.widget.ConstraintLayout>
