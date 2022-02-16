@@ -38,4 +38,9 @@
     <string name="assign">Task Priority</string>
 
 
+    <!--    google sign in-->
+
+<!--    <string name="default_web_client_id">426645351295-9bo4evej8ape3pjiqa8nvr1f43lmvb92.apps.googleusercontent.com</string>-->
+
+
 </resources>
