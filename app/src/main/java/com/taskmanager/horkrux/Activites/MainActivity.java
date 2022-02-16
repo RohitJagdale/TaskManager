@@ -19,6 +19,7 @@ import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.ValueEventListener;
+import com.google.firebase.messaging.FirebaseMessaging;
 import com.taskmanager.horkrux.Authentication.LoginAndSignUp;
 import com.taskmanager.horkrux.Models.Users;
 import com.taskmanager.horkrux.R;
@@ -51,6 +52,11 @@ public class MainActivity extends AppCompatActivity {
         database = FirebaseDatabase.getInstance();
         auth = FirebaseAuth.getInstance();
         USER_PATH = "Users/" + auth.getUid() + "/";
+
+        String topic = "/topics/" + auth.getUid();
+
+
+        FirebaseMessaging.getInstance().subscribeToTopic(topic);
 
 
         fragmentTransaction = getSupportFragmentManager().beginTransaction();

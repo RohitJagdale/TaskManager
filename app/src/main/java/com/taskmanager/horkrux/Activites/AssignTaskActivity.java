@@ -27,12 +27,19 @@ import com.google.firebase.firestore.FirebaseFirestore;
 import com.taskmanager.horkrux.Adapters.UserAdapter;
 import com.taskmanager.horkrux.Models.Task;
 import com.taskmanager.horkrux.Models.Users;
+import com.taskmanager.horkrux.Notification.ApiUtils;
+import com.taskmanager.horkrux.Notification.NotificationData;
+import com.taskmanager.horkrux.Notification.PushNotification;
 import com.taskmanager.horkrux.R;
 import com.taskmanager.horkrux.databinding.ActivityAssignTaskBinding;
 
 import java.util.ArrayList;
 import java.util.Date;
 import java.util.Objects;
+
+import retrofit2.Call;
+import retrofit2.Callback;
+import retrofit2.Response;
 
 public class AssignTaskActivity extends AppCompatActivity {
     final Context context = AssignTaskActivity.this;
@@ -67,6 +74,7 @@ public class AssignTaskActivity extends AppCompatActivity {
         Objects.requireNonNull(getSupportActionBar()).hide();
         initTaskUtils();
         loadUsers();
+
 
     }
 
@@ -160,9 +168,38 @@ public class AssignTaskActivity extends AppCompatActivity {
 
             progressDialog.show();
             addTaskToDatabase();
+            sendNotificationToUser();
+//            CommonUtils.sendNotificationToUser(task, context);
+
 
         }
     };
+
+    private void sendNotificationToUser() {
+        String topic = "/topics/" + task.getGrpTask().get(0).getFireuserid();
+        NotificationData data = new NotificationData();
+        data.setTitle(task.getTaskTitle());
+        data.setMessage(task.getTaskDescription());
+        PushNotification notification = new PushNotification(data, topic);
+
+        ApiUtils.getClient().sendNotification(notification).enqueue(new Callback<PushNotification>() {
+            @Override
+            public void onResponse(Call<PushNotification> call, Response<PushNotification> response) {
+                if (response.isSuccessful()) {
+                    Toast.makeText(context, "SUCCESS", Toast.LENGTH_SHORT).show();
+                } else {
+                    Toast.makeText(context, "fail", Toast.LENGTH_SHORT).show();
+                }
+            }
+
+            @Override
+            public void onFailure(Call<PushNotification> call, Throwable t) {
+                Toast.makeText(context, t.getMessage(), Toast.LENGTH_SHORT).show();
+
+            }
+        });
+
+    }
 
 
     //add data to database
