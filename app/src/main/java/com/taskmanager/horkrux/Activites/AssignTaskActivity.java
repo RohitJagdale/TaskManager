@@ -25,6 +25,7 @@ import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.ValueEventListener;
 import com.google.firebase.firestore.FirebaseFirestore;
 import com.taskmanager.horkrux.Adapters.UserAdapter;
+import com.taskmanager.horkrux.CommonUtils;
 import com.taskmanager.horkrux.Models.Task;
 import com.taskmanager.horkrux.Models.Users;
 import com.taskmanager.horkrux.Notification.ApiUtils;
@@ -52,6 +53,7 @@ public class AssignTaskActivity extends AppCompatActivity {
     private FirebaseDatabase database;
     private FirebaseFirestore firebaseFirestore;
     private FirebaseAuth auth;
+    public static int count = 0;
 
     MaterialDatePicker.Builder materialDateBuilder;
     MaterialDatePicker startDatePicker;
@@ -62,6 +64,7 @@ public class AssignTaskActivity extends AppCompatActivity {
     ArrayList<Users> assignedList;
     public static ArrayList<Users> items;
     public static ArrayList<String> showingItems;
+
 
     ProgressDialog progressDialog;
 
@@ -168,8 +171,7 @@ public class AssignTaskActivity extends AppCompatActivity {
 
             progressDialog.show();
             addTaskToDatabase();
-            sendNotificationToUser();
-//            CommonUtils.sendNotificationToUser(task, context);
+            CommonUtils.sendNotificationToUser(task, context);
 
 
         }
@@ -205,7 +207,6 @@ public class AssignTaskActivity extends AppCompatActivity {
     //add data to database
     synchronized private void addTaskToDatabase() {
 
-
         for (Users user : assignedList) {
             String path = USER_TASK_PATH + "/" + user.getFireuserid() + "/" + task.getTaskID();
             database.getReference()
@@ -214,12 +215,19 @@ public class AssignTaskActivity extends AppCompatActivity {
                     .addOnCompleteListener(new OnCompleteListener<Void>() {
                         @Override
                         synchronized public void onComplete(@NonNull com.google.android.gms.tasks.Task<Void> task) {
-                            progressDialog.dismiss();
-                            Toast.makeText(context, "Task Assigned", Toast.LENGTH_SHORT).show();
-                            resetAllInputs();
+                            if (count == assignedList.size() - 1) {
+                                progressDialog.dismiss();
+                                resetAllInputs();
+                                Toast.makeText(context, "Task Assigned", Toast.LENGTH_SHORT).show();
+                            } else {
+
+                                count++;
+                            }
+
 
                         }
                     });
+
 
         }
 
@@ -237,6 +245,9 @@ public class AssignTaskActivity extends AppCompatActivity {
         binding.startDate.setText("Pick Start Date");
         binding.dueDate.setText("Pick Due Date");
         binding.taskTitle.requestFocus();
+        loadUsers();
+        count = 0;
+
 
     }
 
@@ -263,6 +274,7 @@ public class AssignTaskActivity extends AppCompatActivity {
             @Override
             public void onDataChange(@NonNull DataSnapshot snapshot) {
                 items.clear();
+                showingItems.clear();
                 for (DataSnapshot snap : snapshot.getChildren()) {
                     Users user = snap.getValue(Users.class);
                     items.add(user);

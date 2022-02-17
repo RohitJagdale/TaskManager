@@ -15,20 +15,20 @@ import retrofit2.Response;
 
 public class CommonUtils {
     static public void sendNotificationToUser(Task task, Context context) {
-        NotificationData data = new NotificationData();
-        data.setTitle(task.getTaskTitle());
-        data.setMessage(task.getTaskDescription());
-
         for (Users user : task.getGrpTask()) {
-            PushNotification notification = new PushNotification(data, user.getFireuserid());
+            String topic = "/topics/" + user.getFireuserid();
+            NotificationData data = new NotificationData();
+            data.setTitle(task.getTaskTitle());
+            data.setMessage(task.getTaskDescription());
+            PushNotification notification = new PushNotification(data, topic);
 
             ApiUtils.getClient().sendNotification(notification).enqueue(new Callback<PushNotification>() {
                 @Override
                 public void onResponse(Call<PushNotification> call, Response<PushNotification> response) {
                     if (response.isSuccessful()) {
-                        Toast.makeText(context, "SUCCESS", Toast.LENGTH_SHORT).show();
+//                        Toast.makeText(context, "SUCCESS", Toast.LENGTH_SHORT).show();
                     } else {
-                        Toast.makeText(context, "fail", Toast.LENGTH_SHORT).show();
+//                        Toast.makeText(context, "fail", Toast.LENGTH_SHORT).show();
                     }
                 }
 
@@ -38,7 +38,6 @@ public class CommonUtils {
 
                 }
             });
-
         }
 
 

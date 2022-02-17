@@ -19,10 +19,13 @@ import java.util.ArrayList;
 public class UserAdapter extends RecyclerView.Adapter<UserAdapter.UsersViewHolder> {
     Context context;
     ArrayList<Users> users;
+    ArrayList<Users> backUsers;
+
 
     public UserAdapter(Context context, ArrayList<Users> users) {
         this.context = context;
         this.users = users;
+        this.backUsers = users;
     }
 
     @NonNull
@@ -44,6 +47,9 @@ public class UserAdapter extends RecyclerView.Adapter<UserAdapter.UsersViewHolde
 
             }
         });
+    }
+
+    public void reset() {
     }
 
     public void removeItem(int poi) {

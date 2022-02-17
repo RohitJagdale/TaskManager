@@ -56,10 +56,18 @@ public class NotificationService extends FirebaseMessagingService {
                 .setContentTitle(remoteMessage.getData().get("title"))
                 .setContentText(remoteMessage.getData().get("message"))
                 .setLargeIcon(notificationLargeIconBitmap)
-                .setSmallIcon(R.drawable.google)
+                .setSmallIcon(R.drawable.ic_baseline_explore_24)
                 .setAutoCancel(true)
                 .setContentIntent(intent1)
+                .setDefaults(Notification.DEFAULT_SOUND)
                 .build();
+
+//        notification = new Notification.Builder(this, CHANNEL_ID)
+//                .setContentTitle(remoteMessage.getData().get("title"))
+//                .setContentText(remoteMessage.getData().get("message"))
+//                .setSmallIcon(R.drawable.ic_baseline_explore_24)
+//                .setContentIntent(intent1)
+//                .build();
 
 
         manager.notify(notificationId, notification);

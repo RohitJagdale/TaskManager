@@ -51,13 +51,14 @@ public class MainActivity extends AppCompatActivity {
         setContentView(binding.getRoot());
         database = FirebaseDatabase.getInstance();
         auth = FirebaseAuth.getInstance();
+
+        //subscribe to notification
         USER_PATH = "Users/" + auth.getUid() + "/";
-
         String topic = "/topics/" + auth.getUid();
-
-
         FirebaseMessaging.getInstance().subscribeToTopic(topic);
 
+//        getSupportActionBar().hide();
+//
 
         fragmentTransaction = getSupportFragmentManager().beginTransaction();
         homeFragment = new HomeFragment();
