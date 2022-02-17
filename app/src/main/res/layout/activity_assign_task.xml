@@ -4,318 +4,252 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="#f2f2f2"
+    android:background="@color/white"
     tools:context=".Activites.AssignTaskActivity">
 
     <ScrollView
         android:id="@+id/scrollView2"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:padding="10dp"
-        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintBottom_toTopOf="@+id/submitTask"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0">
+        app:layout_constraintVertical_bias="0"
+        android:layout_marginBottom="@dimen/_60sdp">
 
 
         <LinearLayout
             android:id="@+id/taskAssignLayout"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:layout_marginTop="12dp"
-            android:orientation="vertical">
+            android:layout_marginTop="@dimen/_10sdp"
+            android:orientation="vertical"
+            android:paddingHorizontal="@dimen/_15sdp">
 
-            <!--            text view-->
-            <androidx.cardview.widget.CardView
+            <!--task title-->
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Task title"
+                android:textColor="@color/black"
+                android:textSize="@dimen/_14ssp"
+                android:textStyle="bold" />
+
+            <EditText
+                android:id="@+id/taskTitle"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                app:cardElevation="5dp"
-                app:cardMaxElevation="7dp"
-                app:cardUseCompatPadding="false">
-
-                <TextView
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:padding="10dp"
-                    android:text="Task Assignment"
-                    android:textAlignment="center"
-                    android:textColor="@color/black"
-                    android:textSize="30sp"
-                    android:textStyle="bold" />
-
-            </androidx.cardview.widget.CardView>
-
-
-            <androidx.cardview.widget.CardView
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="10dp"
-                app:cardElevation="5dp"
-                app:cardMaxElevation="7dp">
-
-                <!--          edit text  -->
-                <com.google.android.material.textfield.TextInputLayout
-                    android:id="@+id/taskTitleLayout"
-                    style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
-                    android:layout_width="match_parent"
-                    android:layout_height="match_parent"
-                    android:hint="@string/task_title">
-
-                    <EditText
-                        android:id="@+id/taskTitle"
-                        android:layout_width="match_parent"
-                        android:layout_height="match_parent"
-                        android:layout_marginBottom="5dp"
-                        android:background="@color/white"
-                        android:inputType="text"
-                        tools:ignore="SpeakableTextPresentCheck,TouchTargetSizeCheck" />
-
-                </com.google.android.material.textfield.TextInputLayout>
-
-
-            </androidx.cardview.widget.CardView>
-
-            <androidx.cardview.widget.CardView
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="10dp"
-                app:cardElevation="5dp"
-                app:cardMaxElevation="7dp">
-
-                <com.google.android.material.textfield.TextInputLayout
-                    android:id="@+id/taskDescriptionLayout"
-                    style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
-                    android:layout_width="match_parent"
-                    android:layout_height="match_parent"
-                    android:hint="@string/task_description"
-
-                    >
-
-                    <EditText
-                        android:id="@+id/taskDescription"
-                        android:layout_width="match_parent"
-                        android:layout_height="match_parent"
-                        android:layout_marginBottom="5dp"
-                        android:background="@color/white"
-                        tools:ignore="TouchTargetSizeCheck,SpeakableTextPresentCheck" />
-
-                </com.google.android.material.textfield.TextInputLayout>
-
-            </androidx.cardview.widget.CardView>
+                android:layout_gravity="top"
+                android:layout_marginTop="@dimen/_5sdp"
+                android:background="@drawable/task_bg"
+                android:hint="Enter task Title"
+                android:inputType="text"
+                android:padding="@dimen/_10sdp"
+                android:textColor="@color/black"
+                android:textSize="@dimen/_12ssp" />
 
 
             <!--            priority-->
-            <androidx.cardview.widget.CardView
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/_10sdp"
+                android:text="Priority"
+                android:textColor="@color/black"
+                android:textSize="@dimen/_14ssp"
+                android:textStyle="bold" />
+
+            <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_marginTop="10dp"
-                android:padding="5dp"
-                app:cardElevation="5dp"
-                app:cardMaxElevation="7dp">
+                android:layout_marginTop="@dimen/_5sdp"
+                android:orientation="horizontal">
 
-                <ImageView
-                    android:layout_width="25dp"
-                    android:layout_height="25dp"
+                <com.google.android.material.chip.ChipGroup
+                    android:id="@+id/priorityGroup"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
                     android:layout_gravity="top"
-                    android:layout_marginLeft="10dp"
-                    android:layout_marginTop="8dp"
-                    android:background="@color/purple_200" />
+                    app:singleSelection="true">
+
+                    <com.google.android.material.chip.Chip
+                        android:id="@+id/highPriority"
+                        style="@style/Widget.MaterialComponents.Chip.Choice"
+                        android:layout_width="@dimen/_85sdp"
+                        android:layout_height="@dimen/_43sdp"
+                        android:checked="true"
+                        android:padding="@dimen/_4sdp"
+                        android:text="High"
+                        android:textAlignment="center"
+                        android:textSize="@dimen/_12ssp"
+                        app:chipCornerRadius="@dimen/_5sdp"
+                        tools:ignore="TouchTargetSizeCheck" />
+
+                    <com.google.android.material.chip.Chip
+                        android:id="@+id/mediumPriority"
+                        style="@style/Widget.MaterialComponents.Chip.Choice"
+                        android:layout_width="@dimen/_85sdp"
+                        android:layout_height="@dimen/_43sdp"
+                        android:checked="true"
+                        android:padding="@dimen/_4sdp"
+                        android:text="Medium"
+                        android:textAlignment="center"
+                        android:textSize="@dimen/_12ssp"
+                        app:chipCornerRadius="@dimen/_5sdp"
+                        tools:ignore="TouchTargetSizeCheck" />
+
+                    <com.google.android.material.chip.Chip
+                        android:id="@+id/lowPriority"
+                        style="@style/Widget.MaterialComponents.Chip.Choice"
+                        android:layout_width="@dimen/_85sdp"
+                        android:layout_height="@dimen/_43sdp"
+                        android:checked="true"
+                        android:padding="@dimen/_4sdp"
+                        android:text="Low"
+                        android:textAlignment="center"
+                        android:textSize="@dimen/_12ssp"
+                        app:chipCornerRadius="@dimen/_5sdp"
+                        tools:ignore="TouchTargetSizeCheck" />
+
+                </com.google.android.material.chip.ChipGroup>
+
+            </LinearLayout>
 
 
-                <TextView
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:layout_marginLeft="45dp"
-                    android:layout_marginTop="8dp"
-                    android:text="Priority"
-                    android:textSize="16sp"
-                    android:textStyle="bold" />
-
-                <LinearLayout
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:layout_marginTop="10dp"
-                    android:orientation="horizontal"
-                    android:padding="5dp">
-
-
-                    <com.google.android.material.chip.ChipGroup
-                        android:id="@+id/priorityGroup"
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:layout_gravity="top"
-                        android:layout_marginLeft="10dp"
-                        android:layout_marginTop="23dp"
-                        android:layout_marginBottom="8dp"
-                        app:singleSelection="true">
-
-                        <com.google.android.material.chip.Chip
-                            android:id="@+id/highPriority"
-                            style="@style/Widget.MaterialComponents.Chip.Choice"
-                            android:layout_width="100dp"
-                            android:layout_height="wrap_content"
-                            android:checkable="true"
-                            android:checked="true"
-                            android:text="High"
-                            android:textAlignment="center"
-                            app:chipCornerRadius="5dp"
-                            tools:ignore="TouchTargetSizeCheck" />
-
-                        <com.google.android.material.chip.Chip
-                            android:id="@+id/mediumPriority"
-                            style="@style/Widget.MaterialComponents.Chip.Choice"
-                            android:layout_width="100dp"
-                            android:layout_height="wrap_content"
-                            android:checked="true"
-                            android:text="Medium"
-                            android:textAlignment="center"
-                            app:chipCornerRadius="5dp"
-                            tools:ignore="TouchTargetSizeCheck" />
-
-                        <com.google.android.material.chip.Chip
-                            android:id="@+id/lowPriority"
-                            style="@style/Widget.MaterialComponents.Chip.Choice"
-                            android:layout_width="100dp"
-                            android:layout_height="wrap_content"
-                            android:checked="true"
-                            android:text="Low"
-                            android:textAlignment="center"
-                            app:chipCornerRadius="5dp"
-                            tools:ignore="TouchTargetSizeCheck" />
-
-                    </com.google.android.material.chip.ChipGroup>
-
-                </LinearLayout>
-
-            </androidx.cardview.widget.CardView>
-
-
-            <androidx.cardview.widget.CardView
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="10dp"
-                android:padding="5dp"
-                app:cardElevation="5dp"
-                app:cardMaxElevation="7dp">
-
-                <ImageView
-                    android:layout_width="25dp"
-                    android:layout_height="25dp"
-                    android:layout_gravity="top"
-                    android:layout_marginLeft="10dp"
-                    android:layout_marginTop="8dp"
-                    android:background="@color/purple_200" />
-
-                <TextView
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:layout_marginLeft="45dp"
-                    android:layout_marginTop="8dp"
-                    android:text="Add Members"
-                    android:textSize="16sp"
-                    android:textStyle="bold" />
-
-                <LinearLayout
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_marginTop="35dp"
-                    android:layout_marginBottom="8dp"
-                    android:orientation="horizontal"
-                    android:padding="5dp">
-
-                    <com.google.android.material.floatingactionbutton.FloatingActionButton
-                        android:id="@+id/assignTaskToUserBtn"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_marginLeft="10dp"
-                        app:fabSize="mini"
-                        app:srcCompat="@drawable/ic_baseline_add_24"
-                        tools:ignore="SpeakableTextPresentCheck" />
-
-                    <androidx.recyclerview.widget.RecyclerView
-                        android:id="@+id/taskAssignTo"
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content" />
-
-
-                </LinearLayout>
-
-
-            </androidx.cardview.widget.CardView>
 
 
             <!--pick date-->
-            <com.google.android.material.card.MaterialCardView
-
+            <RelativeLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_marginTop="10dp"
-                android:focusable="true"
-                app:cardElevation="5dp"
-                app:cardMaxElevation="7dp">
+                android:layout_marginTop="@dimen/_10sdp"
+                >
 
+                <RelativeLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:id="@+id/centerinparent"
+                    android:layout_centerInParent="true"/>
 
-                <ImageView
-                    android:layout_width="25dp"
-                    android:layout_height="25dp"
-                    android:layout_gravity="top"
-                    android:layout_marginLeft="10dp"
-                    android:layout_marginTop="16dp"
-                    android:background="@color/purple_200"
-                    android:padding="5dp" />
+                <TextView
+                    android:id="@+id/starttext"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Starts"
+                    android:textColor="@color/black"
+                    android:textSize="@dimen/_14ssp"
+                    android:textStyle="bold" />
 
-                <LinearLayout
-                    android:layout_width="match_parent"
-                    android:layout_height="match_parent"
-                    android:layout_marginLeft="45dp"
-                    android:layout_marginTop="8dp"
-                    android:layout_marginBottom="8dp"
-                    android:orientation="vertical"
-                    android:outlineProvider="none"
-                    android:padding="5dp">
+                <TextView
+                    android:id="@+id/startDate"
+                    android:layout_width="@dimen/_125sdp"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@+id/starttext"
+                    android:layout_marginTop="@dimen/_5sdp"
+                    android:background="@drawable/dates_bg"
+                    android:hint="@string/start_date_msg"
+                    android:padding="@dimen/_7sdp"
+                    android:textColor="@color/black"
+                    android:textSize="@dimen/_12ssp"/>
 
-                    <TextView
-                        android:id="@+id/startDate"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:padding="3dp"
-                        android:text="@string/start_date_msg"
-                        android:textColor="@color/black"
-                        android:textSize="18sp" />
+                <TextView
+                    android:id="@+id/endtext"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Ends"
+                    android:textColor="@color/black"
+                    android:textSize="@dimen/_14ssp"
+                    android:textStyle="bold"
+                    android:layout_toRightOf="@+id/centerinparent"/>
 
-                    <TextView
-                        android:layout_width="match_parent"
-                        android:layout_height="1dp"
-                        android:layout_marginTop="5dp"
-                        android:background="#4F000000" />
+                <TextView
+                    android:id="@+id/dueDate"
+                    android:layout_width="@dimen/_125sdp"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@+id/endtext"
+                    android:layout_marginTop="@dimen/_5sdp"
+                    android:layout_toRightOf="@+id/centerinparent"
+                    android:background="@drawable/dates_bg"
+                    android:hint="@string/due_date_msg"
+                    android:padding="@dimen/_7sdp"
+                    android:textColor="@color/black"
+                    android:textSize="@dimen/_12ssp" />
 
-                    <TextView
-                        android:id="@+id/dueDate"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_marginTop="5dp"
-                        android:padding="3dp"
-                        android:text="@string/due_date_msg"
-                        android:textColor="@color/black"
-                        android:textSize="18sp" />
-                </LinearLayout>
+            </RelativeLayout>
 
-            </com.google.android.material.card.MaterialCardView>
-
-            <Button
-                android:id="@+id/submitTask"
-                android:layout_width="300dp"
+            <!--Participants-->
+            <TextView
+                android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_gravity="center"
-                android:layout_marginTop="20dp"
-                android:layout_marginBottom="15dp"
-                android:background="@drawable/button_bg"
-                android:gravity="center"
-                android:text="Assign Task" />
+                android:layout_marginTop="@dimen/_10sdp"
+                android:text="Participants"
+                android:textColor="@color/black"
+                android:textSize="@dimen/_14ssp"
+                android:textStyle="bold"/>
 
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                >
+
+                <ImageButton
+                    android:id="@+id/assignTaskToUserBtn"
+                    android:layout_width="@dimen/_30sdp"
+                    android:layout_height="@dimen/_30sdp"
+                    android:layout_marginTop="@dimen/_5sdp"
+                    android:background="@drawable/participants_add"
+                    android:src="@drawable/ic_baseline_add_24" />
+
+                <androidx.recyclerview.widget.RecyclerView
+                    android:id="@+id/taskAssignTo"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/_5sdp"
+                    />
+
+            </LinearLayout>
+
+            <!--descripation-->
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/_10sdp"
+                android:text="Description"
+                android:textColor="@color/black"
+                android:textSize="@dimen/_14ssp"
+                android:textStyle="bold"/>
+
+            <EditText
+                android:id="@+id/taskDescription"
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/_180sdp"
+                android:layout_marginTop="@dimen/_5sdp"
+                android:background="@drawable/task_bg"
+                android:hint="This is where you write description....."
+                android:textSize="@dimen/_12ssp"
+                android:gravity="top"
+                android:textColor="@color/black"
+                android:padding="@dimen/_8sdp"
+                android:layout_marginBottom="@dimen/_10sdp"
+                />
 
         </LinearLayout>
     </ScrollView>
+
+    <Button
+        android:id="@+id/submitTask"
+        android:layout_width="@dimen/_220sdp"
+        android:layout_height="wrap_content"
+        android:layout_gravity="bottom"
+        android:background="@drawable/button_bg"
+        android:gravity="center"
+        android:text="Assign Task"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        android:layout_marginBottom="@dimen/_10sdp"
+        />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
