@@ -1,44 +1,40 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="wrap_content"
     android:layout_height="wrap_content">
 
     <LinearLayout
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_margin="5dp"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        android:orientation="horizontal"
-        android:background="@drawable/edit_text_bg"
+        android:layout_width="wrap_content"
+        android:layout_height="@dimen/_30sdp"
+        android:background="@drawable/members_name_bg"
+        android:paddingVertical="@dimen/_3sdp"
+        android:paddingHorizontal="@dimen/_5sdp"
+        android:layout_marginBottom="@dimen/_3sdp"
+        android:layout_marginLeft="@dimen/_3sdp"
         >
 
         <TextView
             android:id="@+id/userName"
-            android:layout_width="wrap_content"
+            android:layout_width="@dimen/_85sdp"
             android:layout_height="wrap_content"
+            android:layout_gravity="center|left"
             android:ellipsize="end"
             android:maxLines="1"
-            android:padding="10dp"
-            android:text="HIIII"
-            android:textAppearance="?attr/textAppearanceSubtitle1"
-         />
+            android:textSize="@dimen/_12ssp"
+            android:scrollHorizontally="true"
+            android:text="Ellipsis is triple dots (...) at the end of the line. It is required when you want to keep your sentence in a single line. If your test reached the end of the line then automatically create ... at the end" />
 
-        <ImageView
-            android:layout_width="25dp"
-            android:layout_height="25dp"
-            android:layout_gravity="center"
+        />
+
+        <ImageButton
+            android:id="@+id/clearTextBtn"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
             android:src="@drawable/btn_clear"
-            android:layout_marginEnd="5dp"
+            android:layout_gravity="center|right"
             android:background="@drawable/edit_text_bg"
-            android:backgroundTint="@color/red"
             />
 
     </LinearLayout>
-
-
-
-</androidx.constraintlayout.widget.ConstraintLayout>
+</RelativeLayout>

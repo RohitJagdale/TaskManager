@@ -40,11 +40,18 @@ public class UserAdapter extends RecyclerView.Adapter<UserAdapter.UsersViewHolde
 
         holder.binding.userName.setText(users.get(position).getUserName());
 
-        holder.binding.userName.setOnClickListener(new View.OnClickListener() {
+//        holder.binding.userName.setOnClickListener(new View.OnClickListener() {
+//            @Override
+//            public void onClick(View v) {
+//                removeItem(holder.getAdapterPosition());
+//
+//            }
+//        });
+//
+        holder.binding.clearTextBtn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 removeItem(holder.getAdapterPosition());
-
             }
         });
     }
