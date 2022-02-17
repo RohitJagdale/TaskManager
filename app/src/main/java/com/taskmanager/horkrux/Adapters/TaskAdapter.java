@@ -43,8 +43,8 @@ public class TaskAdapter extends RecyclerView.Adapter<TaskAdapter.TaskViewHolder
         }
         holder.binding.userTaskTitle.setText(tasks.get(position).getTaskTitle());
         holder.binding.userTaskDescription.setText(tasks.get(position).getTaskDescription());
-        holder.binding.startingDate.setText(tasks.get(position).getTaskAssigned().substring(14));
-        holder.binding.deadlineDate.setText(tasks.get(position).getTaskDeadline().substring(13));
+        holder.binding.startingDate.setText(tasks.get(position).getTaskAssigned());
+        holder.binding.deadlineDate.setText(tasks.get(position).getTaskDeadline());
         holder.binding.priorityShow.setText(tasks.get(position).getTaskPriority());
 
 
