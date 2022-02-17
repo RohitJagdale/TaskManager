@@ -64,7 +64,7 @@ public class AssignTaskActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         binding = ActivityAssignTaskBinding.inflate(getLayoutInflater());
         setContentView(binding.getRoot());
-        Objects.requireNonNull(getSupportActionBar()).hide();
+//        Objects.requireNonNull(getSupportActionBar()).hide();
         initTaskUtils();
         loadUsers();
 
@@ -100,7 +100,7 @@ public class AssignTaskActivity extends AppCompatActivity {
 
         //action on add button
         binding.assignTaskToUserBtn.setOnClickListener(assignUserToTask);
-        binding.taskAssignTo.setLayoutManager(new GridLayoutManager(AssignTaskActivity.this, 1));
+        binding.taskAssignTo.setLayoutManager(new GridLayoutManager(AssignTaskActivity.this, 2));
         binding.taskAssignTo.setAdapter(adapter);
         adapter.notifyDataSetChanged();
 
@@ -277,7 +277,7 @@ public class AssignTaskActivity extends AppCompatActivity {
     MaterialPickerOnPositiveButtonClickListener startDateOnPositive = new MaterialPickerOnPositiveButtonClickListener() {
         @Override
         public void onPositiveButtonClick(Object selection) {
-            binding.startDate.setText("Start Date is, " + startDatePicker.getHeaderText());
+            binding.startDate.setText(startDatePicker.getHeaderText());
         }
     };
 
@@ -286,7 +286,7 @@ public class AssignTaskActivity extends AppCompatActivity {
     MaterialPickerOnPositiveButtonClickListener dueDateOnPositive = new MaterialPickerOnPositiveButtonClickListener() {
         @Override
         public void onPositiveButtonClick(Object selection) {
-            binding.dueDate.setText("Due Date is, " + dueDatePicker.getHeaderText());
+            binding.dueDate.setText(dueDatePicker.getHeaderText());
         }
     };
 
