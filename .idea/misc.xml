@@ -32,10 +32,12 @@
         <entry key="..\:/Users/mushe/AndroidStudioProjects/TaskManager/app/src/main/res/drawable/button_bg.xml" value="0.13148148148148148" />
         <entry key="..\:/Users/mushe/AndroidStudioProjects/TaskManager/app/src/main/res/drawable/ic_baseline_explore_24.xml" value="0.1" />
         <entry key="..\:/Users/mushe/AndroidStudioProjects/TaskManager/app/src/main/res/drawable/ic_launcher_background.xml" value="0.1665" />
+        <entry key="..\:/Users/mushe/AndroidStudioProjects/TaskManager/app/src/main/res/layout/activity_admin_panel.xml" value="0.152" />
         <entry key="..\:/Users/mushe/AndroidStudioProjects/TaskManager/app/src/main/res/layout/activity_assign_task.xml" value="0.2" />
         <entry key="..\:/Users/mushe/AndroidStudioProjects/TaskManager/app/src/main/res/layout/activity_login_and_sign_up.xml" value="0.12927631578947368" />
-        <entry key="..\:/Users/mushe/AndroidStudioProjects/TaskManager/app/src/main/res/layout/activity_main.xml" value="0.2046875" />
+        <entry key="..\:/Users/mushe/AndroidStudioProjects/TaskManager/app/src/main/res/layout/activity_main.xml" value="0.152" />
         <entry key="..\:/Users/mushe/AndroidStudioProjects/TaskManager/app/src/main/res/layout/activity_submit_task.xml" value="0.264" />
+        <entry key="..\:/Users/mushe/AndroidStudioProjects/TaskManager/app/src/main/res/layout/activity_team_member_list.xml" value="0.12927631578947368" />
         <entry key="..\:/Users/mushe/AndroidStudioProjects/TaskManager/app/src/main/res/layout/app_bar_main.xml" value="0.2046875" />
         <entry key="..\:/Users/mushe/AndroidStudioProjects/TaskManager/app/src/main/res/layout/content_main.xml" value="0.2046875" />
         <entry key="..\:/Users/mushe/AndroidStudioProjects/TaskManager/app/src/main/res/layout/fragment_home.xml" value="0.1" />

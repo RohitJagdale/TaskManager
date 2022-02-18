@@ -11,5 +11,10 @@ public class Constants {
     public static final String AssignTask = "AssignTask";
     public static final String SubmitTask = "SubmitTask";
 
+    public static final String ANDROID_LIST = "AndroidList";
+    public static final String WEB_LIST = "WebList";
+    public static final String UI_UX_TEAM = "UiUxList";
+    public static final String MBA_TEAM = "MbaList";
+
 
 }

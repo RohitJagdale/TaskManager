@@ -13,18 +13,26 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.TaskManager">
         <activity
+            android:name=".AdminPanel.TeamMemberList"
+            android:exported="false" />
+        <activity
+            android:name=".AdminPanel.AdminPanelActivity"
+            android:exported="true">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
+        <activity
             android:name=".Activites.SubmitTaskActivity"
             android:exported="false" />
         <activity
             android:name=".Activites.MainActivity"
-            android:exported="true">
-
-        </activity>
+            android:exported="true"></activity>
         <activity
             android:name=".Activites.AssignTaskActivity"
-            android:exported="true">
-
-        </activity>
+            android:exported="true"></activity>
         <activity
             android:name=".Authentication.LoginAndSignUp"
             android:exported="true"
@@ -37,7 +45,6 @@
             </intent-filter>
         </activity>
 
-
         <service
             android:name=".Notification.NotificationService"
             android:exported="true"
@@ -46,14 +53,10 @@
                 <action android:name="com.google.firebase.MESSAGING_EVENT" />
                 <action android:name="com.google.android.c2m.intent.Recieve" />
             </intent-filter>
-
-        </service>
-
-        <!-- Set custom default icon. This is used when no icon is set for incoming notification messages. -->
+        </service> <!-- Set custom default icon. This is used when no icon is set for incoming notification messages. -->
         <meta-data
             android:name="com.google.firebase.messaging.default_notification_icon"
-            android:resource="@drawable/ic_launcher_foreground" />
-        <!-- Set color used with incoming notification messages. This is used when no color is set for the incoming notification message. -->
+            android:resource="@drawable/ic_launcher_foreground" /> <!-- Set color used with incoming notification messages. This is used when no color is set for the incoming notification message. -->
         <meta-data
             android:name="com.google.firebase.messaging.default_notification_color"
             android:resource="@color/red" />
