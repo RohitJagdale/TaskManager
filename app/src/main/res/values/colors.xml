@@ -11,6 +11,19 @@
     <color name="red">#FF0000</color>
 
 
+<!--    JADU COLOR-->
+    <color name="low_green">#C3EFDF</color>
+    <color name="dark_green">#37CB95</color>
+    <color name="low_yellow">#FAE4BC</color>
+    <color name="dark_yellow">#EEA620</color>
+    <color name="low_red">#F5C5D0</color>
+    <color name="dark_red">#DE3C63</color>
+    <color name="title_text">#1A1A1A</color>
+    <color name="desc_text">#919CA5</color>
+    <color name="bg_color">#F7F8FA</color>
+
+
+
     <!--?xml version="1.0" encoding="UTF-8"?-->
     <color name="primaryColor">#304ffe</color>
     <color name="primaryLightColor">#7a7cff</color>

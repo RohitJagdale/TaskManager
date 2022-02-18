@@ -3,21 +3,23 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
-    android:layout_margin="@dimen/_5sdp">
+    android:layout_margin="@dimen/_5sdp"
+    >
 
 
     <androidx.cardview.widget.CardView
         android:id="@+id/taskItem"
         android:layout_width="match_parent"
         android:layout_height="@dimen/_105sdp"
-        android:backgroundTint="#e7e7e7"
-        app:cardCornerRadius="@dimen/_15sdp"
+        app:cardCornerRadius="@dimen/_20sdp"
         app:contentPadding="@dimen/_15sdp"
+        android:layout_marginBottom="@dimen/_10sdp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-
-        app:layout_constraintTop_toTopOf="parent">
+        app:layout_constraintTop_toTopOf="parent"
+        app:cardElevation="@dimen/_20sdp"
+        >
 
         <TextView
             android:id="@+id/userTaskTitle"
@@ -25,7 +27,8 @@
             android:layout_height="wrap_content"
             android:text="TextView"
             android:textSize="@dimen/_13ssp"
-            android:textStyle="bold" />
+            android:fontFamily="@font/inter_medium"
+            />
 
         <TextView
             android:id="@+id/deadlineDate"
@@ -33,7 +36,8 @@
             android:layout_height="wrap_content"
             android:layout_marginTop="@dimen/_20sdp"
             android:text="16/23/33"
-            android:textSize="@dimen/_9ssp" />
+            android:textSize="@dimen/_10ssp"
+            android:fontFamily="@font/inter_medium"/>
 
         <TextView
             android:id="@+id/startingDate"
@@ -41,20 +45,23 @@
             android:layout_height="wrap_content"
             android:layout_gravity="right"
             android:text="16/23/33"
-            android:textSize="@dimen/_9ssp" />
+            android:textSize="@dimen/_10ssp"
+            android:fontFamily="@font/inter_medium"/>
 
-        <TextView
+        <com.google.android.material.chip.Chip
             android:id="@+id/priorityShow"
-            android:layout_width="@dimen/_65sdp"
+            android:layout_width="@dimen/_70sdp"
             android:layout_height="wrap_content"
             android:layout_gravity="right|bottom"
-            android:background="@drawable/edit_text_bg"
-            android:backgroundTint="@color/pink"
-            android:elevation="@dimen/_15sdp"
+            android:elevation="@dimen/_5sdp"
             android:gravity="center"
             android:padding="@dimen/_3sdp"
             android:text="Medium"
-            android:textSize="@dimen/_11ssp" />
+            android:textAlignment="center"
+            android:textSize="@dimen/_12ssp"
+            android:checkable="false"
+            android:clickable="false"
+            android:fontFamily="@font/inter_medium"/>
 
         <TextView
             android:id="@+id/userTaskDescription"
@@ -62,10 +69,11 @@
             android:layout_height="wrap_content"
             android:layout_gravity="bottom|left"
             android:ellipsize="end"
+            android:fontFamily="@font/inter_medium"
             android:maxLines="2"
             android:scrollHorizontally="true"
-            android:textSize="@dimen/_10ssp"
-            android:text="Ellipsis is triple dots (...) at the end of the line. It is required when you want to keep your sentence in a single line. If your test reached the end of the line then automatically create ... at the end" />
+            android:text="Ellipsis is triple dots (...) at the end of the line. It is required when you want to keep your sentence in a single line. If your test reached the end of the line then automatically create ... at the end"
+            android:textSize="@dimen/_11ssp" />
 
 
     </androidx.cardview.widget.CardView>

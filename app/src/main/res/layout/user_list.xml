@@ -4,4 +4,4 @@
     android:layout_height="match_parent"
     android:padding="@dimen/_3sdp"
     android:textSize="@dimen/_12ssp"
-    android:textStyle="bold" />
+    android:fontFamily="@font/inter_medium"/>
