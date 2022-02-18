@@ -12,7 +12,7 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:layout_marginBottom="@dimen/_60sdp"
-        app:layout_constraintBottom_toTopOf="@+id/submitTask2"
+        app:layout_constraintBottom_toTopOf="@+id/updateTask"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
@@ -31,7 +31,7 @@
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="Task title"
+                android:text="Title"
                 android:textColor="@color/black"
                 android:textSize="@dimen/_14ssp"
                 android:textStyle="bold" />
@@ -43,7 +43,7 @@
                 android:layout_gravity="top"
                 android:layout_marginTop="@dimen/_5sdp"
                 android:background="@drawable/task_bg"
-                android:hint="Enter task Title"
+                android:hint="Task Title"
                 android:inputType="text"
                 android:padding="@dimen/_10sdp"
                 android:textColor="@color/black"
@@ -133,7 +133,7 @@
                     android:id="@+id/starttext"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="Starts"
+                    android:text="Assigned Date"
                     android:textColor="@color/black"
                     android:textSize="@dimen/_14ssp"
                     android:textStyle="bold" />
@@ -155,7 +155,7 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_toRightOf="@+id/centerinparent"
-                    android:text="Ends"
+                    android:text="Deadline"
                     android:textColor="@color/black"
                     android:textSize="@dimen/_14ssp"
                     android:textStyle="bold" />
@@ -180,7 +180,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="@dimen/_10sdp"
-                android:text="Participants"
+                android:text="Team Members"
                 android:textColor="@color/black"
                 android:textSize="@dimen/_14ssp"
                 android:textStyle="bold" />
@@ -204,7 +204,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="@dimen/_10sdp"
-                android:text="Description"
+                android:text="Task Description"
                 android:textColor="@color/black"
                 android:textSize="@dimen/_14ssp"
                 android:textStyle="bold" />
@@ -233,7 +233,7 @@
         android:layout_marginBottom="@dimen/_10sdp"
         android:background="@drawable/button_bg"
         android:gravity="center"
-        android:text="Update Task"
+        android:text="Update Status"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent" />
