@@ -7,4 +7,9 @@ public class Constants {
     public static final String CONTENT_TYPE = "application/json";
     public static final String TOPIC = "/topics/notifications";
 
+
+    public static final String AssignTask = "AssignTask";
+    public static final String SubmitTask = "SubmitTask";
+
+
 }

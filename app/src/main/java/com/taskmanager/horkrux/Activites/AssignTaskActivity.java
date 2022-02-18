@@ -3,6 +3,7 @@ package com.taskmanager.horkrux.Activites;
 import android.annotation.SuppressLint;
 import android.app.ProgressDialog;
 import android.content.Context;
+import android.content.res.ColorStateList;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
@@ -13,6 +14,7 @@ import android.widget.Toast;
 
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.core.content.ContextCompat;
 import androidx.recyclerview.widget.GridLayoutManager;
 
 import com.google.android.gms.tasks.OnCompleteListener;
@@ -26,6 +28,7 @@ import com.google.firebase.database.ValueEventListener;
 import com.google.firebase.firestore.FirebaseFirestore;
 import com.taskmanager.horkrux.Adapters.UserAdapter;
 import com.taskmanager.horkrux.CommonUtils;
+import com.taskmanager.horkrux.Constants;
 import com.taskmanager.horkrux.Models.Task;
 import com.taskmanager.horkrux.Models.Users;
 import com.taskmanager.horkrux.Notification.ApiUtils;
@@ -36,7 +39,6 @@ import com.taskmanager.horkrux.databinding.ActivityAssignTaskBinding;
 
 import java.util.ArrayList;
 import java.util.Date;
-import java.util.Objects;
 
 import retrofit2.Call;
 import retrofit2.Callback;
@@ -96,7 +98,7 @@ public class AssignTaskActivity extends AppCompatActivity {
         items = new ArrayList<>();
         showingItems = new ArrayList<>();
         userList = new ListPopupWindow(context);
-        adapter = new UserAdapter(AssignTaskActivity.this, assignedList);
+        adapter = new UserAdapter(AssignTaskActivity.this, assignedList, Constants.AssignTask);
         userListAdapter = new ArrayAdapter(context, R.layout.user_list, showingItems);
         progressDialog = new ProgressDialog(context);
         progressDialog.setMessage(PROGRESS_MESSAGE);
@@ -117,6 +119,7 @@ public class AssignTaskActivity extends AppCompatActivity {
 
         //action on submit task btn
         binding.submitTask.setOnClickListener(assignTask);
+
     }
 
 

@@ -10,6 +10,7 @@ import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.taskmanager.horkrux.Activites.AssignTaskActivity;
+import com.taskmanager.horkrux.Constants;
 import com.taskmanager.horkrux.Models.Users;
 import com.taskmanager.horkrux.R;
 import com.taskmanager.horkrux.databinding.UserItemBinding;
@@ -20,12 +21,14 @@ public class UserAdapter extends RecyclerView.Adapter<UserAdapter.UsersViewHolde
     Context context;
     ArrayList<Users> users;
     ArrayList<Users> backUsers;
+    String from;
 
 
-    public UserAdapter(Context context, ArrayList<Users> users) {
+    public UserAdapter(Context context, ArrayList<Users> users, String from) {
         this.context = context;
         this.users = users;
         this.backUsers = users;
+        this.from = from;
     }
 
     @NonNull
@@ -40,20 +43,17 @@ public class UserAdapter extends RecyclerView.Adapter<UserAdapter.UsersViewHolde
 
         holder.binding.userName.setText(users.get(position).getUserName());
 
-//        holder.binding.userName.setOnClickListener(new View.OnClickListener() {
-//            @Override
-//            public void onClick(View v) {
-//                removeItem(holder.getAdapterPosition());
-//
-//            }
-//        });
-//
-        holder.binding.clearTextBtn.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                removeItem(holder.getAdapterPosition());
-            }
-        });
+        if (from.equals(Constants.AssignTask))
+            holder.binding.clearTextBtn.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View v) {
+                    removeItem(holder.getAdapterPosition());
+                }
+            });
+
+        if (from.equals(Constants.SubmitTask)) {
+            holder.binding.clearTextBtn.setVisibility(View.GONE);
+        }
     }
 
     public void reset() {

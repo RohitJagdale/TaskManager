@@ -11,12 +11,12 @@
         android:id="@+id/scrollView2"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
+        android:layout_marginBottom="@dimen/_60sdp"
         app:layout_constraintBottom_toTopOf="@+id/submitTask"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0"
-        android:layout_marginBottom="@dimen/_60sdp">
+        app:layout_constraintVertical_bias="0">
 
 
         <LinearLayout
@@ -75,7 +75,7 @@
 
                     <com.google.android.material.chip.Chip
                         android:id="@+id/highPriority"
-                        style="@style/Widget.MaterialComponents.Chip.Choice"
+                        style="@style/CustomChipChoice"
                         android:layout_width="@dimen/_85sdp"
                         android:layout_height="@dimen/_43sdp"
                         android:checked="true"
@@ -83,12 +83,14 @@
                         android:text="High"
                         android:textAlignment="center"
                         android:textSize="@dimen/_12ssp"
+
+                        app:chipBackgroundColor="@color/chip_bg_list"
                         app:chipCornerRadius="@dimen/_5sdp"
                         tools:ignore="TouchTargetSizeCheck" />
 
                     <com.google.android.material.chip.Chip
                         android:id="@+id/mediumPriority"
-                        style="@style/Widget.MaterialComponents.Chip.Choice"
+                        style="@style/CustomChipChoice"
                         android:layout_width="@dimen/_85sdp"
                         android:layout_height="@dimen/_43sdp"
                         android:checked="true"
@@ -101,7 +103,7 @@
 
                     <com.google.android.material.chip.Chip
                         android:id="@+id/lowPriority"
-                        style="@style/Widget.MaterialComponents.Chip.Choice"
+                        style="@style/CustomChipChoice"
                         android:layout_width="@dimen/_85sdp"
                         android:layout_height="@dimen/_43sdp"
                         android:checked="true"
@@ -117,20 +119,17 @@
             </LinearLayout>
 
 
-
-
             <!--pick date-->
             <RelativeLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_marginTop="@dimen/_10sdp"
-                >
+                android:layout_marginTop="@dimen/_10sdp">
 
                 <RelativeLayout
+                    android:id="@+id/centerinparent"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:id="@+id/centerinparent"
-                    android:layout_centerInParent="true"/>
+                    android:layout_centerInParent="true" />
 
                 <TextView
                     android:id="@+id/starttext"
@@ -151,17 +150,17 @@
                     android:hint="@string/start_date_msg"
                     android:padding="@dimen/_7sdp"
                     android:textColor="@color/black"
-                    android:textSize="@dimen/_12ssp"/>
+                    android:textSize="@dimen/_12ssp" />
 
                 <TextView
                     android:id="@+id/endtext"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
+                    android:layout_toRightOf="@+id/centerinparent"
                     android:text="Ends"
                     android:textColor="@color/black"
                     android:textSize="@dimen/_14ssp"
-                    android:textStyle="bold"
-                    android:layout_toRightOf="@+id/centerinparent"/>
+                    android:textStyle="bold" />
 
                 <TextView
                     android:id="@+id/dueDate"
@@ -186,13 +185,12 @@
                 android:text="Participants"
                 android:textColor="@color/black"
                 android:textSize="@dimen/_14ssp"
-                android:textStyle="bold"/>
+                android:textStyle="bold" />
 
             <LinearLayout
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:orientation="horizontal"
-                >
+                android:orientation="horizontal">
 
                 <ImageButton
                     android:id="@+id/assignTaskToUserBtn"
@@ -206,8 +204,7 @@
                     android:id="@+id/taskAssignTo"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:layout_marginTop="@dimen/_5sdp"
-                    />
+                    android:layout_marginTop="@dimen/_5sdp" />
 
             </LinearLayout>
 
@@ -219,21 +216,20 @@
                 android:text="Description"
                 android:textColor="@color/black"
                 android:textSize="@dimen/_14ssp"
-                android:textStyle="bold"/>
+                android:textStyle="bold" />
 
             <EditText
                 android:id="@+id/taskDescription"
                 android:layout_width="match_parent"
                 android:layout_height="@dimen/_180sdp"
                 android:layout_marginTop="@dimen/_5sdp"
-                android:background="@drawable/task_bg"
-                android:hint="This is where you write description....."
-                android:textSize="@dimen/_12ssp"
-                android:gravity="top"
-                android:textColor="@color/black"
-                android:padding="@dimen/_8sdp"
                 android:layout_marginBottom="@dimen/_10sdp"
-                />
+                android:background="@drawable/task_bg"
+                android:gravity="top"
+                android:hint="This is where you write description....."
+                android:padding="@dimen/_8sdp"
+                android:textColor="@color/black"
+                android:textSize="@dimen/_12ssp" />
 
         </LinearLayout>
     </ScrollView>
@@ -243,13 +239,12 @@
         android:layout_width="@dimen/_220sdp"
         android:layout_height="wrap_content"
         android:layout_gravity="bottom"
+        android:layout_marginBottom="@dimen/_10sdp"
         android:background="@drawable/button_bg"
         android:gravity="center"
         android:text="Assign Task"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        android:layout_marginBottom="@dimen/_10sdp"
-        />
+        app:layout_constraintStart_toStartOf="parent" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
