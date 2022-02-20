@@ -3,7 +3,6 @@ package com.taskmanager.horkrux.Activites;
 import android.annotation.SuppressLint;
 import android.app.ProgressDialog;
 import android.content.Context;
-import android.content.res.ColorStateList;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
@@ -14,7 +13,6 @@ import android.widget.Toast;
 
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
-import androidx.core.content.ContextCompat;
 import androidx.recyclerview.widget.GridLayoutManager;
 
 import com.google.android.gms.tasks.OnCompleteListener;
@@ -77,6 +75,7 @@ public class AssignTaskActivity extends AppCompatActivity {
         binding = ActivityAssignTaskBinding.inflate(getLayoutInflater());
         setContentView(binding.getRoot());
 //        Objects.requireNonNull(getSupportActionBar()).hide();
+
         initTaskUtils();
         loadUsers();
 

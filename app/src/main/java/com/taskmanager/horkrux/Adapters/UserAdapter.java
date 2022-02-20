@@ -73,6 +73,7 @@ public class UserAdapter extends RecyclerView.Adapter<UserAdapter.UsersViewHolde
     }
 
     public static class UsersViewHolder extends RecyclerView.ViewHolder {
+
         UserItemBinding binding;
 
         public UsersViewHolder(@NonNull View itemView) {

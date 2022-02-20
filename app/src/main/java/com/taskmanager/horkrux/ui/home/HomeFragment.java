@@ -22,6 +22,7 @@ import com.google.firebase.database.ValueEventListener;
 import com.taskmanager.horkrux.Activites.AssignTaskActivity;
 import com.taskmanager.horkrux.Adapters.TaskAdapter;
 import com.taskmanager.horkrux.Models.Task;
+import com.taskmanager.horkrux.Models.Users;
 import com.taskmanager.horkrux.R;
 import com.taskmanager.horkrux.databinding.FragmentHomeBinding;
 
@@ -35,48 +36,67 @@ public class HomeFragment extends Fragment {
     final String[] taskCategories = {"ALL", "TODO", "IN PROGRESS", "DONE"};
     final int ALL = 0, TODO = 1, IN_PROGRESS = 2, DONE = 3;
     ArrayAdapter taskCategoryAdapter;
-    TaskAdapter taskAdapter;
-    String currentUserId;
-    ArrayList<Task> userTasks;
-    ProgressDialog loader;
+    private TaskAdapter taskAdapter;
+    private String currentUserId;
+    private ArrayList<Task> userTasks;
+    private ProgressDialog loader;
+    private Users user;
+
+    public HomeFragment() {
+    }
+
+    public HomeFragment(Users user) {
+        this.user = user;
+    }
 
     public View onCreateView(@NonNull LayoutInflater inflater,
                              ViewGroup container, Bundle savedInstanceState) {
         homeViewModel =
                 new ViewModelProvider(this).get(HomeViewModel.class);
 
-
         binding = FragmentHomeBinding.inflate(inflater, container, false);
+        userTasks = new ArrayList<>();
+
+        if (user != null) {
+            binding.selectedUserView.setVisibility(View.VISIBLE);
+            binding.selectedUserName.setText(user.getUserName());
+            binding.assignTaskButton.setVisibility(View.GONE);
+            taskAdapter = new TaskAdapter(getContext(), userTasks, "");
+
+            currentUserId = user.getFireuserid();
+        } else {
+            binding.selectedUserView.setVisibility(View.GONE);
+            taskAdapter = new TaskAdapter(getContext(), userTasks, null);
+            binding.assignTaskButton.setVisibility(View.VISIBLE);
+            currentUserId = FirebaseAuth.getInstance().getUid();
+        }
+
+        setValues();
+        loadTask();
+
+
+        return binding.getRoot();
+    }
+
+    private void setValues() {
         taskCategoryAdapter = new ArrayAdapter(getContext(), R.layout.home_list_item, taskCategories);
         binding.taskCategory.setAdapter(taskCategoryAdapter);
-
-//        currentUserId = FirebaseAuth.getInstance().getUid();
-//        Toast.makeText(getContext(), FirebaseAuth.getInstance().getUid(), Toast.LENGTH_SHORT).show();
         loader = new ProgressDialog(getContext());
         loader.setMessage("Loading your tasks please wait !!!");
         loader.setCancelable(false);
 
-        userTasks = new ArrayList<>();
-
         binding.taskCategory.setOnItemClickListener(taskCategoryListener);
 
-        taskAdapter = new TaskAdapter(getContext(), userTasks);
         binding.userTaskRecylerView.setAdapter(taskAdapter);
         binding.userTaskRecylerView.setLayoutManager(new LinearLayoutManager(getContext()));
-        loadTask();
-
-
         binding.assignTaskButton.setOnClickListener(assignTaskBtnAction);
 
-
-        return binding.getRoot();
     }
 
     View.OnClickListener assignTaskBtnAction = new View.OnClickListener() {
         @Override
         public void onClick(View v) {
             startActivity(new Intent(getContext(), AssignTaskActivity.class));
-
         }
     };
 
@@ -85,15 +105,25 @@ public class HomeFragment extends Fragment {
         loader.show();
         FirebaseDatabase.getInstance().getReference().child("all-tasks")
                 .child("user-tasks")
-                .child(FirebaseAuth.getInstance().getUid())
+                .child(currentUserId)
                 .addValueEventListener(new ValueEventListener() {
                     @Override
                     public void onDataChange(@NonNull DataSnapshot snapshot) {
+                        int count[] = {0, 0, 0};
                         userTasks.clear();
                         for (DataSnapshot snap : snapshot.getChildren()) {
                             Task task = snap.getValue(Task.class);
+                            if (task.getTaskStatus().equals(Task.TODO)) {
+                                count[0]++;
+                            } else if (task.getTaskStatus().equals(Task.IN_PROGRESS)) {
+                                count[1]++;
+                            } else {
+                                count[2]++;
+                            }
                             userTasks.add(task);
                         }
+
+                        binding.selectedUserMail.setText("TODO : " + count[0] + "\n" + "IN PROGRESS : " + count[1] + "\n" + "DONE : " + count[2]);
 
                         taskAdapter.notifyDataSetChanged();
                         loader.dismiss();

@@ -7,7 +7,7 @@ import android.view.View;
 
 import androidx.appcompat.app.AppCompatActivity;
 
-import com.taskmanager.horkrux.Constants;
+import com.taskmanager.horkrux.Models.Users;
 import com.taskmanager.horkrux.databinding.ActivityAdminPanelBinding;
 
 public class AdminPanelActivity extends AppCompatActivity {
@@ -37,7 +37,25 @@ public class AdminPanelActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 Intent teamAndroidIntent = new Intent(context, TeamMemberList.class);
-                teamAndroidIntent.putExtra("requestedTeam", Constants.ANDROID_LIST);
+                teamAndroidIntent.putExtra("requestedTeam", Users.ANDROID_DEPT);
+                startActivity(teamAndroidIntent);
+            }
+        });
+
+        binding.teamWeb.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent teamAndroidIntent = new Intent(context, TeamMemberList.class);
+                teamAndroidIntent.putExtra("requestedTeam", Users.WEB_DEPT);
+                startActivity(teamAndroidIntent);
+            }
+        });
+
+        binding.teamUiUx.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent teamAndroidIntent = new Intent(context, TeamMemberList.class);
+                teamAndroidIntent.putExtra("requestedTeam", Users.UI_UX_DEPT);
                 startActivity(teamAndroidIntent);
             }
         });

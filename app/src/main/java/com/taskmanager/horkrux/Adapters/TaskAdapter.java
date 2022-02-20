@@ -10,7 +10,9 @@ import android.view.ViewGroup;
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
+import com.taskmanager.horkrux.Activites.AssignTaskActivity;
 import com.taskmanager.horkrux.Activites.SubmitTaskActivity;
+import com.taskmanager.horkrux.AdminPanel.EditTaskActivity;
 import com.taskmanager.horkrux.Models.Task;
 import com.taskmanager.horkrux.R;
 import com.taskmanager.horkrux.databinding.TaskLayoutBinding;
@@ -20,10 +22,12 @@ import java.util.ArrayList;
 public class TaskAdapter extends RecyclerView.Adapter<TaskAdapter.TaskViewHolder> {
     Context context;
     ArrayList<Task> tasks;
+    String from;
 
-    public TaskAdapter(Context context, ArrayList<Task> tasks) {
+    public TaskAdapter(Context context, ArrayList<Task> tasks, String from) {
         this.context = context;
         this.tasks = tasks;
+        this.from = from;
     }
 
     @NonNull
@@ -48,14 +52,26 @@ public class TaskAdapter extends RecyclerView.Adapter<TaskAdapter.TaskViewHolder
         holder.binding.priorityShow.setText(tasks.get(position).getTaskPriority());
 
 
-        holder.binding.taskItem.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                Intent intent = new Intent(context, SubmitTaskActivity.class);
-                intent.putExtra("selectedTask", tasks.get(holder.getAdapterPosition()));
-                context.startActivity(intent);
-            }
-        });
+        if (from == null) {
+            holder.binding.taskItem.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View v) {
+                    Intent intent = new Intent(context, SubmitTaskActivity.class);
+                    intent.putExtra("selectedTask", tasks.get(holder.getAdapterPosition()));
+                    context.startActivity(intent);
+                }
+            });
+        } else {
+            holder.binding.taskItem.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View v) {
+                    Intent intent = new Intent(context, EditTaskActivity.class);
+                    intent.putExtra("selectedTask", tasks.get(holder.getAdapterPosition()));
+                    context.startActivity(intent);
+                }
+            });
+        }
+
 
     }
 

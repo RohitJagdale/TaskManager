@@ -13,6 +13,12 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.TaskManager">
         <activity
+            android:name=".AdminPanel.EditTaskActivity"
+            android:exported="false" />
+        <activity
+            android:name=".AdminPanel.UserTasksActivity"
+            android:exported="false" />
+        <activity
             android:name=".AdminPanel.TeamMemberList"
             android:exported="false" />
         <activity
@@ -29,10 +35,10 @@
             android:exported="false" />
         <activity
             android:name=".Activites.MainActivity"
-            android:exported="true"></activity>
+            android:exported="true" />
         <activity
             android:name=".Activites.AssignTaskActivity"
-            android:exported="true"></activity>
+            android:exported="true" />
         <activity
             android:name=".Authentication.LoginAndSignUp"
             android:exported="true"
