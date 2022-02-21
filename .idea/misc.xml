@@ -10,33 +10,38 @@
         <entry key="..\:/Users/Rohit/AndroidStudioProjects/TaskManager/app/src/main/res/drawable/dates_bg.xml" value="0.1" />
         <entry key="..\:/Users/Rohit/AndroidStudioProjects/TaskManager/app/src/main/res/drawable/edit_text_bg.xml" value="0.191" />
         <entry key="..\:/Users/Rohit/AndroidStudioProjects/TaskManager/app/src/main/res/drawable/elevation.xml" value="0.172" />
+        <entry key="..\:/Users/Rohit/AndroidStudioProjects/TaskManager/app/src/main/res/drawable/ic_back.xml" value="0.2095" />
+        <entry key="..\:/Users/Rohit/AndroidStudioProjects/TaskManager/app/src/main/res/drawable/ic_baseline_add_24.xml" value="0.2095" />
         <entry key="..\:/Users/Rohit/AndroidStudioProjects/TaskManager/app/src/main/res/drawable/ic_baseline_clear_24.xml" value="0.2025" />
+        <entry key="..\:/Users/Rohit/AndroidStudioProjects/TaskManager/app/src/main/res/drawable/ic_cancel.xml" value="0.203" />
+        <entry key="..\:/Users/Rohit/AndroidStudioProjects/TaskManager/app/src/main/res/drawable/ic_menu.xml" value="0.2095" />
+        <entry key="..\:/Users/Rohit/AndroidStudioProjects/TaskManager/app/src/main/res/drawable/ic_menu_slideshow.xml" value="0.203" />
         <entry key="..\:/Users/Rohit/AndroidStudioProjects/TaskManager/app/src/main/res/drawable/members_name_bg.xml" value="0.1" />
         <entry key="..\:/Users/Rohit/AndroidStudioProjects/TaskManager/app/src/main/res/drawable/participants_add.xml" value="0.2385" />
         <entry key="..\:/Users/Rohit/AndroidStudioProjects/TaskManager/app/src/main/res/drawable/task_bg.xml" value="0.2195" />
         <entry key="..\:/Users/Rohit/AndroidStudioProjects/TaskManager/app/src/main/res/drawable/text_view_round.xml" value="0.2095" />
         <entry key="..\:/Users/Rohit/AndroidStudioProjects/TaskManager/app/src/main/res/drawable/view_bg.xml" value="0.176" />
         <entry key="..\:/Users/Rohit/AndroidStudioProjects/TaskManager/app/src/main/res/font/font.xml" value="0.21547669944420692" />
-        <entry key="..\:/Users/Rohit/AndroidStudioProjects/TaskManager/app/src/main/res/layout/activity_assign_task.xml" value="0.38986013986013984" />
+        <entry key="..\:/Users/Rohit/AndroidStudioProjects/TaskManager/app/src/main/res/layout/activity_assign_task.xml" value="0.264" />
         <entry key="..\:/Users/Rohit/AndroidStudioProjects/TaskManager/app/src/main/res/layout/activity_login_and_sign_up.xml" value="0.19444444444444445" />
         <entry key="..\:/Users/Rohit/AndroidStudioProjects/TaskManager/app/src/main/res/layout/activity_main.xml" value="0.2" />
-        <entry key="..\:/Users/Rohit/AndroidStudioProjects/TaskManager/app/src/main/res/layout/activity_submit_task.xml" value="0.4" />
+        <entry key="..\:/Users/Rohit/AndroidStudioProjects/TaskManager/app/src/main/res/layout/activity_submit_task.xml" value="0.264" />
         <entry key="..\:/Users/Rohit/AndroidStudioProjects/TaskManager/app/src/main/res/layout/app_bar_main.xml" value="0.2" />
         <entry key="..\:/Users/Rohit/AndroidStudioProjects/TaskManager/app/src/main/res/layout/content_main.xml" value="0.19067977768277042" />
         <entry key="..\:/Users/Rohit/AndroidStudioProjects/TaskManager/app/src/main/res/layout/dropdown_menu.xml" value="0.23229166666666667" />
         <entry key="..\:/Users/Rohit/AndroidStudioProjects/TaskManager/app/src/main/res/layout/fragment_all_tasks.xml" value="0.23229166666666667" />
         <entry key="..\:/Users/Rohit/AndroidStudioProjects/TaskManager/app/src/main/res/layout/fragment_gallery.xml" value="0.23229166666666667" />
-        <entry key="..\:/Users/Rohit/AndroidStudioProjects/TaskManager/app/src/main/res/layout/fragment_home.xml" value="0.264" />
+        <entry key="..\:/Users/Rohit/AndroidStudioProjects/TaskManager/app/src/main/res/layout/fragment_home.xml" value="0.19067977768277042" />
         <entry key="..\:/Users/Rohit/AndroidStudioProjects/TaskManager/app/src/main/res/layout/fragment_my_tasks.xml" value="0.23229166666666667" />
         <entry key="..\:/Users/Rohit/AndroidStudioProjects/TaskManager/app/src/main/res/layout/fragment_slideshow.xml" value="0.23229166666666667" />
         <entry key="..\:/Users/Rohit/AndroidStudioProjects/TaskManager/app/src/main/res/layout/home_list_item.xml" value="0.19067977768277042" />
         <entry key="..\:/Users/Rohit/AndroidStudioProjects/TaskManager/app/src/main/res/layout/login_fragment.xml" value="0.264" />
-        <entry key="..\:/Users/Rohit/AndroidStudioProjects/TaskManager/app/src/main/res/layout/nav_header_main.xml" value="0.23229166666666667" />
+        <entry key="..\:/Users/Rohit/AndroidStudioProjects/TaskManager/app/src/main/res/layout/nav_header_main.xml" value="0.264" />
         <entry key="..\:/Users/Rohit/AndroidStudioProjects/TaskManager/app/src/main/res/layout/signup_fragment.xml" value="0.19444444444444445" />
         <entry key="..\:/Users/Rohit/AndroidStudioProjects/TaskManager/app/src/main/res/layout/task_layout.xml" value="0.4" />
-        <entry key="..\:/Users/Rohit/AndroidStudioProjects/TaskManager/app/src/main/res/layout/user_item.xml" value="0.4" />
+        <entry key="..\:/Users/Rohit/AndroidStudioProjects/TaskManager/app/src/main/res/layout/user_item.xml" value="0.536" />
         <entry key="..\:/Users/Rohit/AndroidStudioProjects/TaskManager/app/src/main/res/layout/user_list.xml" value="0.264" />
-        <entry key="..\:/Users/Rohit/AndroidStudioProjects/TaskManager/app/src/main/res/menu/activity_main_drawer.xml" value="0.23229166666666667" />
+        <entry key="..\:/Users/Rohit/AndroidStudioProjects/TaskManager/app/src/main/res/menu/activity_main_drawer.xml" value="0.536" />
         <entry key="..\:/Users/Rohit/AndroidStudioProjects/TaskManager/app/src/main/res/menu/main.xml" value="0.23229166666666667" />
         <entry key="..\:/Users/Rohit/AndroidStudioProjects/TaskManager/app/src/main/res/menu/user_list.xml" value="0.19067977768277042" />
         <entry key="..\:/Users/mushe/AndroidStudioProjects/TaskManager/app/src/main/res/drawable/button_bg.xml" value="0.13148148148148148" />

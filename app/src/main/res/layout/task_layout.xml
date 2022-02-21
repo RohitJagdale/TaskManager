@@ -13,12 +13,11 @@
         android:layout_height="@dimen/_105sdp"
         app:cardCornerRadius="@dimen/_20sdp"
         app:contentPadding="@dimen/_15sdp"
-        android:layout_marginBottom="@dimen/_10sdp"
+        android:layout_marginBottom="@dimen/_6sdp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:cardElevation="@dimen/_20sdp"
         >
 
         <TextView
@@ -53,7 +52,7 @@
             android:layout_width="@dimen/_70sdp"
             android:layout_height="wrap_content"
             android:layout_gravity="right|bottom"
-            android:elevation="@dimen/_5sdp"
+            android:elevation="@dimen/_2sdp"
             android:gravity="center"
             android:padding="@dimen/_3sdp"
             android:text="Medium"

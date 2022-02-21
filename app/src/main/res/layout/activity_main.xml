@@ -7,13 +7,45 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context=".Activites.MainActivity"
-    tools:ignore="HardcodedText">
+    tools:ignore="HardcodedText"
+    android:background="@color/bg_color">
+
+
 
     <FrameLayout
         android:id="@+id/currentActivity"
         android:layout_width="match_parent"
         android:layout_height="match_parent">
 
+        <androidx.cardview.widget.CardView
+            android:id="@+id/taskBar"
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/_50sdp"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintVertical_bias="0"
+            app:cardElevation="0.1dp"
+            app:cardBackgroundColor="@color/bg_color"
+            >
+
+            <ImageButton
+                android:id="@+id/nav_draw_menu"
+                android:layout_width="@dimen/_30sdp"
+                android:layout_height="@dimen/_30sdp"
+                android:background="@drawable/ic_menu"
+                android:layout_gravity="center|left"
+                android:layout_marginLeft="@dimen/_10sdp"
+                />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:text="Task Manager"
+                android:textSize="@dimen/_16ssp"
+                android:fontFamily="@font/inter_medium"
+                android:textColor="@color/title_text"/>
+
+        </androidx.cardview.widget.CardView>
 
     </FrameLayout>
 
@@ -25,7 +57,7 @@
         android:layout_width="wrap_content"
         android:layout_height="match_parent"
         android:layout_gravity="start"
-
+        android:background="@color/bg_color"
         app:headerLayout="@layout/nav_header_main"
         app:menu="@menu/activity_main_drawer" />
 

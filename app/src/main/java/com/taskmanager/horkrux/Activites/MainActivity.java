@@ -4,10 +4,13 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuItem;
+import android.view.View;
+import android.widget.ImageButton;
 
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.ActionBarDrawerToggle;
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.core.view.GravityCompat;
 import androidx.drawerlayout.widget.DrawerLayout;
 import androidx.fragment.app.Fragment;
 import androidx.fragment.app.FragmentTransaction;
@@ -74,7 +77,14 @@ public class MainActivity extends AppCompatActivity {
         transaction.replace(R.id.currentActivity, homeFragment);
         transaction.commit();
         // to make the Navigation drawer icon always appear on the action bar
-        getSupportActionBar().setDisplayHomeAsUpEnabled(true);
+//        getSupportActionBar().setDisplayHomeAsUpEnabled(true);
+
+        binding.navDrawMenu.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                drawerLayout.openDrawer(GravityCompat.START);
+            }
+        });
 
         setNavigation();
 
@@ -85,6 +95,12 @@ public class MainActivity extends AppCompatActivity {
         navigationView = findViewById(R.id.navView);
         navHeaderMainBinding = NavHeaderMainBinding.bind(navigationView.getHeaderView(0));
 
+        navHeaderMainBinding.cancelNavButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                drawerLayout.closeDrawer(GravityCompat.START);
+            }
+        });
 
         database.getReference().child(USER_PATH).addValueEventListener(new ValueEventListener() {
             @Override

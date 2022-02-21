@@ -19,11 +19,13 @@
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent" />
 
+
     <LinearLayout
         android:id="@+id/linearLayout3"
         android:layout_width="0dp"
         android:layout_height="0dp"
         android:orientation="vertical"
+        android:layout_marginTop="@dimen/_50sdp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
@@ -33,14 +35,22 @@
             android:id="@+id/linearLayout"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:orientation="vertical">
+            android:orientation="vertical"
+
+            >
 
             <com.google.android.material.textfield.TextInputLayout
                 android:id="@+id/TaskCategory"
-                style="@style/Widget.MaterialComponents.TextInputLayout.FilledBox.ExposedDropdownMenu"
+                style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox.ExposedDropdownMenu"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:hint="@string/current_category">
+                android:layout_marginHorizontal="@dimen/_10sdp"
+                android:fontFamily="@font/inter_medium"
+                app:boxCornerRadiusBottomEnd="@dimen/_20sdp"
+                app:boxCornerRadiusBottomStart="@dimen/_20sdp"
+                app:boxCornerRadiusTopEnd="@dimen/_20sdp"
+                app:boxCornerRadiusTopStart="@dimen/_20sdp"
+                >
 
                 <AutoCompleteTextView
                     android:id="@+id/taskCategory"
@@ -50,7 +60,8 @@
                     android:inputType="none"
                     android:text="All Tasks"
                     android:fontFamily="@font/inter_medium"
-                    tools:ignore="SpeakableTextPresentCheck,SpeakableTextPresentCheck" />
+                    tools:ignore="SpeakableTextPresentCheck,SpeakableTextPresentCheck"
+                    />
 
             </com.google.android.material.textfield.TextInputLayout>
 
@@ -60,9 +71,9 @@
             android:id="@+id/userTaskRecylerView"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:layout_marginVertical="@dimen/_15sdp"
             android:layout_marginHorizontal="@dimen/_5sdp"
-            tools:listitem="@layout/task_layout" />
+            tools:listitem="@layout/task_layout"
+            android:layout_marginVertical="@dimen/_3sdp"/>
 
     </LinearLayout>
 
