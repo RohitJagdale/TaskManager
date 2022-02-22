@@ -190,7 +190,6 @@
                         android:layout_height="wrap_content"
                         android:layout_gravity="center|left"
                         android:layout_marginLeft="@dimen/_5sdp"
-                        android:layout_marginTop="@dimen/_5sdp"
                         android:src="@drawable/ic_calender_start" />
 
                     <TextView
