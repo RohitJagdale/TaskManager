@@ -14,10 +14,8 @@
         android:layout_height="@dimen/_50sdp"
         app:cardBackgroundColor="@color/bg_color"
         app:cardElevation="0.1dp"
-        android:layout_marginTop="@dimen/_15sdp"
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintVertical_bias="0">
-
 
         <TextView
             android:layout_width="wrap_content"
@@ -26,8 +24,15 @@
             android:fontFamily="@font/inter_medium"
             android:text="Dash Board"
             android:textColor="@color/title_text"
-            android:textSize="@dimen/_20ssp" />
+            android:textSize="@dimen/_16ssp" />
 
+        <ImageButton
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:src="@drawable/ic_notification"
+            android:backgroundTint="@color/bg_color"
+            android:layout_gravity="right|center"
+            android:layout_marginRight="@dimen/_10sdp"/>
     </androidx.cardview.widget.CardView>
 
     <RelativeLayout
