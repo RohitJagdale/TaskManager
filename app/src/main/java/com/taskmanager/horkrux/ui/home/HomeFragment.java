@@ -8,9 +8,9 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
+import android.widget.LinearLayout;
 
 import androidx.annotation.NonNull;
-import androidx.appcompat.app.AppCompatDelegate;
 import androidx.fragment.app.Fragment;
 import androidx.lifecycle.ViewModelProvider;
 import androidx.recyclerview.widget.LinearLayoutManager;
@@ -66,6 +66,11 @@ public class HomeFragment extends Fragment {
             currentUserId = user.getFireuserid();
         } else {
             binding.selectedUserView.setVisibility(View.GONE);
+
+            LinearLayout.LayoutParams params = new LinearLayout.LayoutParams(LinearLayout.LayoutParams.MATCH_PARENT, LinearLayout.LayoutParams.WRAP_CONTENT);
+            params.setMargins(0, 200, 0, 0);
+            binding.linearLayout.setLayoutParams(params);
+
             taskAdapter = new TaskAdapter(getContext(), userTasks, null);
             binding.assignTaskButton.setVisibility(View.VISIBLE);
             currentUserId = FirebaseAuth.getInstance().getUid();
