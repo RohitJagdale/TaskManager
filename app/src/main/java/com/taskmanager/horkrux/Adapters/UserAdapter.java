@@ -58,7 +58,7 @@ public class UserAdapter extends RecyclerView.Adapter<UserAdapter.UsersViewHolde
     public void removeItem(int poi) {
         if (from != null) {
 
-            Toast.makeText(context, "", Toast.LENGTH_SHORT).show();
+//            Toast.makeText(context, "", Toast.LENGTH_SHORT).show();
             FirebaseDatabase.getInstance().getReference().child("all-tasks/user-tasks").child(users.get(poi).getFireuserid()).child(from).setValue(null);
         }
 

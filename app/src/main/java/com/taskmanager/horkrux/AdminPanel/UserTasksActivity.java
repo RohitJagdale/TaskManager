@@ -28,7 +28,7 @@ public class UserTasksActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         binding = ActivityUserTasksBinding.inflate(getLayoutInflater());
         setContentView(binding.getRoot());
-        getSupportActionBar().hide();
+//        getSupportActionBar().hide();
 
         selectedUser = (Users) getIntent().getSerializableExtra("selectedUser");
         homeFragment = new HomeFragment(selectedUser);

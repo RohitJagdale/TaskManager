@@ -123,7 +123,7 @@ public class HomeFragment extends Fragment {
                             userTasks.add(task);
                         }
 
-                        binding.selectedUserMail.setText("TODO : " + count[0] + "\n" + "IN PROGRESS : " + count[1] + "\n" + "DONE : " + count[2]);
+//                        binding.selectedUserMail.setText("TODO : " + count[0] + "\n" + "IN PROGRESS : " + count[1] + "\n" + "DONE : " + count[2]);
 
                         taskAdapter.notifyDataSetChanged();
                         loader.dismiss();

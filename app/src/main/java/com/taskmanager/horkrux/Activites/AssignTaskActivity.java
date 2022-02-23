@@ -100,8 +100,44 @@ public class AssignTaskActivity extends AppCompatActivity {
         binding.dueDate.setText(selectedTask.getTaskDeadline());
         binding.taskTitle.setText(selectedTask.getTaskTitle());
 
+        binding.textView.setVisibility(View.VISIBLE);
+        binding.statusLayout.setVisibility(View.VISIBLE);
+
+        //setting priority
+        if (selectedTask.getTaskPriority().equals(Task.LOW)) {
+            binding.lowPriority.setChecked(true);
+        }
+        if (selectedTask.getTaskPriority().equals(Task.HIGH)) {
+            binding.highPriority.setChecked(true);
+        }
+        if (selectedTask.getTaskPriority().equals(Task.MEDIUM)) {
+            binding.mediumPriority.setChecked(true);
+        }
+
+        //setting status
+        if (selectedTask.getTaskStatus().equals(Task.TODO)) {
+            binding.todoStatus.setCheckable(true);
+            binding.todoStatus.setChecked(true);
+            binding.todoStatus.setCheckable(false);
+
+        }
+        if (selectedTask.getTaskStatus().equals(Task.IN_PROGRESS)) {
+            binding.inProgressStatus.setCheckable(true);
+            binding.inProgressStatus.setChecked(true);
+            binding.inProgressStatus.setCheckable(false);
+        }
+        if (selectedTask.getTaskStatus().equals(Task.DONE)) {
+            binding.doneStatus.setCheckable(true);
+            binding.doneStatus.setChecked(true);
+            binding.doneStatus.setCheckable(false);
+        }
+
+
+
+
         adapter.notifyDataSetChanged();
     }
+
 
     private void initTaskUtils() {
         //init database variables
