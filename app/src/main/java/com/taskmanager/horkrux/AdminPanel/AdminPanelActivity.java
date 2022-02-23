@@ -24,22 +24,22 @@ public class AdminPanelActivity extends AppCompatActivity {
 
         binding = ActivityAdminPanelBinding.inflate(getLayoutInflater());
         setContentView(binding.getRoot());
+//
+//        binding.teamAndMembers.setOnClickListener(new View.OnClickListener() {
+//            @Override
+//            public void onClick(View v) {
+//                count++;
+//                binding.OuterLayout.setVisibility(View.GONE);
+//                binding.InnerLayout.setVisibility(View.VISIBLE);
+//            }
+//        });
 
-        binding.teamAndMembers.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                count++;
-                binding.OuterLayout.setVisibility(View.GONE);
-                binding.InnerLayout.setVisibility(View.VISIBLE);
-            }
-        });
-
-        binding.sendNotifications.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                startActivity(new Intent(context, MainActivity.class));
-            }
-        });
+//        binding.sendNotifications.setOnClickListener(new View.OnClickListener() {
+//            @Override
+//            public void onClick(View v) {
+//                startActivity(new Intent(context, MainActivity.class));
+//            }
+//        });
 
         binding.teamAndroid.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -71,23 +71,23 @@ public class AdminPanelActivity extends AppCompatActivity {
 
     }
 
-    @Override
-    public void onBackPressed() {
-        if (count == 1) {
-            binding.OuterLayout.setVisibility(View.VISIBLE);
-            binding.InnerLayout.setVisibility(View.GONE);
-            count--;
-        } else {
-            count--;
-            super.onBackPressed();
-        }
+//    @Override
+//    public void onBackPressed() {
+//        if (count == 1) {
+//            binding.OuterLayout.setVisibility(View.VISIBLE);
+//            binding.InnerLayout.setVisibility(View.GONE);
+//            count--;
+//        } else {
+//            count--;
+//            super.onBackPressed();
+//        }
 
-    }
+//    }
 
-    @Override
-    public boolean onSupportNavigateUp() {
-        binding.OuterLayout.setVisibility(View.VISIBLE);
-        binding.InnerLayout.setVisibility(View.GONE);
-        return super.onSupportNavigateUp();
-    }
+//    @Override
+//    public boolean onSupportNavigateUp() {
+//        binding.OuterLayout.setVisibility(View.VISIBLE);
+//        binding.InnerLayout.setVisibility(View.GONE);
+//        return super.onSupportNavigateUp();
+//    }
 }

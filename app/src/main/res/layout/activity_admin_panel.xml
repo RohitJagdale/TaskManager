@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
@@ -7,53 +7,112 @@
     android:background="#f7f8fa"
     tools:context=".AdminPanel.AdminPanelActivity">
 
-    <LinearLayout
-        android:id="@+id/InnerLayout"
-        android:layout_width="0dp"
+
+    <androidx.cardview.widget.CardView
+        android:id="@+id/assignTaskBar"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/_50sdp"
+        app:cardBackgroundColor="@color/bg_color"
+        app:cardElevation="0.1dp"
+        android:layout_marginTop="@dimen/_15sdp"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0">
+
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:fontFamily="@font/inter_medium"
+            android:text="Dash Board"
+            android:textColor="@color/title_text"
+            android:textSize="@dimen/_20ssp" />
+
+    </androidx.cardview.widget.CardView>
+
+    <RelativeLayout
+        android:id="@+id/centerinparent"
+        android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:orientation="vertical"
-        android:visibility="gone"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent">
+        android:layout_centerInParent="true"/>
+
+
+    <androidx.cardview.widget.CardView
+        android:layout_width="@dimen/_150sdp"
+        android:layout_height="@dimen/_170sdp"
+        android:layout_above="@+id/centerinparent"
+        android:layout_margin="@dimen/_8sdp"
+        android:layout_marginStart="20dp"
+        android:layout_marginTop="20dp"
+        android:layout_marginEnd="20dp"
+        android:layout_marginBottom="20dp"
+        android:backgroundTint="@color/low_green"
+        android:layout_toLeftOf="@+id/centerinparent"
+        app:cardCornerRadius="@dimen/_20sdp">
+
+        <ImageView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:src="@drawable/ic_android"
+            android:layout_gravity="center"/>
+        <TextView
+            android:id="@+id/teamAndroid"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="bottom|center"
+            android:layout_marginBottom="@dimen/_20sdp"
+            android:fontFamily="@font/inter_medium"
+            android:text="Android"
+            android:textColor="@color/dark_green"
+            android:textAlignment="center"
+            android:textSize="@dimen/_14ssp" />
+    </androidx.cardview.widget.CardView>
+
+    <androidx.cardview.widget.CardView
+        android:layout_width="@dimen/_150sdp"
+        android:layout_height="@dimen/_170sdp"
+        android:layout_above="@+id/centerinparent"
+        android:layout_marginStart="@dimen/_8sdp"
+        android:layout_marginTop="@dimen/_8sdp"
+        android:layout_marginEnd="@dimen/_8sdp"
+        android:layout_marginBottom="@dimen/_8sdp"
+        android:layout_toRightOf="@+id/centerinparent"
+        android:backgroundTint="@color/low_yellow"
+        app:cardCornerRadius="@dimen/_20sdp">
+
+        <ImageView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:src="@drawable/ic_web" />
+
+        <TextView
+            android:id="@+id/teamWeb"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="bottom|center"
+            android:layout_marginBottom="@dimen/_20sdp"
+            android:fontFamily="@font/inter_medium"
+            android:text="Web Development"
+            android:textAlignment="center"
+            android:textColor="@color/dark_yellow"
+            android:textSize="@dimen/_14ssp" />
+    </androidx.cardview.widget.CardView>
 
         <androidx.cardview.widget.CardView
-            android:layout_width="@dimen/_200sdp"
-            android:layout_height="match_parent"
-            android:layout_gravity="center"
-            android:layout_margin="20dp">
+            android:layout_width="@dimen/_150sdp"
+            android:layout_height="@dimen/_170sdp"
+            android:layout_below="@+id/centerinparent"
+            android:layout_toLeftOf="@+id/centerinparent"
+            android:layout_margin="@dimen/_8sdp"
+            app:cardCornerRadius="@dimen/_20sdp"
+            android:backgroundTint="@color/low_red">
 
-            <TextView
-                android:id="@+id/teamAndroid"
+            <ImageView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="Android Dev Team"
-                android:textAlignment="center"
-                android:textSize="@dimen/_22ssp" />
-        </androidx.cardview.widget.CardView>
-
-        <androidx.cardview.widget.CardView
-            android:layout_width="@dimen/_200sdp"
-            android:layout_height="match_parent"
-            android:layout_gravity="center"
-            android:layout_margin="20dp">
-
-            <TextView
-                android:id="@+id/teamWeb"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="Web Dev Team
-"
-                android:textAlignment="center"
-                android:textSize="@dimen/_22ssp" />
-        </androidx.cardview.widget.CardView>
-
-        <androidx.cardview.widget.CardView
-            android:layout_width="@dimen/_200sdp"
-            android:layout_height="match_parent"
-            android:layout_gravity="center"
-            android:layout_margin="20dp">
+                android:src="@drawable/ic_ui"
+                android:layout_gravity="center"/>
 
             <TextView
                 android:id="@+id/teamUiUx"
@@ -61,14 +120,27 @@
                 android:layout_height="wrap_content"
                 android:text="UI/UX Team"
                 android:textAlignment="center"
-                android:textSize="@dimen/_22ssp" />
+                android:textSize="@dimen/_14ssp"
+                android:fontFamily="@font/inter_medium"
+                android:layout_gravity="bottom|center"
+                android:textColor="@color/dark_red"
+                android:layout_marginBottom="@dimen/_20sdp"/>
         </androidx.cardview.widget.CardView>
 
         <androidx.cardview.widget.CardView
-            android:layout_width="@dimen/_200sdp"
-            android:layout_height="match_parent"
-            android:layout_gravity="center"
-            android:layout_margin="20dp">
+            android:layout_width="@dimen/_150sdp"
+            android:layout_height="@dimen/_170sdp"
+            android:layout_toRightOf="@+id/centerinparent"
+            android:layout_below="@+id/centerinparent"
+            android:layout_margin="@dimen/_8sdp"
+            app:cardCornerRadius="@dimen/_20sdp"
+            android:backgroundTint="@color/low_pink">
+
+            <ImageView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:src="@drawable/ic_mba"
+                android:layout_gravity="center"/>
 
             <TextView
                 android:id="@+id/teamMBA"
@@ -76,48 +148,11 @@
                 android:layout_height="wrap_content"
                 android:text="MBA TEAM"
                 android:textAlignment="center"
-                android:textSize="@dimen/_22ssp" />
-        </androidx.cardview.widget.CardView>
-    </LinearLayout>
-
-    <LinearLayout
-        android:id="@+id/OuterLayout"
-        android:layout_width="0dp"
-        android:layout_height="wrap_content"
-        android:orientation="vertical"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent">
-
-        <androidx.cardview.widget.CardView
-            android:layout_width="@dimen/_200sdp"
-            android:layout_height="wrap_content"
-            android:layout_gravity="center"
-            android:layout_margin="20dp">
-
-            <TextView
-                android:id="@+id/teamAndMembers"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="Teams And Members"
-                android:textAlignment="center"
-                android:textSize="@dimen/_22ssp" />
+                android:textSize="@dimen/_14ssp"
+                android:fontFamily="@font/inter_medium"
+                android:layout_gravity="bottom|center"
+                android:layout_marginBottom="@dimen/_20sdp"
+                android:textColor="@color/dark_pink"/>
         </androidx.cardview.widget.CardView>
 
-        <androidx.cardview.widget.CardView
-            android:layout_width="@dimen/_200sdp"
-            android:layout_height="wrap_content"
-            android:layout_gravity="center"
-            android:layout_margin="20dp">
-
-            <TextView
-                android:id="@+id/sendNotifications"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="Send User Notifications "
-                android:textAlignment="center"
-                android:textSize="@dimen/_22ssp" />
-        </androidx.cardview.widget.CardView>
-    </LinearLayout>
-</androidx.constraintlayout.widget.ConstraintLayout>
+</RelativeLayout>
