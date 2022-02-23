@@ -4,19 +4,50 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="@color/bg_color"
     tools:context=".Activites.SubmitTaskActivity">
 
+    <!--task bar-->
+    <androidx.cardview.widget.CardView
+        android:id="@+id/showTaskBar"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/_50sdp"
+        app:cardBackgroundColor="@color/bg_color"
+        app:cardElevation="0.1dp"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0">
+
+        <ImageButton
+            android:id="@+id/back_button"
+            android:layout_width="@dimen/_25sdp"
+            android:layout_height="@dimen/_25sdp"
+            android:layout_gravity="center|left"
+            android:layout_marginLeft="@dimen/_10sdp"
+            android:background="@drawable/ic_back" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:fontFamily="@font/inter_medium"
+            android:text="Assigned Task"
+            android:textColor="@color/title_text"
+            android:textSize="@dimen/_16ssp" />
+
+    </androidx.cardview.widget.CardView>
 
     <ScrollView
         android:id="@+id/scrollView2"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
+        android:layout_marginTop="@dimen/_50sdp"
         android:layout_marginBottom="@dimen/_60sdp"
-        app:layout_constraintBottom_toTopOf="@+id/submitTask2"
+        app:layout_constraintBottom_toTopOf="@+id/updateTask"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0">
+        app:layout_constraintVertical_bias="0.0">
 
 
         <LinearLayout
@@ -31,23 +62,29 @@
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="Task title"
-                android:textColor="@color/black"
-                android:textSize="@dimen/_14ssp"
-                android:textStyle="bold" />
+                android:fontFamily="@font/inter_medium"
+                android:text="Title"
+                android:textColor="@color/title_text"
+                android:textSize="@dimen/_14ssp" />
 
-            <TextView
-                android:id="@+id/taskTitleSubmit"
+            <androidx.cardview.widget.CardView
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_gravity="top"
                 android:layout_marginTop="@dimen/_5sdp"
-                android:background="@drawable/task_bg"
-                android:hint="Enter task Title"
-                android:inputType="text"
-                android:padding="@dimen/_10sdp"
-                android:textColor="@color/black"
-                android:textSize="@dimen/_12ssp" />
+                app:cardCornerRadius="@dimen/_5sdp">
+
+                <TextView
+                    android:id="@+id/taskTitleSubmit"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:fontFamily="@font/inter_medium"
+                    android:hint="Task Title"
+                    android:inputType="text"
+                    android:padding="@dimen/_10sdp"
+                    android:textColor="@color/desc_text"
+                    android:textSize="@dimen/_12ssp" />
+
+            </androidx.cardview.widget.CardView>
 
 
             <!--            priority-->
@@ -55,10 +92,10 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="@dimen/_10sdp"
+                android:fontFamily="@font/inter_medium"
                 android:text="Status"
-                android:textColor="@color/black"
-                android:textSize="@dimen/_14ssp"
-                android:textStyle="bold" />
+                android:textColor="@color/title_text"
+                android:textSize="@dimen/_14ssp" />
 
             <LinearLayout
                 android:layout_width="match_parent"
@@ -77,8 +114,9 @@
                         android:id="@+id/Todo"
                         style="@style/Widget.MaterialComponents.Chip.Choice"
                         android:layout_width="@dimen/_85sdp"
-                        android:layout_height="@dimen/_43sdp"
-                        android:checked="true"
+                        android:layout_height="@dimen/_45sdp"
+                        android:checked="false"
+                        android:fontFamily="@font/inter_medium"
                         android:padding="@dimen/_4sdp"
                         android:text="Todo"
                         android:textAlignment="center"
@@ -90,8 +128,9 @@
                         android:id="@+id/inProgress"
                         style="@style/Widget.MaterialComponents.Chip.Choice"
                         android:layout_width="@dimen/_85sdp"
-                        android:layout_height="@dimen/_43sdp"
-                        android:checked="true"
+                        android:layout_height="@dimen/_45sdp"
+                        android:checked="false"
+                        android:fontFamily="@font/inter_medium"
                         android:padding="@dimen/_4sdp"
                         android:text="In Progress"
                         android:textAlignment="center"
@@ -103,8 +142,9 @@
                         android:id="@+id/Done"
                         style="@style/Widget.MaterialComponents.Chip.Choice"
                         android:layout_width="@dimen/_85sdp"
-                        android:layout_height="@dimen/_43sdp"
-                        android:checked="true"
+                        android:layout_height="@dimen/_45sdp"
+                        android:checked="false"
+                        android:fontFamily="@font/inter_medium"
                         android:padding="@dimen/_4sdp"
                         android:text="Done"
                         android:textAlignment="center"
@@ -133,45 +173,79 @@
                     android:id="@+id/starttext"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="Starts"
-                    android:textColor="@color/black"
-                    android:textSize="@dimen/_14ssp"
-                    android:textStyle="bold" />
+                    android:fontFamily="@font/inter_medium"
+                    android:text="Assigned Date"
+                    android:textColor="@color/title_text"
+                    android:textSize="@dimen/_14ssp" />
 
-                <TextView
-                    android:id="@+id/startDate"
-                    android:layout_width="@dimen/_125sdp"
+                <androidx.cardview.widget.CardView
+                    android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_below="@+id/starttext"
-                    android:layout_marginTop="@dimen/_5sdp"
-                    android:background="@drawable/dates_bg"
-                    android:hint="@string/start_date_msg"
-                    android:padding="@dimen/_7sdp"
-                    android:textColor="@color/black"
-                    android:textSize="@dimen/_12ssp" />
+                    app:cardCornerRadius="@dimen/_5sdp"
+                    android:layout_marginTop="@dimen/_5sdp">
+
+                    <ImageView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center|left"
+                        android:layout_marginLeft="@dimen/_5sdp"
+                        android:src="@drawable/ic_calender_start" />
+
+                    <TextView
+                        android:id="@+id/startDate"
+                        android:layout_width="@dimen/_100sdp"
+                        android:layout_height="wrap_content"
+                        android:layout_marginLeft="@dimen/_25sdp"
+                        android:fontFamily="@font/inter_medium"
+                        android:hint="@string/start_date_msg"
+                        android:padding="@dimen/_7sdp"
+                        android:textColor="@color/desc_text"
+                        android:textSize="@dimen/_12ssp" />
+
+                </androidx.cardview.widget.CardView>
+
 
                 <TextView
                     android:id="@+id/endtext"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_toRightOf="@+id/centerinparent"
-                    android:text="Ends"
-                    android:textColor="@color/black"
-                    android:textSize="@dimen/_14ssp"
-                    android:textStyle="bold" />
+                    android:fontFamily="@font/inter_medium"
+                    android:text="Deadline"
+                    android:textColor="@color/title_text"
+                    android:textSize="@dimen/_14ssp" />
 
-                <TextView
-                    android:id="@+id/dueDate"
-                    android:layout_width="@dimen/_125sdp"
+                <androidx.cardview.widget.CardView
+                    android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_below="@+id/endtext"
                     android:layout_marginTop="@dimen/_5sdp"
                     android:layout_toRightOf="@+id/centerinparent"
-                    android:background="@drawable/dates_bg"
-                    android:hint="@string/due_date_msg"
-                    android:padding="@dimen/_7sdp"
-                    android:textColor="@color/black"
-                    android:textSize="@dimen/_12ssp" />
+                    app:cardCornerRadius="@dimen/_5sdp">
+
+
+                    <ImageView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center|left"
+                        android:layout_marginLeft="@dimen/_5sdp"
+                        android:src="@drawable/ic_calender_end" />
+
+
+                    <TextView
+                        android:id="@+id/dueDate"
+                        android:layout_width="@dimen/_100sdp"
+                        android:layout_height="wrap_content"
+                        android:layout_marginLeft="@dimen/_25sdp"
+                        android:fontFamily="@font/inter_medium"
+                        android:hint="@string/due_date_msg"
+                        android:padding="@dimen/_7sdp"
+                        android:textColor="@color/desc_text"
+                        android:textSize="@dimen/_12ssp" />
+
+                </androidx.cardview.widget.CardView>
+
 
             </RelativeLayout>
 
@@ -180,10 +254,10 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="@dimen/_10sdp"
-                android:text="Participants"
-                android:textColor="@color/black"
-                android:textSize="@dimen/_14ssp"
-                android:textStyle="bold" />
+                android:fontFamily="@font/inter_medium"
+                android:text="Team Members"
+                android:textColor="@color/title_text"
+                android:textSize="@dimen/_14ssp" />
 
             <LinearLayout
                 android:layout_width="wrap_content"
@@ -204,23 +278,32 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="@dimen/_10sdp"
-                android:text="Description"
-                android:textColor="@color/black"
-                android:textSize="@dimen/_14ssp"
-                android:textStyle="bold" />
+                android:fontFamily="@font/inter_medium"
+                android:text="Task Description"
+                android:textColor="@color/title_text"
+                android:textSize="@dimen/_14ssp" />
 
-            <TextView
-                android:id="@+id/taskDescSubmit"
+            <androidx.cardview.widget.CardView
                 android:layout_width="match_parent"
-                android:layout_height="@dimen/_180sdp"
+                android:layout_height="wrap_content"
                 android:layout_marginTop="@dimen/_5sdp"
                 android:layout_marginBottom="@dimen/_10sdp"
-                android:background="@drawable/task_bg"
-                android:gravity="top"
-                android:hint="This is where you write description....."
-                android:padding="@dimen/_8sdp"
-                android:textColor="@color/black"
-                android:textSize="@dimen/_12ssp" />
+                android:background="@color/white"
+                app:cardCornerRadius="@dimen/_5sdp">
+
+                <TextView
+                    android:id="@+id/taskDescSubmit"
+                    android:layout_width="match_parent"
+                    android:layout_height="@dimen/_180sdp"
+                    android:fontFamily="@font/inter_medium"
+                    android:gravity="top"
+                    android:hint="This is where you write description....."
+                    android:padding="@dimen/_10sdp"
+                    android:textColor="@color/desc_text"
+                    android:textSize="@dimen/_12ssp" />
+
+            </androidx.cardview.widget.CardView>
+
 
         </LinearLayout>
     </ScrollView>
@@ -232,8 +315,9 @@
         android:layout_gravity="bottom"
         android:layout_marginBottom="@dimen/_10sdp"
         android:background="@drawable/button_bg"
+        android:fontFamily="@font/inter_medium"
         android:gravity="center"
-        android:text="Update Task"
+        android:text="Update Status"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent" />

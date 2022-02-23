@@ -2,6 +2,7 @@ package com.taskmanager.horkrux.Adapters;
 
 import android.content.Context;
 import android.content.Intent;
+import android.content.res.ColorStateList;
 import android.graphics.Color;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -42,9 +43,33 @@ public class TaskAdapter extends RecyclerView.Adapter<TaskAdapter.TaskViewHolder
 
         String priority = tasks.get(position).getTaskPriority();
         if (priority.equals(Task.LOW)) {
-
-            holder.binding.taskItem.setCardBackgroundColor(Color.parseColor("#d50000"));
+            holder.binding.taskItem.setCardBackgroundColor(context.getResources().getColor(R.color.low_green));
+            holder.binding.startingDate.setTextColor(context.getResources().getColor(R.color.dark_green));
+            holder.binding.deadlineDate.setTextColor(context.getResources().getColor(R.color.dark_green));
+            holder.binding.priorityShow.setChipBackgroundColor(ColorStateList.valueOf(context.getResources().getColor(R.color.dark_green)));
+            holder.binding.priorityShow.setTextColor(ColorStateList.valueOf(context.getResources().getColor(R.color.white)));
+            holder.binding.userTaskTitle.setTextColor(ColorStateList.valueOf(context.getResources().getColor(R.color.title_text)));
+            holder.binding.userTaskDescription.setTextColor(ColorStateList.valueOf(context.getResources().getColor(R.color.desc_text)));
+        }else if(priority.equals(Task.MEDIUM))
+        {
+            holder.binding.taskItem.setCardBackgroundColor(context.getResources().getColor(R.color.low_yellow));
+            holder.binding.startingDate.setTextColor(context.getResources().getColor(R.color.dark_yellow));
+            holder.binding.deadlineDate.setTextColor(context.getResources().getColor(R.color.dark_yellow));
+            holder.binding.priorityShow.setChipBackgroundColor(ColorStateList.valueOf(context.getResources().getColor(R.color.dark_yellow)));
+            holder.binding.priorityShow.setTextColor(ColorStateList.valueOf(context.getResources().getColor(R.color.white)));
+            holder.binding.userTaskTitle.setTextColor(ColorStateList.valueOf(context.getResources().getColor(R.color.title_text)));
+            holder.binding.userTaskDescription.setTextColor(ColorStateList.valueOf(context.getResources().getColor(R.color.desc_text)));
+        }else{
+            holder.binding.taskItem.setCardBackgroundColor(context.getResources().getColor(R.color.low_red));
+            holder.binding.startingDate.setTextColor(context.getResources().getColor(R.color.dark_red));
+            holder.binding.deadlineDate.setTextColor(context.getResources().getColor(R.color.dark_red));
+            holder.binding.priorityShow.setChipBackgroundColor(ColorStateList.valueOf(context.getResources().getColor(R.color.dark_red)));
+            holder.binding.priorityShow.setTextColor(ColorStateList.valueOf(context.getResources().getColor(R.color.white)));
+            holder.binding.userTaskTitle.setTextColor(ColorStateList.valueOf(context.getResources().getColor(R.color.title_text)));
+            holder.binding.userTaskDescription.setTextColor(ColorStateList.valueOf(context.getResources().getColor(R.color.desc_text)));
         }
+
+
         holder.binding.userTaskTitle.setText(tasks.get(position).getTaskTitle());
         holder.binding.userTaskDescription.setText(tasks.get(position).getTaskDescription());
         holder.binding.startingDate.setText(tasks.get(position).getTaskAssigned());

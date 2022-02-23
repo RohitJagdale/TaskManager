@@ -146,6 +146,13 @@ public class AssignTaskActivity extends AppCompatActivity {
         //action on submit task btn
         binding.submitTask.setOnClickListener(assignTask);
 
+        binding.backButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                finish();
+            }
+        });
+
     }
 
 
