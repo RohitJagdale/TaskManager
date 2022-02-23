@@ -12,7 +12,6 @@ import androidx.recyclerview.widget.GridLayoutManager;
 import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.firebase.database.FirebaseDatabase;
 import com.taskmanager.horkrux.Adapters.UserAdapter;
-import com.taskmanager.horkrux.Constants;
 import com.taskmanager.horkrux.Models.Task;
 import com.taskmanager.horkrux.Models.Users;
 import com.taskmanager.horkrux.databinding.ActivitySubmitTaskBinding;
@@ -35,7 +34,7 @@ public class SubmitTaskActivity extends AppCompatActivity {
         database = FirebaseDatabase.getInstance();
 
         selectedTask = (Task) getIntent().getSerializableExtra("selectedTask");
-        adapter = new UserAdapter(context, selectedTask.getGrpTask(), Constants.SubmitTask);
+        adapter = new UserAdapter(context, selectedTask.getGrpTask(), null);
 
 //        Toast.makeText(context, selectedTask.getTaskID(), Toast.LENGTH_SHORT).show();
         setValues();

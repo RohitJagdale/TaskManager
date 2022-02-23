@@ -62,7 +62,6 @@ public class HomeFragment extends Fragment {
             binding.selectedUserName.setText(user.getUserName());
             binding.assignTaskButton.setVisibility(View.GONE);
             taskAdapter = new TaskAdapter(getContext(), userTasks, "");
-
             currentUserId = user.getFireuserid();
         } else {
             binding.selectedUserView.setVisibility(View.GONE);

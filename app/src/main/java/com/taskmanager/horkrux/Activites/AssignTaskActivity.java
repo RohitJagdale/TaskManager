@@ -26,7 +26,6 @@ import com.google.firebase.database.ValueEventListener;
 import com.google.firebase.firestore.FirebaseFirestore;
 import com.taskmanager.horkrux.Adapters.UserAdapter;
 import com.taskmanager.horkrux.CommonUtils;
-import com.taskmanager.horkrux.Constants;
 import com.taskmanager.horkrux.Models.Task;
 import com.taskmanager.horkrux.Models.Users;
 import com.taskmanager.horkrux.Notification.ApiUtils;
@@ -55,6 +54,7 @@ public class AssignTaskActivity extends AppCompatActivity {
     private FirebaseAuth auth;
     public static int count = 0;
 
+    private Task selectedTask;
     MaterialDatePicker.Builder materialDateBuilder;
     MaterialDatePicker startDatePicker;
     MaterialDatePicker dueDatePicker;
@@ -64,9 +64,10 @@ public class AssignTaskActivity extends AppCompatActivity {
     ArrayList<Users> assignedList;
     public static ArrayList<Users> items;
     public static ArrayList<String> showingItems;
+    private boolean isEdit = false;
 
 
-    ProgressDialog progressDialog;
+    private ProgressDialog progressDialog;
 
     @SuppressLint("NotifyDataSetChanged")
     @Override
@@ -76,10 +77,30 @@ public class AssignTaskActivity extends AppCompatActivity {
         setContentView(binding.getRoot());
 //        Objects.requireNonNull(getSupportActionBar()).hide();
 
+        selectedTask = (Task) getIntent().getSerializableExtra("selectedTask");
+
+        if (selectedTask != null) {
+            isEdit = true;
+        }
+
         initTaskUtils();
+        if (isEdit) {
+            setTasKUsingSelectedTask();
+        }
         loadUsers();
 
 
+    }
+
+    private void setTasKUsingSelectedTask() {
+        assignedList.addAll(selectedTask.getGrpTask());
+        binding.taskTitle.setText(selectedTask.getTaskTitle());
+        binding.taskDescription.setText(selectedTask.getTaskDescription());
+        binding.startDate.setText(selectedTask.getTaskAssigned());
+        binding.dueDate.setText(selectedTask.getTaskDeadline());
+        binding.taskTitle.setText(selectedTask.getTaskTitle());
+
+        adapter.notifyDataSetChanged();
     }
 
     private void initTaskUtils() {
@@ -97,7 +118,13 @@ public class AssignTaskActivity extends AppCompatActivity {
         items = new ArrayList<>();
         showingItems = new ArrayList<>();
         userList = new ListPopupWindow(context);
-        adapter = new UserAdapter(AssignTaskActivity.this, assignedList, Constants.AssignTask);
+
+        if (isEdit) {
+            adapter = new UserAdapter(AssignTaskActivity.this, assignedList, selectedTask.getTaskID());
+        } else {
+            adapter = new UserAdapter(AssignTaskActivity.this, assignedList, null);
+        }
+
         userListAdapter = new ArrayAdapter(context, R.layout.user_list, showingItems);
         progressDialog = new ProgressDialog(context);
         progressDialog.setMessage(PROGRESS_MESSAGE);
@@ -154,12 +181,14 @@ public class AssignTaskActivity extends AppCompatActivity {
 
             }
 
-            for (Users user : assignedList) {
-                Log.d("TAG", "onClick: " + user.getFireuserid());
-            }
+
             //assign task values
             task = new Task();
-            task.setTaskID(generateTaskId());
+            if (isEdit) {
+                task.setTaskID(selectedTask.getTaskID());
+            } else {
+                task.setTaskID(generateTaskId());
+            }
             task.setTaskTitle(binding.taskTitle.getText().toString());
             task.setTaskDescription(binding.taskDescription.getText().toString());
             task.setTaskPriority(getSelectedPriority());
@@ -168,6 +197,9 @@ public class AssignTaskActivity extends AppCompatActivity {
             task.setTaskDeadline(binding.dueDate.getText().toString());
             task.setTaskStatus(Task.DONE);
 
+            for (Users users : task.getGrpTask()) {
+                Log.d("TAG", "onClick: " + users.getUserName());
+            }
 
             //add task to database
 
@@ -209,7 +241,7 @@ public class AssignTaskActivity extends AppCompatActivity {
     //add data to database
     synchronized private void addTaskToDatabase() {
 
-        for (Users user : assignedList) {
+        for (Users user : task.getGrpTask()) {
             String path = USER_TASK_PATH + "/" + user.getFireuserid() + "/" + task.getTaskID();
             database.getReference()
                     .child(path)
@@ -264,6 +296,7 @@ public class AssignTaskActivity extends AppCompatActivity {
             userList.setAnchorView(v);
             userList.setAdapter(userListAdapter);
 
+            userListAdapter.notifyDataSetChanged();
             userList.setOnItemClickListener(userClicked);
             userList.show();
 
@@ -275,14 +308,31 @@ public class AssignTaskActivity extends AppCompatActivity {
         database.getReference().child(USERS_PATH).addValueEventListener(new ValueEventListener() {
             @Override
             public void onDataChange(@NonNull DataSnapshot snapshot) {
-                items.clear();
-                showingItems.clear();
-                for (DataSnapshot snap : snapshot.getChildren()) {
-                    Users user = snap.getValue(Users.class);
-                    items.add(user);
-                    showingItems.add(user.getUserName());
+                try {
+                    items.clear();
+                    showingItems.clear();
+
+                    for (DataSnapshot snap : snapshot.getChildren()) {
+                        Users user = snap.getValue(Users.class);
+                        boolean add = true;
+                        for (Users users : assignedList) {
+                            if (users.getFireuserid().equals(user.getFireuserid())) {
+                                add = false;
+                                break;
+                            }
+                        }
+                        if (add) {
+                            items.add(user);
+                            showingItems.add(user.getUserName());
+                        }
+
+                    }
+
+
+                    userListAdapter.notifyDataSetChanged();
+                } catch (Exception e) {
+                    Log.d("TAG", "onDataChange: ");
                 }
-                userListAdapter.notifyDataSetChanged();
 
 
             }

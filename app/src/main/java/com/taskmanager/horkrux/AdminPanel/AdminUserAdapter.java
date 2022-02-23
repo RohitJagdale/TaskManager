@@ -78,8 +78,6 @@ public class AdminUserAdapter extends RecyclerView.Adapter<AdminUserAdapter.Admi
         public AdminUserViewHolder(@NonNull View itemView) {
             super(itemView);
             binding = AdminUserListBinding.bind(itemView);
-
-
         }
     }
 }

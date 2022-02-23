@@ -35,7 +35,7 @@ public class TeamMemberList extends AppCompatActivity {
 
         users = new ArrayList<>();
         database = FirebaseDatabase.getInstance();
-        adapter = new AdminUserAdapter(context, users, "");
+        adapter = new AdminUserAdapter(context, users, null);
 
 
         binding.adminUserRecylerView.setLayoutManager(new LinearLayoutManager(context));
@@ -52,10 +52,11 @@ public class TeamMemberList extends AppCompatActivity {
                 users.clear();
                 for (DataSnapshot s : snapshot.getChildren()) {
                     Users user = s.getValue(Users.class);
-                    assert user != null;
-                    if (user.getUserDept().equals(requestedTeam)) {
-                        users.add(user);
-                    }
+                    users.add(user);
+//                    assert user != null;
+//                    if (user.getUserDept().equals(requestedTeam)) {
+//                        users.add(user);
+//                    }
                     adapter.notifyDataSetChanged();
                 }
 
