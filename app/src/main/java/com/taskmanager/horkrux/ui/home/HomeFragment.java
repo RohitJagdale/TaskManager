@@ -43,6 +43,7 @@ public class HomeFragment extends Fragment {
     private ProgressDialog loader;
     private Users user;
 
+
     public HomeFragment() {
     }
 
@@ -58,12 +59,17 @@ public class HomeFragment extends Fragment {
         binding = FragmentHomeBinding.inflate(inflater, container, false);
         userTasks = new ArrayList<>();
 
+
         if (user != null) {
             binding.selectedUserView.setVisibility(View.VISIBLE);
             binding.selectedUserName.setText(user.getUserName());
             binding.assignTaskButton.setVisibility(View.GONE);
             taskAdapter = new TaskAdapter(getContext(), userTasks, "");
             currentUserId = user.getFireuserid();
+
+            binding.selectedUserName.setText(user.getUserName());
+            binding.selectedUserMail.setText(user.getUserEmail());
+
         } else {
             binding.selectedUserView.setVisibility(View.GONE);
 
@@ -82,6 +88,7 @@ public class HomeFragment extends Fragment {
 
         return binding.getRoot();
     }
+
 
     private void setValues() {
         taskCategoryAdapter = new ArrayAdapter(getContext(), R.layout.home_list_item, taskCategories);

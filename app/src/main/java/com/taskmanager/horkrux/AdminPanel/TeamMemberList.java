@@ -2,6 +2,7 @@ package com.taskmanager.horkrux.AdminPanel;
 
 import android.content.Context;
 import android.os.Bundle;
+import android.view.View;
 
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
@@ -37,6 +38,12 @@ public class TeamMemberList extends AppCompatActivity {
         database = FirebaseDatabase.getInstance();
         adapter = new AdminUserAdapter(context, users, null);
 
+        binding.backButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                finish();
+            }
+        });
 
         binding.adminUserRecylerView.setLayoutManager(new LinearLayoutManager(context));
         binding.adminUserRecylerView.setAdapter(adapter);

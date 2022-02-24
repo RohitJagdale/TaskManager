@@ -42,7 +42,7 @@ public class AdminUserAdapter extends RecyclerView.Adapter<AdminUserAdapter.Admi
     public void onBindViewHolder(@NonNull AdminUserViewHolder holder, int position) {
 
         holder.binding.adminUserName.setText(users.get(position).getUserName());
-        holder.binding.adminUserName.setOnClickListener(new View.OnClickListener() {
+        holder.binding.userDetailSee.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 Intent intent = new Intent(context, UserTasksActivity.class);

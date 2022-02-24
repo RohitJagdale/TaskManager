@@ -23,6 +23,11 @@
     <color name="bg_color">#F7F8FA</color>
     <color name="low_pink">#F0CEE8</color>
     <color name="dark_pink">#EE3FC4</color>
+    <color name="profile_bg">#E2EFFF</color>
+    <color name="status_bar_g1">#3FA3FB</color>
+    <color name="status_bar_g2">#30CBDC</color>
+
+
 
 
 

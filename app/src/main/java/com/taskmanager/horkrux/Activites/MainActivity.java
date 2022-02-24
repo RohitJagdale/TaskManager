@@ -123,16 +123,21 @@ public class MainActivity extends AppCompatActivity {
             public boolean onNavigationItemSelected(@NonNull MenuItem item) {
                 Fragment fragment = null;
                 if (item.getItemId() == R.id.nav_home) {
+                    drawerLayout.closeDrawers();
                     fragment = new HomeFragment();
+                    return false;
                 }
                 if (item.getItemId() == R.id.nav_profile) {
-                    fragment = new GalleryFragment();
+//                    fragment = new GalleryFragment();
+                    startActivity(new Intent(getApplicationContext(),Profile.class));
+                    drawerLayout.closeDrawers();
+                    return false;
                 }
                 if (item.getItemId() == R.id.nav_sign_out) {
                     auth.signOut();
                     startActivity(new Intent(MainActivity.this, LoginAndSignUp.class));
                     finishAffinity();
-                    return true;
+                    return false;
                 }
 
                 FragmentTransaction transaction = getSupportFragmentManager().beginTransaction();

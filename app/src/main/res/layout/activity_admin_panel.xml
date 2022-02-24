@@ -39,41 +39,42 @@
         android:id="@+id/centerinparent"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_centerInParent="true"/>
+        android:layout_centerInParent="true" />
 
 
     <androidx.cardview.widget.CardView
+        android:id="@+id/teamAndroid"
         android:layout_width="@dimen/_150sdp"
         android:layout_height="@dimen/_170sdp"
         android:layout_above="@+id/centerinparent"
-        android:layout_margin="@dimen/_8sdp"
-        android:layout_marginStart="20dp"
-        android:layout_marginTop="20dp"
-        android:layout_marginEnd="20dp"
-        android:layout_marginBottom="20dp"
-        android:backgroundTint="@color/low_green"
+        android:layout_marginStart="@dimen/_8sdp"
+        android:layout_marginTop="@dimen/_8sdp"
+        android:layout_marginEnd="@dimen/_8sdp"
+        android:layout_marginBottom="@dimen/_8sdp"
         android:layout_toLeftOf="@+id/centerinparent"
+        android:backgroundTint="@color/low_green"
         app:cardCornerRadius="@dimen/_20sdp">
 
         <ImageView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:src="@drawable/ic_android"
-            android:layout_gravity="center"/>
+            android:layout_gravity="center"
+            android:src="@drawable/ic_android" />
+
         <TextView
-            android:id="@+id/teamAndroid"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_gravity="bottom|center"
             android:layout_marginBottom="@dimen/_20sdp"
             android:fontFamily="@font/inter_medium"
             android:text="Android"
-            android:textColor="@color/dark_green"
             android:textAlignment="center"
+            android:textColor="@color/dark_green"
             android:textSize="@dimen/_14ssp" />
     </androidx.cardview.widget.CardView>
 
     <androidx.cardview.widget.CardView
+        android:id="@+id/teamWeb"
         android:layout_width="@dimen/_150sdp"
         android:layout_height="@dimen/_170sdp"
         android:layout_above="@+id/centerinparent"
@@ -92,7 +93,6 @@
             android:src="@drawable/ic_web" />
 
         <TextView
-            android:id="@+id/teamWeb"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_gravity="bottom|center"
@@ -104,60 +104,80 @@
             android:textSize="@dimen/_14ssp" />
     </androidx.cardview.widget.CardView>
 
-        <androidx.cardview.widget.CardView
-            android:layout_width="@dimen/_150sdp"
-            android:layout_height="@dimen/_170sdp"
-            android:layout_below="@+id/centerinparent"
-            android:layout_toLeftOf="@+id/centerinparent"
-            android:layout_margin="@dimen/_8sdp"
-            app:cardCornerRadius="@dimen/_20sdp"
-            android:backgroundTint="@color/low_red">
+    <androidx.cardview.widget.CardView
+        android:id="@+id/teamUiUx"
+        android:layout_width="@dimen/_150sdp"
+        android:layout_height="@dimen/_170sdp"
+        android:layout_below="@+id/centerinparent"
+        android:layout_marginStart="@dimen/_8sdp"
+        android:layout_marginTop="@dimen/_8sdp"
+        android:layout_marginEnd="@dimen/_8sdp"
+        android:layout_marginBottom="@dimen/_8sdp"
+        android:layout_toLeftOf="@+id/centerinparent"
+        android:backgroundTint="@color/low_red"
+        app:cardCornerRadius="@dimen/_20sdp">
 
-            <ImageView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:src="@drawable/ic_ui"
-                android:layout_gravity="center"/>
+        <ImageView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:src="@drawable/ic_ui" />
 
-            <TextView
-                android:id="@+id/teamUiUx"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="UI/UX Team"
-                android:textAlignment="center"
-                android:textSize="@dimen/_14ssp"
-                android:fontFamily="@font/inter_medium"
-                android:layout_gravity="bottom|center"
-                android:textColor="@color/dark_red"
-                android:layout_marginBottom="@dimen/_20sdp"/>
-        </androidx.cardview.widget.CardView>
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="bottom|center"
+            android:layout_marginBottom="@dimen/_20sdp"
+            android:fontFamily="@font/inter_medium"
+            android:text="UI/UX Team"
+            android:textAlignment="center"
+            android:textColor="@color/dark_red"
+            android:textSize="@dimen/_14ssp" />
+    </androidx.cardview.widget.CardView>
 
-        <androidx.cardview.widget.CardView
-            android:layout_width="@dimen/_150sdp"
-            android:layout_height="@dimen/_170sdp"
-            android:layout_toRightOf="@+id/centerinparent"
-            android:layout_below="@+id/centerinparent"
-            android:layout_margin="@dimen/_8sdp"
-            app:cardCornerRadius="@dimen/_20sdp"
-            android:backgroundTint="@color/low_pink">
+    <androidx.cardview.widget.CardView
+        android:id="@+id/teamMBA"
+        android:layout_width="@dimen/_150sdp"
+        android:layout_height="@dimen/_170sdp"
+        android:layout_below="@+id/centerinparent"
+        android:layout_marginStart="@dimen/_8sdp"
+        android:layout_marginTop="@dimen/_8sdp"
+        android:layout_marginEnd="@dimen/_8sdp"
+        android:layout_marginBottom="@dimen/_8sdp"
+        android:layout_toRightOf="@+id/centerinparent"
+        android:backgroundTint="@color/low_pink"
+        app:cardCornerRadius="@dimen/_20sdp">
 
-            <ImageView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:src="@drawable/ic_mba"
-                android:layout_gravity="center"/>
+        <ImageView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:src="@drawable/ic_mba" />
 
-            <TextView
-                android:id="@+id/teamMBA"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="MBA TEAM"
-                android:textAlignment="center"
-                android:textSize="@dimen/_14ssp"
-                android:fontFamily="@font/inter_medium"
-                android:layout_gravity="bottom|center"
-                android:layout_marginBottom="@dimen/_20sdp"
-                android:textColor="@color/dark_pink"/>
-        </androidx.cardview.widget.CardView>
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="bottom|center"
+            android:layout_marginBottom="@dimen/_20sdp"
+            android:fontFamily="@font/inter_medium"
+            android:text="MBA TEAM"
+            android:textAlignment="center"
+            android:textColor="@color/dark_pink"
+            android:textSize="@dimen/_14ssp" />
+    </androidx.cardview.widget.CardView>
+
+
+    <com.google.android.material.floatingactionbutton.ExtendedFloatingActionButton
+        android:layout_width="@dimen/_150sdp"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:layout_marginBottom="80dp"
+        android:layout_centerHorizontal="true"
+       >
+
+
+
+    </com.google.android.material.floatingactionbutton.ExtendedFloatingActionButton>
+
 
 </RelativeLayout>
