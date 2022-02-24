@@ -5,13 +5,13 @@ import android.content.Context;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.Toast;
 
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.google.firebase.database.FirebaseDatabase;
 import com.taskmanager.horkrux.Activites.AssignTaskActivity;
+import com.taskmanager.horkrux.AdminPanel.SendNotificationsActivity;
 import com.taskmanager.horkrux.Models.Users;
 import com.taskmanager.horkrux.R;
 import com.taskmanager.horkrux.databinding.UserItemBinding;
@@ -56,15 +56,20 @@ public class UserAdapter extends RecyclerView.Adapter<UserAdapter.UsersViewHolde
     }
 
     public void removeItem(int poi) {
-        if (from != null) {
+        if (from != null && !from.equals("SendNotification")) {
 
 //            Toast.makeText(context, "", Toast.LENGTH_SHORT).show();
             FirebaseDatabase.getInstance().getReference().child("all-tasks/user-tasks").child(users.get(poi).getFireuserid()).child(from).setValue(null);
         }
 
-        AssignTaskActivity.showingItems.add(users.get(poi).getUserName());
+        if (from != null && from.equals("SendNotification")) {
 
-        AssignTaskActivity.items.add(users.remove(poi));
+            SendNotificationsActivity.showingItems.add(users.get(poi).getUserName());
+            SendNotificationsActivity.items.add(users.remove(poi));
+        } else {
+            AssignTaskActivity.showingItems.add(users.get(poi).getUserName());
+            AssignTaskActivity.items.add(users.remove(poi));
+        }
 
 
         notifyItemRemoved(poi);

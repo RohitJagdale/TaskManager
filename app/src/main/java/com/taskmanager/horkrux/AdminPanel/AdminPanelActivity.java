@@ -4,11 +4,9 @@ import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
-import android.widget.Toast;
 
 import androidx.appcompat.app.AppCompatActivity;
 
-import com.taskmanager.horkrux.Activites.MainActivity;
 import com.taskmanager.horkrux.Models.Users;
 import com.taskmanager.horkrux.databinding.ActivityAdminPanelBinding;
 
@@ -69,10 +67,11 @@ public class AdminPanelActivity extends AppCompatActivity {
             }
         });
 
-        binding.teamMBA.setOnClickListener(new View.OnClickListener() {
+        binding.sendNotifications.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Toast.makeText(getApplicationContext(), "Team Not formed yet", Toast.LENGTH_SHORT).show();
+
+                startActivity(new Intent(AdminPanelActivity.this, SendNotificationsActivity.class));
             }
         });
 

@@ -13,7 +13,7 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.TaskManager.NoActionBar">
         <activity
-            android:name=".Activites.Profile"
+            android:name=".AdminPanel.SendNotificationsActivity"
             android:exported="false" />
         <activity
             android:name=".AdminPanel.EditTaskActivity"
