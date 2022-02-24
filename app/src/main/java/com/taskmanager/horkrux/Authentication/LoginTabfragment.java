@@ -20,6 +20,7 @@ import com.google.firebase.auth.AuthResult;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
 import com.taskmanager.horkrux.Activites.MainActivity;
+import com.taskmanager.horkrux.AdminPanel.AdminPanelActivity;
 import com.taskmanager.horkrux.R;
 
 public class LoginTabfragment extends Fragment {
@@ -119,7 +120,7 @@ public class LoginTabfragment extends Fragment {
         if(firebaseUser.isEmailVerified() == true)
         {
             Toast.makeText(getActivity(),"logged in",Toast.LENGTH_SHORT).show();
-            startActivity(new Intent(getActivity(), MainActivity.class));
+            startActivity(new Intent(getActivity(), AdminPanelActivity.class));
             getActivity().finish();
         }
         else

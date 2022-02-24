@@ -27,6 +27,7 @@ import com.google.firebase.auth.FirebaseUser;
 import com.google.firebase.auth.GoogleAuthProvider;
 import com.google.firebase.database.FirebaseDatabase;
 import com.taskmanager.horkrux.Activites.MainActivity;
+import com.taskmanager.horkrux.AdminPanel.AdminPanelActivity;
 import com.taskmanager.horkrux.Models.Users;
 import com.taskmanager.horkrux.R;
 import com.taskmanager.horkrux.databinding.ActivityLoginAndSignUpBinding;
@@ -58,7 +59,7 @@ public class LoginAndSignUp extends AppCompatActivity {
 
 
         if (FirebaseAuth.getInstance().getCurrentUser() != null) {
-            startActivity(new Intent(LoginAndSignUp.this, MainActivity.class));
+            startActivity(new Intent(LoginAndSignUp.this, AdminPanelActivity.class));
             finish();
         }
 
@@ -151,7 +152,7 @@ public class LoginAndSignUp extends AppCompatActivity {
                                         public void onComplete(@NonNull Task<Void> task) {
                                             loader.dismiss();
                                             Toast.makeText(LoginAndSignUp.this, "Sign Up Successful", Toast.LENGTH_SHORT).show();
-                                            startActivity(new Intent(LoginAndSignUp.this, MainActivity.class));
+                                            startActivity(new Intent(LoginAndSignUp.this, AdminPanelActivity.class));
                                             finishAffinity();
                                         }
                                     });

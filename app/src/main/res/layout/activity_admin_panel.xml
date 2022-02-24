@@ -27,12 +27,13 @@
             android:textSize="@dimen/_16ssp" />
 
         <ImageButton
+            android:id="@+id/sendNotifications"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:src="@drawable/ic_notification"
-            android:backgroundTint="@color/bg_color"
             android:layout_gravity="right|center"
-            android:layout_marginRight="@dimen/_10sdp"/>
+            android:layout_marginRight="@dimen/_10sdp"
+            android:backgroundTint="@color/bg_color"
+            android:src="@drawable/ic_notification" />
     </androidx.cardview.widget.CardView>
 
     <RelativeLayout
