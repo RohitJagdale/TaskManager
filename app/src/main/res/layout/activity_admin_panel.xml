@@ -4,6 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:layout_margin="10dp"
     android:background="#f7f8fa"
     tools:context=".AdminPanel.AdminPanelActivity">
 
@@ -18,9 +19,12 @@
         app:layout_constraintVertical_bias="0">
 
         <TextView
+
+            android:id="@+id/dashBoardHead"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_gravity="center"
+            android:layout_gravity="left|center"
+            android:layout_marginLeft="@dimen/_10sdp"
             android:fontFamily="@font/inter_medium"
             android:text="Dash Board"
             android:textColor="@color/title_text"
@@ -46,12 +50,13 @@
     <androidx.cardview.widget.CardView
         android:id="@+id/teamAndroid"
         android:layout_width="@dimen/_150sdp"
-        android:layout_height="@dimen/_170sdp"
+        android:layout_height="@dimen/_165sdp"
         android:layout_above="@+id/centerinparent"
-        android:layout_marginStart="@dimen/_8sdp"
+        android:layout_marginStart="@dimen/_9sdp"
         android:layout_marginTop="@dimen/_8sdp"
         android:layout_marginEnd="@dimen/_8sdp"
-        android:layout_marginBottom="@dimen/_8sdp"
+        android:layout_marginRight="16dp"
+        android:layout_marginBottom="11dp"
         android:layout_toLeftOf="@+id/centerinparent"
         android:backgroundTint="@color/low_green"
         app:cardCornerRadius="@dimen/_20sdp">
@@ -77,7 +82,7 @@
     <androidx.cardview.widget.CardView
         android:id="@+id/teamWeb"
         android:layout_width="@dimen/_150sdp"
-        android:layout_height="@dimen/_170sdp"
+        android:layout_height="@dimen/_165sdp"
         android:layout_above="@+id/centerinparent"
         android:layout_marginStart="@dimen/_8sdp"
         android:layout_marginTop="@dimen/_8sdp"
@@ -108,7 +113,7 @@
     <androidx.cardview.widget.CardView
         android:id="@+id/teamUiUx"
         android:layout_width="@dimen/_150sdp"
-        android:layout_height="@dimen/_170sdp"
+        android:layout_height="@dimen/_165sdp"
         android:layout_below="@+id/centerinparent"
         android:layout_marginStart="@dimen/_8sdp"
         android:layout_marginTop="@dimen/_8sdp"
@@ -139,7 +144,7 @@
     <androidx.cardview.widget.CardView
         android:id="@+id/teamMBA"
         android:layout_width="@dimen/_150sdp"
-        android:layout_height="@dimen/_170sdp"
+        android:layout_height="@dimen/_165sdp"
         android:layout_below="@+id/centerinparent"
         android:layout_marginStart="@dimen/_8sdp"
         android:layout_marginTop="@dimen/_8sdp"
@@ -169,13 +174,14 @@
 
 
     <com.google.android.material.floatingactionbutton.ExtendedFloatingActionButton
+        android:id="@+id/adminAssignTask"
         android:layout_width="@dimen/_150sdp"
         android:layout_height="wrap_content"
         android:layout_alignParentBottom="true"
-        android:layout_marginBottom="80dp"
         android:layout_centerHorizontal="true"
-       >
-
+        android:layout_marginBottom="@dimen/_50ssp"
+        android:text="Assign Task"
+        android:textAlignment="center">
 
 
     </com.google.android.material.floatingactionbutton.ExtendedFloatingActionButton>

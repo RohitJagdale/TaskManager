@@ -4,9 +4,8 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".Activites.Profile"
     android:background="@color/profile_bg"
-    >
+    tools:context=".Activites.Profile">
 
     <RelativeLayout
         android:id="@+id/profileBg"
@@ -28,15 +27,15 @@
             android:layout_marginTop="@dimen/_10sdp"
             android:background="@drawable/ic_back_profile" />
 
-<!--       <ImageButton-->
-<!--           android:id="@+id/userSignOut"-->
-<!--           android:background="@drawable/ic_sign_out_profile"-->
-<!--           android:layout_width="@dimen/_25sdp"-->
-<!--           android:layout_height="@dimen/_25sdp"-->
-<!--           android:layout_alignParentRight="true"-->
-<!--           android:layout_marginRight="@dimen/_10sdp"-->
-<!--           android:layout_marginTop="@dimen/_10sdp"-->
-<!--           />-->
+        <!--       <ImageButton-->
+        <!--           android:id="@+id/userSignOut"-->
+        <!--           android:background="@drawable/ic_sign_out_profile"-->
+        <!--           android:layout_width="@dimen/_25sdp"-->
+        <!--           android:layout_height="@dimen/_25sdp"-->
+        <!--           android:layout_alignParentRight="true"-->
+        <!--           android:layout_marginRight="@dimen/_10sdp"-->
+        <!--           android:layout_marginTop="@dimen/_10sdp"-->
+        <!--           />-->
 
 
         <TextView
@@ -88,90 +87,85 @@
         android:id="@+id/todoCard"
         android:layout_width="@dimen/_240sdp"
         android:layout_height="wrap_content"
+        android:layout_marginTop="@dimen/_15sdp"
+        app:cardCornerRadius="@dimen/_10sdp"
         app:contentPadding="@dimen/_5sdp"
-        app:layout_constraintTop_toBottomOf="@+id/profileBg"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:cardCornerRadius="@dimen/_10sdp"
-        android:layout_marginTop="@dimen/_15sdp"
-        >
+        app:layout_constraintTop_toBottomOf="@+id/profileBg">
 
         <ImageView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:src="@drawable/ic_todo"
+            android:layout_gravity="center|left"
             android:layout_marginLeft="@dimen/_10sdp"
-            android:layout_gravity="center|left"/>
+            android:src="@drawable/ic_todo" />
 
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="To-do"
             android:layout_gravity="left"
             android:layout_marginLeft="@dimen/_50sdp"
-            android:textSize="@dimen/_14ssp"
+            android:fontFamily="@font/inter_medium"
+            android:text="To-do"
             android:textColor="@color/title_text"
-            android:fontFamily="@font/inter_medium"/>
+            android:textSize="@dimen/_14ssp" />
 
         <TextView
             android:id="@+id/todoCount"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="23"
             android:layout_gravity="left|bottom"
             android:layout_marginLeft="@dimen/_50sdp"
             android:layout_marginTop="@dimen/_20sdp"
-            android:textSize="@dimen/_12ssp"
+            android:fontFamily="@font/inter_medium"
+            android:text="23"
             android:textColor="@color/desc_text"
-            android:fontFamily="@font/inter_medium"/>
-
+            android:textSize="@dimen/_12ssp" />
 
 
     </androidx.cardview.widget.CardView>
-
 
 
     <androidx.cardview.widget.CardView
         android:id="@+id/inProgressCard"
         android:layout_width="@dimen/_240sdp"
         android:layout_height="wrap_content"
+        android:layout_marginTop="@dimen/_15sdp"
+        app:cardCornerRadius="@dimen/_10sdp"
         app:contentPadding="@dimen/_5sdp"
-        app:layout_constraintTop_toBottomOf="@+id/todoCard"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:cardCornerRadius="@dimen/_10sdp"
-        android:layout_marginTop="@dimen/_15sdp"
-        >
+        app:layout_constraintTop_toBottomOf="@+id/todoCard">
 
         <ImageView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:src="@drawable/ic_inprogress"
+            android:layout_gravity="center|left"
             android:layout_marginLeft="@dimen/_10sdp"
-            android:layout_gravity="center|left"/>
+            android:src="@drawable/ic_inprogress" />
 
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="In Progress"
             android:layout_gravity="left"
             android:layout_marginLeft="@dimen/_50sdp"
-            android:textSize="@dimen/_14ssp"
+            android:fontFamily="@font/inter_medium"
+            android:text="In Progress"
             android:textColor="@color/title_text"
-            android:fontFamily="@font/inter_medium"/>
+            android:textSize="@dimen/_14ssp" />
 
         <TextView
             android:id="@+id/inProgressCount"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="23"
             android:layout_gravity="left|bottom"
             android:layout_marginLeft="@dimen/_50sdp"
             android:layout_marginTop="@dimen/_20sdp"
-            android:textSize="@dimen/_12ssp"
+            android:fontFamily="@font/inter_medium"
+            android:text="23"
             android:textColor="@color/desc_text"
-            android:fontFamily="@font/inter_medium"/>
-
+            android:textSize="@dimen/_12ssp" />
 
 
     </androidx.cardview.widget.CardView>
@@ -181,42 +175,41 @@
         android:id="@+id/doneCard"
         android:layout_width="@dimen/_240sdp"
         android:layout_height="wrap_content"
+        android:layout_marginTop="@dimen/_15sdp"
+        app:cardCornerRadius="@dimen/_10sdp"
         app:contentPadding="@dimen/_5sdp"
-        app:layout_constraintTop_toBottomOf="@+id/inProgressCard"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:cardCornerRadius="@dimen/_10sdp"
-        android:layout_marginTop="@dimen/_15sdp"
-        >
+        app:layout_constraintTop_toBottomOf="@+id/inProgressCard">
 
         <ImageView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:src="@drawable/ic_done"
+            android:layout_gravity="center|left"
             android:layout_marginLeft="@dimen/_10sdp"
-            android:layout_gravity="center|left"/>
+            android:src="@drawable/ic_done" />
 
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Done"
             android:layout_gravity="left"
             android:layout_marginLeft="@dimen/_50sdp"
-            android:textSize="@dimen/_14ssp"
+            android:fontFamily="@font/inter_medium"
+            android:text="Done"
             android:textColor="@color/title_text"
-            android:fontFamily="@font/inter_medium"/>
+            android:textSize="@dimen/_14ssp" />
 
         <TextView
             android:id="@+id/doneCount"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="23"
             android:layout_gravity="left|bottom"
             android:layout_marginLeft="@dimen/_50sdp"
             android:layout_marginTop="@dimen/_20sdp"
-            android:textSize="@dimen/_12ssp"
+            android:fontFamily="@font/inter_medium"
+            android:text="23"
             android:textColor="@color/desc_text"
-            android:fontFamily="@font/inter_medium"/>
+            android:textSize="@dimen/_12ssp" />
 
     </androidx.cardview.widget.CardView>
 
@@ -225,39 +218,37 @@
         android:id="@+id/userSignOut"
         android:layout_width="@dimen/_120sdp"
         android:layout_height="wrap_content"
+        android:layout_marginTop="@dimen/_40sdp"
+        app:cardBackgroundColor="@color/teal_200"
+        app:cardCornerRadius="@dimen/_10sdp"
         app:contentPadding="@dimen/_5sdp"
-        app:layout_constraintTop_toBottomOf="@+id/doneCard"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:cardCornerRadius="@dimen/_10sdp"
-        app:cardBackgroundColor="@color/teal_200"
-        android:layout_marginTop="@dimen/_40sdp">
+        app:layout_constraintTop_toBottomOf="@+id/doneCard">
 
 
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:textColor="@color/white"
-            android:text="Log Out"
-            android:fontFamily="@font/inter_medium"
             android:layout_gravity="center"
-            android:textSize="@dimen/_14ssp"/>
+            android:fontFamily="@font/inter_medium"
+            android:text="Log Out"
+            android:textColor="@color/white"
+            android:textSize="@dimen/_14ssp" />
 
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="23"
             android:layout_gravity="left|bottom"
             android:layout_marginLeft="@dimen/_50sdp"
             android:layout_marginTop="@dimen/_20sdp"
-            android:textSize="@dimen/_12ssp"
+            android:fontFamily="@font/inter_medium"
+            android:text="23"
             android:textColor="@color/teal_200"
-            android:fontFamily="@font/inter_medium"/>
+            android:textSize="@dimen/_12ssp" />
 
 
     </androidx.cardview.widget.CardView>
-
-
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>

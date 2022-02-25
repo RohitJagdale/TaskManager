@@ -1,12 +1,14 @@
 package com.taskmanager.horkrux.Activites;
 
-import androidx.annotation.NonNull;
-import androidx.appcompat.app.AppCompatActivity;
-
+import android.content.Context;
+import android.content.DialogInterface;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
-import android.widget.Toast;
+
+import androidx.annotation.NonNull;
+import androidx.appcompat.app.AlertDialog;
+import androidx.appcompat.app.AppCompatActivity;
 
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.database.DataSnapshot;
@@ -15,18 +17,16 @@ import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.ValueEventListener;
 import com.taskmanager.horkrux.Authentication.LoginAndSignUp;
 import com.taskmanager.horkrux.Models.Users;
-import com.taskmanager.horkrux.R;
 import com.taskmanager.horkrux.databinding.ActivityProfileBinding;
 
 public class Profile extends AppCompatActivity {
 
     ActivityProfileBinding binding;
 
-    FirebaseAuth firebaseAuth;
-    FirebaseDatabase database;
-
-    String USER_PATH;
-
+    private FirebaseAuth firebaseAuth;
+    private FirebaseDatabase database;
+    private Context context = Profile.this;
+    private String USER_PATH;
 
 
     @Override
@@ -41,10 +41,15 @@ public class Profile extends AppCompatActivity {
 
         USER_PATH = "Users/" + firebaseAuth.getUid() + "/";
 
+
+//        Toast.makeText(this,MainActivity.count.getTodo()+"" , Toast.LENGTH_SHORT).show();
+        binding.todoCount.setText(String.valueOf(MainActivity.count.getTodo()));
+        binding.inProgressCount.setText(String.valueOf(MainActivity.count.getInProgress()));
+        binding.doneCount.setText(String.valueOf(MainActivity.count.getDone()));
+
         binding.backButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Toast.makeText(Profile.this, "hey mama", Toast.LENGTH_SHORT).show();
                 finish();
 
             }
@@ -53,9 +58,31 @@ public class Profile extends AppCompatActivity {
         binding.userSignOut.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                firebaseAuth.signOut();
-                startActivity(new Intent(getApplicationContext(), LoginAndSignUp.class));
-                finish();
+                AlertDialog.Builder builder1 = new AlertDialog.Builder(context);
+                builder1.setMessage("Do you really want to sign out");
+                builder1.setCancelable(true);
+                builder1.setPositiveButton(
+                        "Yes",
+                        new DialogInterface.OnClickListener() {
+                            public void onClick(DialogInterface dialog, int id) {
+                                firebaseAuth.signOut();
+                                startActivity(new Intent(getApplicationContext(), LoginAndSignUp.class));
+                                finish();
+                                dialog.cancel();
+                            }
+                        });
+                builder1.setNegativeButton(
+                        "No",
+                        new DialogInterface.OnClickListener() {
+                            public void onClick(DialogInterface dialog, int id) {
+                                dialog.cancel();
+                            }
+                        });
+
+                AlertDialog alert11 = builder1.create();
+                alert11.show();
+
+
             }
         });
 

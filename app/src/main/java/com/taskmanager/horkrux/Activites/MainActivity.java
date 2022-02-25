@@ -5,7 +5,6 @@ import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
-import android.widget.ImageButton;
 
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.ActionBarDrawerToggle;
@@ -24,11 +23,11 @@ import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.ValueEventListener;
 import com.google.firebase.messaging.FirebaseMessaging;
 import com.taskmanager.horkrux.Authentication.LoginAndSignUp;
+import com.taskmanager.horkrux.Models.Count;
 import com.taskmanager.horkrux.Models.Users;
 import com.taskmanager.horkrux.R;
 import com.taskmanager.horkrux.databinding.ActivityMainBinding;
 import com.taskmanager.horkrux.databinding.NavHeaderMainBinding;
-import com.taskmanager.horkrux.ui.gallery.GalleryFragment;
 import com.taskmanager.horkrux.ui.home.HomeFragment;
 
 public class MainActivity extends AppCompatActivity {
@@ -37,13 +36,14 @@ public class MainActivity extends AppCompatActivity {
     private ActivityMainBinding binding;
     public DrawerLayout drawerLayout;
     public ActionBarDrawerToggle actionBarDrawerToggle;
-    HomeFragment homeFragment;
-    FragmentTransaction fragmentTransaction;
-    FirebaseDatabase database;
-    FirebaseAuth auth;
-    NavHeaderMainBinding navHeaderMainBinding;
-    NavigationView navigationView;
-    String USER_PATH;
+    public static Count count;
+    private HomeFragment homeFragment;
+    private FragmentTransaction fragmentTransaction;
+    private FirebaseDatabase database;
+    private FirebaseAuth auth;
+    private NavHeaderMainBinding navHeaderMainBinding;
+    private NavigationView navigationView;
+    private String USER_PATH;
 
 
     @Override
@@ -54,6 +54,7 @@ public class MainActivity extends AppCompatActivity {
         setContentView(binding.getRoot());
         database = FirebaseDatabase.getInstance();
         auth = FirebaseAuth.getInstance();
+        count = new Count(0, 0, 0, 0);
 
         //subscribe to notification
         USER_PATH = "Users/" + auth.getUid() + "/";
@@ -117,7 +118,6 @@ public class MainActivity extends AppCompatActivity {
         });
 
 
-
         navigationView.setNavigationItemSelectedListener(new NavigationView.OnNavigationItemSelectedListener() {
             @Override
             public boolean onNavigationItemSelected(@NonNull MenuItem item) {
@@ -125,11 +125,13 @@ public class MainActivity extends AppCompatActivity {
                 if (item.getItemId() == R.id.nav_home) {
                     drawerLayout.closeDrawers();
                     fragment = new HomeFragment();
-                    return false;
+                    return true;
                 }
                 if (item.getItemId() == R.id.nav_profile) {
 //                    fragment = new GalleryFragment();
-                    startActivity(new Intent(getApplicationContext(),Profile.class));
+                    Intent profileIntent = new Intent(MainActivity.this, Profile.class);
+//                    profileIntent.putExtra("count", count);
+                    startActivity(profileIntent);
                     drawerLayout.closeDrawers();
                     return false;
                 }
@@ -145,7 +147,7 @@ public class MainActivity extends AppCompatActivity {
                 transaction.commit();
                 drawerLayout.closeDrawers();
 
-                return false;
+                return true;
             }
         });
 

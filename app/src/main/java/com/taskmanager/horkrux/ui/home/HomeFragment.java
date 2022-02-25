@@ -21,6 +21,7 @@ import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.ValueEventListener;
 import com.taskmanager.horkrux.Activites.AssignTaskActivity;
+import com.taskmanager.horkrux.Activites.MainActivity;
 import com.taskmanager.horkrux.Adapters.TaskAdapter;
 import com.taskmanager.horkrux.Models.Task;
 import com.taskmanager.horkrux.Models.Users;
@@ -34,7 +35,7 @@ public class HomeFragment extends Fragment {
 
     private HomeViewModel homeViewModel;
     private FragmentHomeBinding binding;
-    final String[] taskCategories = {"ALL", "TODO", "IN PROGRESS", "DONE"};
+    final String[] taskCategories = {"ALL Tasks", "TO-DO", "IN PROGRESS", "DONE"};
     final int ALL = 0, TODO = 1, IN_PROGRESS = 2, DONE = 3;
     ArrayAdapter taskCategoryAdapter;
     private TaskAdapter taskAdapter;
@@ -63,7 +64,7 @@ public class HomeFragment extends Fragment {
         if (user != null) {
             binding.selectedUserView.setVisibility(View.VISIBLE);
             binding.selectedUserName.setText(user.getUserName());
-            binding.assignTaskButton.setVisibility(View.GONE);
+
             taskAdapter = new TaskAdapter(getContext(), userTasks, "");
             currentUserId = user.getFireuserid();
 
@@ -78,7 +79,7 @@ public class HomeFragment extends Fragment {
             binding.linearLayout.setLayoutParams(params);
 
             taskAdapter = new TaskAdapter(getContext(), userTasks, null);
-            binding.assignTaskButton.setVisibility(View.VISIBLE);
+
             currentUserId = FirebaseAuth.getInstance().getUid();
         }
 
@@ -101,7 +102,7 @@ public class HomeFragment extends Fragment {
 
         binding.userTaskRecylerView.setAdapter(taskAdapter);
         binding.userTaskRecylerView.setLayoutManager(new LinearLayoutManager(getContext()));
-        binding.assignTaskButton.setOnClickListener(assignTaskBtnAction);
+
 
     }
 
@@ -121,19 +122,36 @@ public class HomeFragment extends Fragment {
                 .addValueEventListener(new ValueEventListener() {
                     @Override
                     public void onDataChange(@NonNull DataSnapshot snapshot) {
-                        int count[] = {0, 0, 0};
+                        int todo = 0;
+                        int inProgress = 0;
+                        int done = 0;
+                        int all;
                         userTasks.clear();
                         for (DataSnapshot snap : snapshot.getChildren()) {
                             Task task = snap.getValue(Task.class);
+                            assert task != null;
                             if (task.getTaskStatus().equals(Task.TODO)) {
-                                count[0]++;
+                                todo++;
                             } else if (task.getTaskStatus().equals(Task.IN_PROGRESS)) {
-                                count[1]++;
+                                inProgress++;
                             } else {
-                                count[2]++;
+                                done++;
                             }
                             userTasks.add(task);
                         }
+
+//                        Toast.makeText(getContext(), "" + todo, Toast.LENGTH_SHORT).show();
+
+                        try {
+
+                            MainActivity.count.setTodo(todo);
+                            MainActivity.count.setInProgress(inProgress);
+                            MainActivity.count.setDone(done);
+                            MainActivity.count.setAll(done + todo + inProgress);
+                        } catch (Exception e) {
+
+                        }
+
 
 //                        binding.selectedUserMail.setText("TODO : " + count[0] + "\n" + "IN PROGRESS : " + count[1] + "\n" + "DONE : " + count[2]);
 

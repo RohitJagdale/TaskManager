@@ -3,6 +3,7 @@ package com.taskmanager.horkrux.Activites;
 import android.annotation.SuppressLint;
 import android.app.ProgressDialog;
 import android.content.Context;
+import android.content.DialogInterface;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
@@ -12,6 +13,7 @@ import android.widget.ListPopupWindow;
 import android.widget.Toast;
 
 import androidx.annotation.NonNull;
+import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.recyclerview.widget.GridLayoutManager;
 
@@ -133,8 +135,6 @@ public class AssignTaskActivity extends AppCompatActivity {
         }
 
 
-
-
         adapter.notifyDataSetChanged();
     }
 
@@ -238,17 +238,31 @@ public class AssignTaskActivity extends AppCompatActivity {
             task.setGrpTask(assignedList);
             task.setTaskAssigned(binding.startDate.getText().toString());
             task.setTaskDeadline(binding.dueDate.getText().toString());
-            task.setTaskStatus(Task.DONE);
-
-            for (Users users : task.getGrpTask()) {
-                Log.d("TAG", "onClick: " + users.getUserName());
-            }
+            task.setTaskStatus(Task.TODO);
 
             //add task to database
+            AlertDialog.Builder builder1 = new AlertDialog.Builder(context);
+            builder1.setMessage("Do you really want to Assign this task");
+            builder1.setCancelable(true);
+            builder1.setPositiveButton(
+                    "Yes",
+                    new DialogInterface.OnClickListener() {
+                        public void onClick(DialogInterface dialog, int id) {
+                            progressDialog.show();
+                            addTaskToDatabase();
+                            CommonUtils.sendNotificationToUser(task, context);
+                        }
+                    });
+            builder1.setNegativeButton(
+                    "No",
+                    new DialogInterface.OnClickListener() {
+                        public void onClick(DialogInterface dialog, int id) {
+                            dialog.cancel();
+                        }
+                    });
 
-            progressDialog.show();
-            addTaskToDatabase();
-            CommonUtils.sendNotificationToUser(task, context);
+            AlertDialog alert11 = builder1.create();
+            alert11.show();
 
 
         }
@@ -294,7 +308,10 @@ public class AssignTaskActivity extends AppCompatActivity {
                         synchronized public void onComplete(@NonNull com.google.android.gms.tasks.Task<Void> task) {
                             if (count == assignedList.size() - 1) {
                                 progressDialog.dismiss();
-                                resetAllInputs();
+                                if (!isEdit) {
+
+                                    resetAllInputs();
+                                }
                                 Toast.makeText(context, "Task Assigned", Toast.LENGTH_SHORT).show();
                             } else {
 
@@ -319,9 +336,10 @@ public class AssignTaskActivity extends AppCompatActivity {
         binding.lowPriority.setChecked(false);
         assignedList.clear();
         adapter.notifyDataSetChanged();
-        binding.startDate.setText("Pick Start Date");
-        binding.dueDate.setText("Pick Due Date");
+        binding.startDate.setText(null);
+        binding.dueDate.setText(null);
         binding.taskTitle.requestFocus();
+
         loadUsers();
         count = 0;
 

@@ -83,7 +83,7 @@
                     android:hint="Enter task Title"
                     android:inputType="text"
                     android:padding="@dimen/_10sdp"
-                    android:textColor="@color/black"
+                    android:textColor="@color/task_text"
                     android:textSize="@dimen/_12ssp" />
 
             </androidx.cardview.widget.CardView>
@@ -390,7 +390,7 @@
                     android:gravity="top"
                     android:hint="This is where you write description....."
                     android:padding="@dimen/_10sdp"
-                    android:textColor="@color/black"
+                    android:textColor="@color/task_text"
                     android:textSize="@dimen/_12ssp" />
 
             </androidx.cardview.widget.CardView>

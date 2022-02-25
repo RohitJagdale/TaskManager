@@ -81,7 +81,7 @@
                     android:hint="Task Title"
                     android:inputType="text"
                     android:padding="@dimen/_10sdp"
-                    android:textColor="@color/desc_text"
+                    android:textColor="@color/black"
                     android:textSize="@dimen/_12ssp" />
 
             </androidx.cardview.widget.CardView>
@@ -112,21 +112,25 @@
 
                     <com.google.android.material.chip.Chip
                         android:id="@+id/Todo"
-                        style="@style/Widget.MaterialComponents.Chip.Choice"
+                        style="@style/CustomHighChipChoice"
                         android:layout_width="@dimen/_85sdp"
                         android:layout_height="@dimen/_45sdp"
                         android:checked="false"
                         android:fontFamily="@font/inter_medium"
                         android:padding="@dimen/_4sdp"
                         android:text="Todo"
+                        android:textStyle="bold"
                         android:textAlignment="center"
+                        android:textColor="@color/chip_status_done_text"
                         android:textSize="@dimen/_12ssp"
+                        app:chipBackgroundColor="@color/chip_status_todo"
                         app:chipCornerRadius="@dimen/_5sdp"
                         tools:ignore="TouchTargetSizeCheck" />
 
                     <com.google.android.material.chip.Chip
                         android:id="@+id/inProgress"
-                        style="@style/Widget.MaterialComponents.Chip.Choice"
+                        style="@style/CustomMediumChipChoice"
+                        android:textStyle="bold"
                         android:layout_width="@dimen/_85sdp"
                         android:layout_height="@dimen/_45sdp"
                         android:checked="false"
@@ -134,21 +138,26 @@
                         android:padding="@dimen/_4sdp"
                         android:text="In Progress"
                         android:textAlignment="center"
+                        android:textColor="@color/chip_status_done_text"
                         android:textSize="@dimen/_12ssp"
+                        app:chipBackgroundColor="@color/chip_status_inprogress"
                         app:chipCornerRadius="@dimen/_5sdp"
                         tools:ignore="TouchTargetSizeCheck" />
 
                     <com.google.android.material.chip.Chip
                         android:id="@+id/Done"
-                        style="@style/Widget.MaterialComponents.Chip.Choice"
+                        style="@style/CustomLowChipChoice"
                         android:layout_width="@dimen/_85sdp"
                         android:layout_height="@dimen/_45sdp"
+                        android:textStyle="bold"
                         android:checked="false"
                         android:fontFamily="@font/inter_medium"
                         android:padding="@dimen/_4sdp"
                         android:text="Done"
                         android:textAlignment="center"
+                        android:textColor="@color/chip_status_done_text"
                         android:textSize="@dimen/_12ssp"
+                        app:chipBackgroundColor="@color/chip_status_done"
                         app:chipCornerRadius="@dimen/_5sdp"
                         tools:ignore="TouchTargetSizeCheck" />
 
@@ -182,8 +191,8 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_below="@+id/starttext"
-                    app:cardCornerRadius="@dimen/_5sdp"
-                    android:layout_marginTop="@dimen/_5sdp">
+                    android:layout_marginTop="@dimen/_5sdp"
+                    app:cardCornerRadius="@dimen/_5sdp">
 
                     <ImageView
                         android:layout_width="wrap_content"
@@ -200,7 +209,7 @@
                         android:fontFamily="@font/inter_medium"
                         android:hint="@string/start_date_msg"
                         android:padding="@dimen/_7sdp"
-                        android:textColor="@color/desc_text"
+                        android:textColor="@color/black"
                         android:textSize="@dimen/_12ssp" />
 
                 </androidx.cardview.widget.CardView>
@@ -241,7 +250,7 @@
                         android:fontFamily="@font/inter_medium"
                         android:hint="@string/due_date_msg"
                         android:padding="@dimen/_7sdp"
-                        android:textColor="@color/desc_text"
+                        android:textColor="@color/black"
                         android:textSize="@dimen/_12ssp" />
 
                 </androidx.cardview.widget.CardView>
@@ -299,7 +308,7 @@
                     android:gravity="top"
                     android:hint="This is where you write description....."
                     android:padding="@dimen/_10sdp"
-                    android:textColor="@color/desc_text"
+                    android:textColor="@color/black"
                     android:textSize="@dimen/_12ssp" />
 
             </androidx.cardview.widget.CardView>

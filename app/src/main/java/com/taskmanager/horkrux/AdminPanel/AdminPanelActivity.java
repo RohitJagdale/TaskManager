@@ -7,6 +7,8 @@ import android.view.View;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import com.taskmanager.horkrux.Activites.AssignTaskActivity;
+import com.taskmanager.horkrux.Activites.MainActivity;
 import com.taskmanager.horkrux.Models.Users;
 import com.taskmanager.horkrux.databinding.ActivityAdminPanelBinding;
 
@@ -23,23 +25,14 @@ public class AdminPanelActivity extends AppCompatActivity {
 
         binding = ActivityAdminPanelBinding.inflate(getLayoutInflater());
         setContentView(binding.getRoot());
-//
-//        binding.teamAndMembers.setOnClickListener(new View.OnClickListener() {
-//            @Override
-//            public void onClick(View v) {
-//                count++;
-//                binding.OuterLayout.setVisibility(View.GONE);
-//                binding.InnerLayout.setVisibility(View.VISIBLE);
-//            }
-//        });
 
-//        binding.sendNotifications.setOnClickListener(new View.OnClickListener() {
-//            @Override
-//            public void onClick(View v) {
-//                startActivity(new Intent(context, MainActivity.class));
-//            }
-//        });
 
+        binding.dashBoardHead.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                startActivity(new Intent(context, MainActivity.class));
+            }
+        });
         binding.teamAndroid.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -75,26 +68,13 @@ public class AdminPanelActivity extends AppCompatActivity {
             }
         });
 
+        binding.adminAssignTask.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                startActivity(new Intent(context, AssignTaskActivity.class));
+            }
+        });
 
     }
 
-//    @Override
-//    public void onBackPressed() {
-//        if (count == 1) {
-//            binding.OuterLayout.setVisibility(View.VISIBLE);
-//            binding.InnerLayout.setVisibility(View.GONE);
-//            count--;
-//        } else {
-//            count--;
-//            super.onBackPressed();
-//        }
-
-//    }
-
-//    @Override
-//    public boolean onSupportNavigateUp() {
-//        binding.OuterLayout.setVisibility(View.VISIBLE);
-//        binding.InnerLayout.setVisibility(View.GONE);
-//        return super.onSupportNavigateUp();
-//    }
 }

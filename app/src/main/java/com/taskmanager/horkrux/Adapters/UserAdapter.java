@@ -2,11 +2,13 @@ package com.taskmanager.horkrux.Adapters;
 
 
 import android.content.Context;
+import android.content.DialogInterface;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 
 import androidx.annotation.NonNull;
+import androidx.appcompat.app.AlertDialog;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.google.firebase.database.FirebaseDatabase;
@@ -47,7 +49,27 @@ public class UserAdapter extends RecyclerView.Adapter<UserAdapter.UsersViewHolde
         holder.binding.clearTextBtn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                removeItem(holder.getAdapterPosition());
+                AlertDialog.Builder builder1 = new AlertDialog.Builder(context);
+                builder1.setMessage("Doing this will remove this user from the task, are you sure?");
+                builder1.setCancelable(true);
+                builder1.setPositiveButton(
+                        "Yes",
+                        new DialogInterface.OnClickListener() {
+                            public void onClick(DialogInterface dialog, int id) {
+                                removeItem(holder.getAdapterPosition());
+                            }
+                        });
+                builder1.setNegativeButton(
+                        "No",
+                        new DialogInterface.OnClickListener() {
+                            public void onClick(DialogInterface dialog, int id) {
+                                dialog.cancel();
+                            }
+                        });
+
+                AlertDialog alert11 = builder1.create();
+                alert11.show();
+
             }
         });
     }
@@ -67,8 +89,13 @@ public class UserAdapter extends RecyclerView.Adapter<UserAdapter.UsersViewHolde
             SendNotificationsActivity.showingItems.add(users.get(poi).getUserName());
             SendNotificationsActivity.items.add(users.remove(poi));
         } else {
-            AssignTaskActivity.showingItems.add(users.get(poi).getUserName());
-            AssignTaskActivity.items.add(users.remove(poi));
+            try {
+                AssignTaskActivity.showingItems.add(users.get(poi).getUserName());
+                AssignTaskActivity.items.add(users.remove(poi));
+            } catch (Exception e) {
+
+            }
+
         }
 
 

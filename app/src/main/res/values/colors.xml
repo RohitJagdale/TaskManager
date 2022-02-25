@@ -11,7 +11,7 @@
     <color name="red">#FF0000</color>
 
 
-<!--    JADU COLOR-->
+    <!--    JADU COLOR-->
     <color name="low_green">#C3EFDF</color>
     <color name="dark_green">#37CB95</color>
     <color name="low_yellow">#FAE4BC</color>
@@ -28,9 +28,6 @@
     <color name="status_bar_g2">#30CBDC</color>
 
 
-
-
-
     <!--?xml version="1.0" encoding="UTF-8"?-->
     <color name="primaryColor">#304ffe</color>
     <color name="primaryLightColor">#7a7cff</color>
@@ -41,6 +38,13 @@
     <color name="primaryTextColor">#ffffff</color>
     <color name="secondaryTextColor">#ffffff</color>
 
+
+    <color name="low_grey">#d2d4da</color>
+    <color name="dark_grey">#9496a1</color>
+
+    <color name="task_text">#5b5d6b</color>
+
+    <color name="transparent">#00FF0000</color>
 
 
 </resources>
