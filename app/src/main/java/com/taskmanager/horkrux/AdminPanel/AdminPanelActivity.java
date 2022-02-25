@@ -55,6 +55,9 @@ public class AdminPanelActivity extends AppCompatActivity {
                             startActivity(new Intent(context, MainActivity.class));
                             return true;
                         }
+                        if (menuItem.getItemId() == R.id.createUser) {
+
+                        }
                         return false;
 
 

@@ -7,4 +7,7 @@
     <item
         android:id="@+id/adminUserView"
         android:title="Admin UserView" />
+    <item
+        android:id="@+id/createUser"
+        android:title="Create User" />
 </menu>
