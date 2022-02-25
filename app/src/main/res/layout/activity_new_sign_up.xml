@@ -105,9 +105,10 @@
                 android:layout_height="wrap_content"
                 android:layout_centerInParent="true"
                 android:fontFamily="@font/inter_medium"
-                android:text="Next"
+                android:text="Create User"
+                android:paddingBottom="@dimen/_5sdp"
                 android:textColor="@color/white"
-                android:textSize="@dimen/_16ssp" />
+                android:textSize="@dimen/_14ssp" />
 
         </RelativeLayout>
 
