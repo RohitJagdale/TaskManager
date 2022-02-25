@@ -41,7 +41,7 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:layout_marginTop="@dimen/_50sdp"
-        android:layout_marginBottom="@dimen/_60sdp"
+        android:layout_marginBottom="@dimen/_65sdp"
         app:layout_constraintBottom_toTopOf="@+id/submitTask"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
@@ -266,7 +266,8 @@
                     android:layout_height="wrap_content"
                     android:layout_below="@+id/starttext"
                     android:layout_marginTop="@dimen/_5sdp"
-                    app:cardCornerRadius="@dimen/_5sdp">
+                    app:cardCornerRadius="@dimen/_5sdp"
+                    android:elevation="@dimen/_5sdp">
 
                     <ImageView
                         android:layout_width="wrap_content"
@@ -399,17 +400,42 @@
         </LinearLayout>
     </ScrollView>
 
-    <Button
+<!--    <ImageButton-->
+<!--        android:id="@+id/submitTask"-->
+<!--        android:layout_width="wrap_content"-->
+<!--        android:layout_height="wrap_content"-->
+<!--        android:layout_gravity="bottom"-->
+<!--        android:layout_marginBottom="@dimen/_10sdp"-->
+<!--        android:src="@drawable/ic_assignbtn"-->
+<!--        android:background="@color/bg_color"-->
+<!--        android:gravity="center"-->
+<!--        android:text="Assign Task"-->
+<!--        app:layout_constraintBottom_toBottomOf="parent"-->
+<!--        app:layout_constraintEnd_toEndOf="parent"-->
+<!--        app:layout_constraintStart_toStartOf="parent" />-->
+
+    <RelativeLayout
         android:id="@+id/submitTask"
-        android:layout_width="@dimen/_220sdp"
+        android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_gravity="bottom"
-        android:layout_marginBottom="@dimen/_10sdp"
-        android:background="@drawable/button_bg"
-        android:gravity="center"
-        android:text="Assign Task"
+        android:layout_gravity="center"
+        android:layout_marginBottom="@dimen/_15sdp"
+        android:background="@drawable/ic_assignbtn"
+        android:padding="@dimen/_5sdp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent" />
+        app:layout_constraintStart_toStartOf="parent">
 
-</androidx.constraintlayout.widget.ConstraintLayout>
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_centerInParent="true"
+                android:fontFamily="@font/inter_medium"
+                android:paddingBottom="@dimen/_5sdp"
+                android:text="Create Task"
+                android:textColor="@color/white"
+                android:textSize="@dimen/_14ssp" />
+
+        </RelativeLayout>
+
+    </androidx.constraintlayout.widget.ConstraintLayout>

@@ -12,9 +12,10 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/Theme.TaskManager.NoActionBar">
-        <activity android:name=".Activites.Profile">
-
-        </activity>
+        <activity
+            android:name=".AuthNew.NewLoginActivity"
+            android:exported="false" />
+        <activity android:name=".Activites.Profile"></activity>
         <activity
             android:name=".AuthNew.NewSignUp"
             android:exported="false" />

@@ -9,6 +9,7 @@ public class Users implements Serializable {
     final public static String ANDROID_DEPT = "Android";
     final public static String WEB_DEPT = "Web";
     final public static String UI_UX_DEPT = "UI/UX";
+    final public static String MBA_DEPT = "MBA";
 
     public Users(String userEmail, String userPass, String userName, String fireuserid) {
         this.userName = userName;

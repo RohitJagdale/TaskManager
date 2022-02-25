@@ -11,6 +11,8 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import com.taskmanager.horkrux.Activites.AssignTaskActivity;
 import com.taskmanager.horkrux.Activites.MainActivity;
+import com.taskmanager.horkrux.Activites.Profile;
+import com.taskmanager.horkrux.AuthNew.NewSignUp;
 import com.taskmanager.horkrux.Models.Users;
 import com.taskmanager.horkrux.R;
 import com.taskmanager.horkrux.databinding.ActivityAdminPanelBinding;
@@ -56,7 +58,8 @@ public class AdminPanelActivity extends AppCompatActivity {
                             return true;
                         }
                         if (menuItem.getItemId() == R.id.createUser) {
-
+                            startActivity(new Intent(context, NewSignUp.class));
+                            return true;
                         }
                         return false;
 
@@ -101,14 +104,7 @@ public class AdminPanelActivity extends AppCompatActivity {
                 startActivity(new Intent(AdminPanelActivity.this, SendNotificationsActivity.class));
             }
         });
-
-        binding.adminAssignTask.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                startActivity(new Intent(context, AssignTaskActivity.class));
-            }
-        });
-
+        
     }
 
 }

@@ -73,11 +73,14 @@ public class LoginTabfragment extends Fragment {
 
 
 //        login user
+
+//        if user is already logged in
         if (firebaseUser != null) {
             startActivity(new Intent(getActivity(), MainActivity.class));
             getActivity().finish();
         }
 
+//        if user is not looged in
         login.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {

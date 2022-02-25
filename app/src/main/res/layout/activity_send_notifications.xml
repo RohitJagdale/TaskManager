@@ -159,17 +159,41 @@
         </LinearLayout>
     </ScrollView>
 
-    <Button
+<!--    <Button-->
+<!--        android:id="@+id/sendNotificationToUser"-->
+<!--        android:layout_width="wrap_content"-->
+<!--        android:layout_height="wrap_content"-->
+<!--        android:layout_gravity="bottom"-->
+<!--        android:layout_marginBottom="@dimen/_15sdp"-->
+<!--        android:background="@drawable/button_bg"-->
+<!--        android:gravity="center"-->
+<!--        android:text="Send Notification"-->
+<!--        app:layout_constraintBottom_toBottomOf="parent"-->
+<!--        app:layout_constraintEnd_toEndOf="parent"-->
+<!--        app:layout_constraintStart_toStartOf="parent" />-->
+
+    <RelativeLayout
         android:id="@+id/sendNotificationToUser"
-        android:layout_width="@dimen/_220sdp"
+        android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_gravity="bottom"
-        android:layout_marginBottom="@dimen/_10sdp"
-        android:background="@drawable/button_bg"
-        android:gravity="center"
-        android:text="Send Notification"
+        android:layout_gravity="center"
+        android:layout_marginBottom="@dimen/_15sdp"
+        android:background="@drawable/ic_assignbtn"
+        android:padding="@dimen/_5sdp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent" />
+        app:layout_constraintStart_toStartOf="parent">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerInParent="true"
+            android:fontFamily="@font/inter_medium"
+            android:paddingBottom="@dimen/_5sdp"
+            android:text="Send Notification"
+            android:textColor="@color/white"
+            android:textSize="@dimen/_14ssp" />
+
+    </RelativeLayout>
 
 </androidx.constraintlayout.widget.ConstraintLayout>
