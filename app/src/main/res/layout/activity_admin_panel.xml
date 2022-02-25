@@ -24,18 +24,29 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_gravity="left|center"
-            android:layout_marginLeft="@dimen/_10sdp"
+            android:layout_marginLeft="@dimen/_8sdp"
             android:fontFamily="@font/inter_medium"
             android:text="Dash Board"
             android:textColor="@color/title_text"
             android:textSize="@dimen/_16ssp" />
 
         <ImageButton
-            android:id="@+id/sendNotifications"
+            android:id="@+id/adminMenu"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_gravity="right|center"
             android:layout_marginRight="@dimen/_10sdp"
+            android:background="@color/bg_color"
+            android:src="@drawable/ic_baseline_more_vert_24">
+
+        </ImageButton>
+
+        <ImageButton
+            android:id="@+id/sendNotifications"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="right|center"
+            android:layout_marginRight="@dimen/_30sdp"
             android:backgroundTint="@color/bg_color"
             android:src="@drawable/ic_notification" />
     </androidx.cardview.widget.CardView>
