@@ -5,11 +5,19 @@ import java.io.Serializable;
 public class Users implements Serializable {
 
 
-    private String userName, userEmail, userPass, fireuserid, userDept;
+    private String userName, userEmail, userPass, fireuserid, userDept, userProfile;
     final public static String ANDROID_DEPT = "Android";
     final public static String WEB_DEPT = "Web";
     final public static String UI_UX_DEPT = "UI/UX";
     final public static String MBA_DEPT = "MBA";
+
+    public String getUserProfile() {
+        return userProfile;
+    }
+
+    public void setUserProfile(String userProfile) {
+        this.userProfile = userProfile;
+    }
 
     public Users(String userEmail, String userPass, String userName, String fireuserid) {
         this.userName = userName;
