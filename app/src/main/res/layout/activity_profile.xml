@@ -57,14 +57,30 @@
             android:layout_marginTop="@dimen/_80sdp"
             android:src="@drawable/profile_avatar" />
 
-        <TextView
+
+        <ImageView
+            android:id="@+id/editUserName"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_toRightOf="@+id/profileName"
+            android:layout_below="@+id/profileImage"
+            android:layout_marginTop="@dimen/_7sdp"
+            android:layout_marginLeft="@dimen/_5sdp"
+            android:src="@drawable/ic_edit">
+
+
+        </ImageView>
+
+        <EditText
             android:id="@+id/profileName"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_below="@+id/profileImage"
             android:layout_centerHorizontal="true"
             android:layout_marginTop="@dimen/_5sdp"
+            android:background="@null"
             android:fontFamily="@font/inter_medium"
+            android:inputType="none"
             android:text="Avinash Powar"
             android:textColor="@color/white"
             android:textSize="@dimen/_14ssp" />
