@@ -1,30 +1,30 @@
 package com.taskmanager.horkrux.Notification;
 
 public class NotificationData {
-    private String title;
-    private String message;
+    private String notificationTitle, notificationMessage;
 
-    public String getTitle() {
-        return title;
-    }
-
-    public void setTitle(String title) {
-        this.title = title;
-    }
-
-    public String getMessage() {
-        return message;
-    }
 
     public NotificationData() {
     }
 
-    public void setMessage(String message) {
-        this.message = message;
+    public NotificationData(String notificationTitle, String notificationMessage) {
+        this.notificationTitle = notificationTitle;
+        this.notificationMessage = notificationMessage;
     }
 
-    public NotificationData(String title, String message) {
-        this.title = title;
-        this.message = message;
+    public String getNotificationTitle() {
+        return notificationTitle;
+    }
+
+    public void setNotificationTitle(String notificationTitle) {
+        this.notificationTitle = notificationTitle;
+    }
+
+    public String getNotificationMessage() {
+        return notificationMessage;
+    }
+
+    public void setNotificationMessage(String notificationMessage) {
+        this.notificationMessage = notificationMessage;
     }
 }

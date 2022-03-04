@@ -10,8 +10,8 @@
 
     <ImageView
         android:id="@+id/signupImage"
-        android:layout_width="@dimen/_120sdp"
-        android:layout_height="@dimen/_120sdp"
+        android:layout_width="@dimen/_100sdp"
+        android:layout_height="@dimen/_100sdp"
         android:layout_marginTop="76dp"
         android:src="@drawable/ic_signinicon"
         app:layout_constraintBottom_toTopOf="@+id/signUpText"

@@ -3,6 +3,7 @@ package com.taskmanager.horkrux.Activites;
 import android.content.Context;
 import android.content.DialogInterface;
 import android.content.Intent;
+import android.net.Uri;
 import android.os.Bundle;
 import android.text.InputType;
 import android.view.View;
@@ -10,6 +11,7 @@ import android.widget.EditText;
 import android.widget.Toast;
 
 import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
 import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
 
@@ -26,7 +28,7 @@ import com.taskmanager.horkrux.databinding.ActivityProfileBinding;
 
 public class Profile extends AppCompatActivity {
 
-    ActivityProfileBinding binding;
+    private ActivityProfileBinding binding;
 
     private FirebaseAuth firebaseAuth;
     private FirebaseDatabase database;
@@ -93,6 +95,18 @@ public class Profile extends AppCompatActivity {
             }
         });
 
+
+        binding.profileImage.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+
+                Intent intent = new Intent();
+                intent.setAction(Intent.ACTION_GET_CONTENT);
+                intent.setType("image/*");
+                startActivityForResult(intent, 45);
+            }
+        });
+
         binding.backButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -147,5 +161,31 @@ public class Profile extends AppCompatActivity {
         });
 
 
+    }
+
+    @Override
+    protected void onActivityResult(int requestCode, int resultCode, @Nullable Intent data) {
+        super.onActivityResult(requestCode, resultCode, data);
+        if (data != null) {
+            if (data.getData() != null) {
+                Uri uri;
+                uri = data.getData();
+                binding.profileImage.setImageURI(uri);
+//                selectedImage = data.getData();
+//                binding.UploadProfile.setVisibility(View.GONE);
+//                binding.SaveProfile.setVisibility(View.VISIBLE);
+//                Cursor returnCursor = getContentResolver().query(uri, null, null, null, null);
+////                int nameIndex = returnCursor.getColumnIndex(OpenableColumns.DISPLAY_NAME);
+//                int sizeIndex = returnCursor.getColumnIndex(OpenableColumns.SIZE);
+//                returnCursor.moveToFirst();
+////                long imageSize = returnCursor.getLong(sizeIndex) / 1000;
+//                if (imageSize > 200) {
+//                    Toast.makeText(SelfUserProfileActivity.this, "Please select image whose size is less than 200KB", Toast.LENGTH_SHORT).show();
+//                    return;
+//                } else {
+
+//                }
+            }
+        }
     }
 }

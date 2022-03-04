@@ -49,6 +49,7 @@ public class AssignTaskActivity extends AppCompatActivity {
     final String USERS_PATH = "Users";
     final String PROGRESS_MESSAGE = "Assigning Task";
 
+    private boolean isTaskSubmitted = false;
     private ActivityAssignTaskBinding binding;
     private Task task;
     private FirebaseDatabase database;
@@ -57,13 +58,13 @@ public class AssignTaskActivity extends AppCompatActivity {
     public static int count = 0;
 
     private Task selectedTask;
-    MaterialDatePicker.Builder materialDateBuilder;
-    MaterialDatePicker startDatePicker;
-    MaterialDatePicker dueDatePicker;
-    ListPopupWindow userList;
-    UserAdapter adapter;
-    ArrayAdapter userListAdapter;
-    ArrayList<Users> assignedList;
+    private MaterialDatePicker.Builder materialDateBuilder;
+    private MaterialDatePicker startDatePicker;
+    private MaterialDatePicker dueDatePicker;
+    private ListPopupWindow userList;
+    private UserAdapter adapter;
+    private ArrayAdapter userListAdapter;
+    private ArrayList<Users> assignedList;
     public static ArrayList<Users> items;
     public static ArrayList<String> showingItems;
     private boolean isEdit = false;
@@ -80,7 +81,6 @@ public class AssignTaskActivity extends AppCompatActivity {
 //        Objects.requireNonNull(getSupportActionBar()).hide();
 
         selectedTask = (Task) getIntent().getSerializableExtra("selectedTask");
-
         if (selectedTask != null) {
             isEdit = true;
         }
@@ -230,7 +230,7 @@ public class AssignTaskActivity extends AppCompatActivity {
             if (isEdit) {
                 task.setTaskID(selectedTask.getTaskID());
             } else {
-                task.setTaskID(generateTaskId());
+                task.setTaskID(CommonUtils.generateId());
             }
             task.setTaskTitle(binding.taskTitle.getText().toString());
             task.setTaskDescription(binding.taskDescription.getText().toString());
@@ -251,6 +251,7 @@ public class AssignTaskActivity extends AppCompatActivity {
                             progressDialog.show();
                             addTaskToDatabase();
                             CommonUtils.sendNotificationToUser(task, context);
+                            isTaskSubmitted = true;
                         }
                     });
             builder1.setNegativeButton(
@@ -271,8 +272,8 @@ public class AssignTaskActivity extends AppCompatActivity {
     private void sendNotificationToUser() {
         String topic = "/topics/" + task.getGrpTask().get(0).getFireuserid();
         NotificationData data = new NotificationData();
-        data.setTitle(task.getTaskTitle());
-        data.setMessage(task.getTaskDescription());
+        data.setNotificationTitle(task.getTaskTitle());
+        data.setNotificationMessage(task.getTaskDescription());
         PushNotification notification = new PushNotification(data, topic);
 
         ApiUtils.getClient().sendNotification(notification).enqueue(new Callback<PushNotification>() {
@@ -454,10 +455,7 @@ public class AssignTaskActivity extends AppCompatActivity {
 
 
     //generate task ID
-    private String generateTaskId() {
 
-        return String.valueOf(new Date().getTime());
-    }
 
 
     // for getting the selected priority
@@ -471,5 +469,9 @@ public class AssignTaskActivity extends AppCompatActivity {
         }
     }
 
+    @Override
+    public void onBackPressed() {
+        super.onBackPressed();
 
+    }
 }

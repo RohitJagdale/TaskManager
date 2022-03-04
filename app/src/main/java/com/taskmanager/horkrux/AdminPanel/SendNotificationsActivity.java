@@ -140,6 +140,8 @@ public class SendNotificationsActivity extends AppCompatActivity {
             binding.taskTitle.setError(null);
             binding.notificationDescription.setError(null);
 
+
+
             CommonUtils.sendNotificationToUser(assignedList, context, title, desc);
 
             assignedList.clear();

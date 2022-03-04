@@ -119,10 +119,10 @@
                         android:fontFamily="@font/inter_medium"
                         android:padding="@dimen/_4sdp"
                         android:text="Todo"
-                        android:textStyle="bold"
                         android:textAlignment="center"
                         android:textColor="@color/chip_status_done_text"
                         android:textSize="@dimen/_12ssp"
+                        android:textStyle="bold"
                         app:chipBackgroundColor="@color/chip_status_todo"
                         app:chipCornerRadius="@dimen/_5sdp"
                         tools:ignore="TouchTargetSizeCheck" />
@@ -130,7 +130,6 @@
                     <com.google.android.material.chip.Chip
                         android:id="@+id/inProgress"
                         style="@style/CustomMediumChipChoice"
-                        android:textStyle="bold"
                         android:layout_width="@dimen/_85sdp"
                         android:layout_height="@dimen/_45sdp"
                         android:checked="false"
@@ -140,6 +139,7 @@
                         android:textAlignment="center"
                         android:textColor="@color/chip_status_done_text"
                         android:textSize="@dimen/_12ssp"
+                        android:textStyle="bold"
                         app:chipBackgroundColor="@color/chip_status_inprogress"
                         app:chipCornerRadius="@dimen/_5sdp"
                         tools:ignore="TouchTargetSizeCheck" />
@@ -149,7 +149,6 @@
                         style="@style/CustomLowChipChoice"
                         android:layout_width="@dimen/_85sdp"
                         android:layout_height="@dimen/_45sdp"
-                        android:textStyle="bold"
                         android:checked="false"
                         android:fontFamily="@font/inter_medium"
                         android:padding="@dimen/_4sdp"
@@ -157,6 +156,7 @@
                         android:textAlignment="center"
                         android:textColor="@color/chip_status_done_text"
                         android:textSize="@dimen/_12ssp"
+                        android:textStyle="bold"
                         app:chipBackgroundColor="@color/chip_status_done"
                         app:chipCornerRadius="@dimen/_5sdp"
                         tools:ignore="TouchTargetSizeCheck" />
@@ -317,17 +317,28 @@
         </LinearLayout>
     </ScrollView>
 
-    <Button
+    <RelativeLayout
         android:id="@+id/updateTask"
-        android:layout_width="@dimen/_220sdp"
+        android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_gravity="bottom"
-        android:layout_marginBottom="@dimen/_10sdp"
-        android:background="@drawable/button_bg"
-        android:fontFamily="@font/inter_medium"
-        android:gravity="center"
-        android:text="Update Status"
+        android:layout_gravity="center"
+        android:layout_marginBottom="@dimen/_15sdp"
+        android:background="@drawable/ic_assignbtn"
+        android:padding="@dimen/_5sdp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent" />
+        app:layout_constraintStart_toStartOf="parent">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerInParent="true"
+            android:fontFamily="@font/inter_medium"
+            android:paddingBottom="@dimen/_5sdp"
+            android:text="Submit Task"
+            android:textColor="@color/white"
+            android:textSize="@dimen/_14ssp" />
+
+    </RelativeLayout>
+
 </androidx.constraintlayout.widget.ConstraintLayout>

@@ -29,24 +29,25 @@
             android:id="@+id/adminUserName"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="Prathamesh Sawant"
-            android:fontFamily="@font/inter_medium"
-            android:textSize="@dimen/_14ssp"
-            android:textColor="@color/title_text"
-            android:layout_toRightOf="@+id/profileImage"
             android:layout_marginLeft="@dimen/_10sdp"
-            android:layout_marginTop="@dimen/_10sdp"/>
+            android:layout_marginTop="@dimen/_10sdp"
+            android:layout_toRightOf="@+id/profileImage"
+            android:fontFamily="@font/inter_medium"
+            android:text="Prathamesh Sawant"
+            android:textColor="@color/title_text"
+            android:textSize="@dimen/_14ssp" />
 
         <TextView
-            android:layout_width="wrap_content"
+            android:id="@+id/text"
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:textSize="@dimen/_12ssp"
-            android:text="See User Details"
-            android:textColor="@color/desc_text"
             android:layout_below="@+id/adminUserName"
             android:layout_marginLeft="@dimen/_10sdp"
             android:layout_toRightOf="@+id/profileImage"
-            />
+            android:text="See User Details"
+            android:ellipsize="end"
+            android:textColor="@color/desc_text"
+            android:textSize="@dimen/_12ssp" />
 
         <TextView
             android:layout_width="match_parent"

@@ -10,6 +10,7 @@ public class Users implements Serializable {
     final public static String WEB_DEPT = "Web";
     final public static String UI_UX_DEPT = "UI/UX";
     final public static String MBA_DEPT = "MBA";
+    final public static String NO_PROFILE = "No Profile";
 
     public String getUserProfile() {
         return userProfile;

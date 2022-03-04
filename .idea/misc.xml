@@ -43,24 +43,26 @@
         <entry key="..\:/Users/mushe/AndroidStudioProjects/TaskManager/app/src/main/res/layout/activity_admin_panel.xml" value="0.264" />
         <entry key="..\:/Users/mushe/AndroidStudioProjects/TaskManager/app/src/main/res/layout/activity_assign_task.xml" value="0.15789473684210525" />
         <entry key="..\:/Users/mushe/AndroidStudioProjects/TaskManager/app/src/main/res/layout/activity_edit_task.xml" value="0.12927631578947368" />
-        <entry key="..\:/Users/mushe/AndroidStudioProjects/TaskManager/app/src/main/res/layout/activity_main.xml" value="0.2046875" />
+        <entry key="..\:/Users/mushe/AndroidStudioProjects/TaskManager/app/src/main/res/layout/activity_main.xml" value="0.264" />
         <entry key="..\:/Users/mushe/AndroidStudioProjects/TaskManager/app/src/main/res/layout/activity_new_sign_up.xml" value="0.17702702702702702" />
         <entry key="..\:/Users/mushe/AndroidStudioProjects/TaskManager/app/src/main/res/layout/activity_profile.xml" value="0.2" />
         <entry key="..\:/Users/mushe/AndroidStudioProjects/TaskManager/app/src/main/res/layout/activity_send_notifications.xml" value="0.264" />
         <entry key="..\:/Users/mushe/AndroidStudioProjects/TaskManager/app/src/main/res/layout/activity_submit_task.xml" value="0.2" />
-        <entry key="..\:/Users/mushe/AndroidStudioProjects/TaskManager/app/src/main/res/layout/activity_team_member_list.xml" value="0.12927631578947368" />
+        <entry key="..\:/Users/mushe/AndroidStudioProjects/TaskManager/app/src/main/res/layout/activity_team_member_list.xml" value="0.2" />
         <entry key="..\:/Users/mushe/AndroidStudioProjects/TaskManager/app/src/main/res/layout/activity_user_tasks.xml" value="0.12927631578947368" />
+        <entry key="..\:/Users/mushe/AndroidStudioProjects/TaskManager/app/src/main/res/layout/activity_view_notifications.xml" value="0.17702702702702702" />
         <entry key="..\:/Users/mushe/AndroidStudioProjects/TaskManager/app/src/main/res/layout/admin_user_list.xml" value="0.264" />
         <entry key="..\:/Users/mushe/AndroidStudioProjects/TaskManager/app/src/main/res/layout/app_bar_main.xml" value="0.2046875" />
         <entry key="..\:/Users/mushe/AndroidStudioProjects/TaskManager/app/src/main/res/layout/assign_participants_item.xml" value="0.12927631578947368" />
         <entry key="..\:/Users/mushe/AndroidStudioProjects/TaskManager/app/src/main/res/layout/assign_participants_popup.xml" value="0.12927631578947368" />
         <entry key="..\:/Users/mushe/AndroidStudioProjects/TaskManager/app/src/main/res/layout/content_main.xml" value="0.2046875" />
         <entry key="..\:/Users/mushe/AndroidStudioProjects/TaskManager/app/src/main/res/layout/fragment_home.xml" value="0.16" />
+        <entry key="..\:/Users/mushe/AndroidStudioProjects/TaskManager/app/src/main/res/layout/home_list_item.xml" value="0.17702702702702702" />
         <entry key="..\:/Users/mushe/AndroidStudioProjects/TaskManager/app/src/main/res/layout/login_fragment.xml" value="0.2046875" />
         <entry key="..\:/Users/mushe/AndroidStudioProjects/TaskManager/app/src/main/res/layout/message_pop_up.xml" value="0.17702702702702702" />
         <entry key="..\:/Users/mushe/AndroidStudioProjects/TaskManager/app/src/main/res/layout/nav_header_main.xml" value="0.6" />
         <entry key="..\:/Users/mushe/AndroidStudioProjects/TaskManager/app/src/main/res/layout/signup_fragment.xml" value="0.2046875" />
-        <entry key="..\:/Users/mushe/AndroidStudioProjects/TaskManager/app/src/main/res/layout/task_layout.xml" value="0.4" />
+        <entry key="..\:/Users/mushe/AndroidStudioProjects/TaskManager/app/src/main/res/layout/task_layout.xml" value="0.2" />
         <entry key="..\:/Users/mushe/AndroidStudioProjects/TaskManager/app/src/main/res/layout/user_item.xml" value="0.264" />
         <entry key="..\:/Users/mushe/AndroidStudioProjects/TaskManager/app/src/main/res/layout/user_list.xml" value="0.12927631578947368" />
         <entry key="..\:/Users/mushe/AndroidStudioProjects/TaskManager/app/src/main/res/menu/activity_main_drawer.xml" value="0.2046875" />

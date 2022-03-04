@@ -87,6 +87,10 @@ public class MainActivity extends AppCompatActivity {
             }
         });
 
+
+        binding.userNotifications.setOnClickListener(v -> {
+            startActivity(new Intent(getApplicationContext(), ViewNotificationsActivity.class));
+        });
         setNavigation();
 
 

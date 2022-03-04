@@ -40,7 +40,7 @@ public class NewLoginActivity extends AppCompatActivity {
 
         //        if user is already logged in
         if (firebaseUser != null) {
-            startActivity(new Intent(getApplicationContext(), MainActivity.class));
+            startActivity(new Intent(getApplicationContext(), AdminPanelActivity.class));
             finish();
         }
 

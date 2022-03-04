@@ -26,7 +26,6 @@ public class NewSignUp extends AppCompatActivity {
 
     final String[] deptCategory = {Users.ANDROID_DEPT, Users.WEB_DEPT, Users.UI_UX_DEPT, Users.MBA_DEPT};
     final int Android_Dev = 0, Web_Dev = 1, UI_UX = 2, MBA = 3;
-
     private ArrayAdapter fieldCategoryAdapter;
 
     private FirebaseAuth firebaseAuth;
@@ -67,6 +66,7 @@ public class NewSignUp extends AppCompatActivity {
                 String password = binding.createUserPass.getText().toString().trim();
                 String username = binding.crateUserName.getText().toString().trim();
 
+
                 if (email.isEmpty() || password.isEmpty() || username.isEmpty()) {
                     Toast.makeText(getApplicationContext(), "Fill All Fields", Toast.LENGTH_SHORT).show();
                 } else if (password.length() < 7) {
@@ -79,6 +79,7 @@ public class NewSignUp extends AppCompatActivity {
                     user.setUserEmail(binding.createUserEmail.getText().toString().trim());
                     user.setUserPass(binding.createUserPass.getText().toString().trim());
                     user.setUserName(binding.crateUserName.getText().toString().trim());
+                    user.setUserProfile(Users.NO_PROFILE);
 
                     Toast.makeText(NewSignUp.this, user.getUserDept(), Toast.LENGTH_SHORT).show();
                     //register user

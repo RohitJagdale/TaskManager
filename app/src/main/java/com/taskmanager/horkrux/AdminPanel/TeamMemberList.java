@@ -2,6 +2,7 @@ package com.taskmanager.horkrux.AdminPanel;
 
 import android.content.Context;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.View;
 
 import androidx.annotation.NonNull;
@@ -53,19 +54,27 @@ public class TeamMemberList extends AppCompatActivity {
 
     private void loadUsers() {
         String path = "Users/";
+        binding.progressBar.setVisibility(View.VISIBLE);
         database.getReference().child(path).addValueEventListener(new ValueEventListener() {
             @Override
             public void onDataChange(@NonNull DataSnapshot snapshot) {
                 users.clear();
                 for (DataSnapshot s : snapshot.getChildren()) {
                     Users user = s.getValue(Users.class);
-                    users.add(user);
-//                    assert user != null;
-//                    if (user.getUserDept().equals(requestedTeam)) {
-//                        users.add(user);
-//                    }
+//                    users.add(user);
+                    String dept = user.getUserDept();
+//                    Toast.makeText(context, user.getUserDept(), Toast.LENGTH_SHORT).show();
+                    try {
+                        if (dept.equals(requestedTeam)) {
+                            users.add(user);
+                        }
+                    } catch (Exception e) {
+                        Log.d("", "onDataChange: ");
+                    }
+
                     adapter.notifyDataSetChanged();
                 }
+                binding.progressBar.setVisibility(View.GONE);
 
 
             }

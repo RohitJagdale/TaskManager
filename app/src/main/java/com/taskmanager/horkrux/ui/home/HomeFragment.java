@@ -1,6 +1,5 @@
 package com.taskmanager.horkrux.ui.home;
 
-import android.app.ProgressDialog;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.LayoutInflater;
@@ -37,11 +36,10 @@ public class HomeFragment extends Fragment {
     private FragmentHomeBinding binding;
     final String[] taskCategories = {"ALL Tasks", "TO-DO", "IN PROGRESS", "DONE"};
     final int ALL = 0, TODO = 1, IN_PROGRESS = 2, DONE = 3;
-    ArrayAdapter taskCategoryAdapter;
+    private ArrayAdapter taskCategoryAdapter;
     private TaskAdapter taskAdapter;
     private String currentUserId;
     private ArrayList<Task> userTasks;
-    private ProgressDialog loader;
     private Users user;
 
 
@@ -60,6 +58,7 @@ public class HomeFragment extends Fragment {
         binding = FragmentHomeBinding.inflate(inflater, container, false);
         userTasks = new ArrayList<>();
 
+        binding.homeProgress.setVisibility(View.VISIBLE);
 
         if (user != null) {
             binding.selectedUserView.setVisibility(View.VISIBLE);
@@ -94,9 +93,6 @@ public class HomeFragment extends Fragment {
     private void setValues() {
         taskCategoryAdapter = new ArrayAdapter(getContext(), R.layout.home_list_item, taskCategories);
         binding.taskCategory.setAdapter(taskCategoryAdapter);
-        loader = new ProgressDialog(getContext());
-        loader.setMessage("Loading your tasks please wait !!!");
-        loader.setCancelable(false);
 
         binding.taskCategory.setOnItemClickListener(taskCategoryListener);
 
@@ -115,7 +111,8 @@ public class HomeFragment extends Fragment {
 
     // loading user tasks
     void loadTask() {
-        loader.show();
+
+
         FirebaseDatabase.getInstance().getReference().child("all-tasks")
                 .child("user-tasks")
                 .child(currentUserId)
@@ -156,7 +153,14 @@ public class HomeFragment extends Fragment {
 //                        binding.selectedUserMail.setText("TODO : " + count[0] + "\n" + "IN PROGRESS : " + count[1] + "\n" + "DONE : " + count[2]);
 
                         taskAdapter.notifyDataSetChanged();
-                        loader.dismiss();
+
+                        try {
+
+                            binding.homeProgress.setVisibility(View.GONE);
+                        } catch (Exception e) {
+
+                        }
+
                     }
 
                     @Override

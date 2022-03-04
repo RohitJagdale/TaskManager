@@ -24,9 +24,12 @@
             android:id="@+id/userTaskTitle"
             android:layout_width="@dimen/_180sdp"
             android:layout_height="wrap_content"
-            android:text="TextView"
             android:textSize="@dimen/_13ssp"
             android:fontFamily="@font/inter_medium"
+            android:maxLines="1"
+            android:scrollHorizontally="true"
+            android:ellipsize="end"
+            android:text="fdgkjfdglkfdlkgfdlkdjgflgdwsadsdaddassddskj"
             />
 
         <TextView
