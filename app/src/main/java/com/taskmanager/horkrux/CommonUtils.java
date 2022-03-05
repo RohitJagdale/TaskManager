@@ -1,6 +1,7 @@
 package com.taskmanager.horkrux;
 
 import android.content.Context;
+import android.util.Log;
 import android.widget.Toast;
 
 import com.google.firebase.database.FirebaseDatabase;
@@ -29,6 +30,7 @@ public class CommonUtils {
             data.setNotificationTitle(task.getTaskTitle());
             data.setNotificationMessage(task.getTaskDescription());
             PushNotification notification = new PushNotification(data, topic);
+            Log.d("NOTI", "sendNotificationToUser: " + data.getNotificationTitle());
 
             ApiUtils.getClient().sendNotification(notification).enqueue(new Callback<PushNotification>() {
                 @Override
@@ -60,7 +62,7 @@ public class CommonUtils {
             data.setNotificationTitle(title);
             data.setNotificationMessage(desc);
             PushNotification notification = new PushNotification(data, topic);
-
+            Log.d("NOTI", "sendNotificationToUser: " + data.getNotificationTitle());
             ApiUtils.getClient().sendNotification(notification).enqueue(new Callback<PushNotification>() {
                 @Override
                 public void onResponse(Call<PushNotification> call, Response<PushNotification> response) {

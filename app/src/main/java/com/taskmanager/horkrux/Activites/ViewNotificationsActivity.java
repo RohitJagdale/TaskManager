@@ -3,6 +3,7 @@ package com.taskmanager.horkrux.Activites;
 import android.content.Context;
 import android.os.Bundle;
 import android.util.Log;
+import android.view.View;
 
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
@@ -18,6 +19,7 @@ import com.taskmanager.horkrux.Notification.NotificationData;
 import com.taskmanager.horkrux.databinding.ActivityViewNotificationsBinding;
 
 import java.util.ArrayList;
+import java.util.Collections;
 
 public class ViewNotificationsActivity extends AppCompatActivity {
 
@@ -45,6 +47,7 @@ public class ViewNotificationsActivity extends AppCompatActivity {
         binding.recyclerView2.setAdapter(adapter);
         binding.recyclerView2.setLayoutManager(new LinearLayoutManager(context));
 
+        binding.notificationProgress.setVisibility(View.VISIBLE);
 
         database.getReference().child("Notifications/" + auth.getUid()).addValueEventListener(new ValueEventListener() {
             @Override
@@ -54,6 +57,8 @@ public class ViewNotificationsActivity extends AppCompatActivity {
                     notifications.add(snapshot1.getValue(NotificationData.class));
                     Log.d("TAG", "onDataChange: ");
                 }
+                binding.notificationProgress.setVisibility(View.GONE);
+                Collections.reverse(notifications);
                 adapter.notifyDataSetChanged();
             }
 
@@ -61,6 +66,10 @@ public class ViewNotificationsActivity extends AppCompatActivity {
             public void onCancelled(@NonNull DatabaseError error) {
 
             }
+        });
+
+        binding.backButtonInNoti.setOnClickListener(v -> {
+            finish();
         });
 
 

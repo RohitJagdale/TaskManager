@@ -28,6 +28,7 @@ import com.taskmanager.horkrux.R;
 import com.taskmanager.horkrux.databinding.FragmentHomeBinding;
 
 import java.util.ArrayList;
+import java.util.Collections;
 
 public class HomeFragment extends Fragment {
 
@@ -136,6 +137,7 @@ public class HomeFragment extends Fragment {
                             }
                             userTasks.add(task);
                         }
+                        Collections.reverse(userTasks);
 
 //                        Toast.makeText(getContext(), "" + todo, Toast.LENGTH_SHORT).show();
 

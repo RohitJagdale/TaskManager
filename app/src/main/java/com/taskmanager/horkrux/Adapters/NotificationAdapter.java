@@ -13,7 +13,7 @@ import androidx.recyclerview.widget.RecyclerView;
 import com.taskmanager.horkrux.Models.Users;
 import com.taskmanager.horkrux.Notification.NotificationData;
 import com.taskmanager.horkrux.R;
-import com.taskmanager.horkrux.databinding.TaskLayoutBinding;
+import com.taskmanager.horkrux.databinding.NotificationLayoutBinding;
 
 import java.util.ArrayList;
 
@@ -31,7 +31,7 @@ public class NotificationAdapter extends RecyclerView.Adapter<NotificationAdapte
     @NonNull
     @Override
     public NotificationViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
-        View view = LayoutInflater.from(context).inflate(R.layout.task_layout, parent, false);
+        View view = LayoutInflater.from(context).inflate(R.layout.notification_layout, parent, false);
         return new NotificationViewHolder(view);
     }
 
@@ -40,12 +40,9 @@ public class NotificationAdapter extends RecyclerView.Adapter<NotificationAdapte
 
         String title = notificationData.get(holder.getAdapterPosition()).getNotificationTitle();
         String msg = notificationData.get(holder.getAdapterPosition()).getNotificationMessage();
-        holder.binding.userTaskTitle.setText(title);
-        holder.binding.userTaskDescription.setText(msg);
+        holder.binding.notificationTitle.setText(title);
+        holder.binding.notificationDesc.setText(msg);
 
-        holder.binding.priorityShow.setVisibility(View.GONE);
-        holder.binding.startingDate.setVisibility(View.GONE);
-        holder.binding.deadlineDate.setVisibility(View.GONE);
 
         holder.binding.taskItem.setOnClickListener(v -> {
             new AlertDialog.Builder(context)
@@ -67,7 +64,7 @@ public class NotificationAdapter extends RecyclerView.Adapter<NotificationAdapte
 
     public static class NotificationViewHolder extends RecyclerView.ViewHolder {
 
-        private TaskLayoutBinding binding;
+        private NotificationLayoutBinding binding;
 
         public NotificationViewHolder(@NonNull View itemView) {
             super(itemView);

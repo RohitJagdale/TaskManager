@@ -43,8 +43,8 @@
 
             <ImageView
                 android:id="@+id/userNotifications"
-                android:layout_width="@dimen/_25sdp"
-                android:layout_height="@dimen/_25sdp"
+                android:layout_width="@dimen/_20sdp"
+                android:layout_height="@dimen/_20sdp"
                 android:layout_gravity="right|center"
                 android:layout_marginRight="@dimen/_5sdp"
                 app:srcCompat="@drawable/ic_notification" />

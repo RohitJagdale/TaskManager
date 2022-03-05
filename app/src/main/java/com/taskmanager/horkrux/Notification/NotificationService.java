@@ -53,13 +53,14 @@ public class NotificationService extends FirebaseMessagingService {
                 R.mipmap.ic_launcher_round);
 
         notification = new NotificationCompat.Builder(this, CHANNEL_ID)
-                .setContentTitle(remoteMessage.getData().get("title"))
-                .setContentText(remoteMessage.getData().get("message"))
+                .setContentTitle(remoteMessage.getData().get("notificationTitle"))
+                .setContentText(remoteMessage.getData().get("notificationMessage"))
                 .setLargeIcon(notificationLargeIconBitmap)
                 .setSmallIcon(R.drawable.ic_baseline_explore_24)
                 .setAutoCancel(true)
                 .setContentIntent(intent1)
                 .setDefaults(Notification.DEFAULT_SOUND)
+                .setStyle(new NotificationCompat.BigTextStyle().bigText(remoteMessage.getData().get("notificationMessage")))
                 .build();
 
 //        notification = new Notification.Builder(this, CHANNEL_ID)
