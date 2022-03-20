@@ -44,9 +44,9 @@ This is an Activities Management Application developed using AndroidFire(Android
 
 Here are some Illustration of App Screens
 
-| ![](screen-shots/AdminDashboard.png) | ![](screen-shots/navigation.png) | ![](screen-shots/profile.png) |
+| ![](screen-shots/AdminPanel.png) | ![](screen-shots/UserList.png) | ![](screen-shots/UserTask%AdminViewpng) |
 | :--------------------------------: | :---------------------------------------: | :----------------------------------: |
-|            Home Screen             |            Home Screen Drawer             |            User Profile             |
+|            Admin Dashboard             |            Team Member List             |            User Profile             |
 
 | ![](screen-shots/splash-screen.png) | ![](screen-shots/sign-in.png) | ![](screen-shots/forgot-pass.png) |
 | :----------------------------------: | :----------------------------: | :----------------------------: |
