@@ -7,20 +7,20 @@
   <!-- <a href="https://e_commerce_app_flutter.netlify.app">Demo</a> -->
 </div>
 
-<h1 align="center">Team Nequit App</h1>
+<h1 align="center">TasksApp</h1>
 
 ## Status
 
 
 <h4 align="center">
-	🚧  Nequit App 🚀 Completed 🚧
+TasksApp Completed
 </h4>
 
 <hr>
 
 <p align="center">
   <a href="#dart-about">About</a> &#xa0; | &#xa0; 
-  <a href="#sparkles-features">Features</a> &#xa0; | &#xa0;
+  <a href="#sparkles-admin-features">Features</a> &#xa0; | &#xa0;
   <a href="#checkered_flag-illustrations">Illustrations</a> &#xa0; | &#xa0;
   <a href="https://github.com/MusheerJ" target="_blank">Author</a>
 </p>
@@ -29,16 +29,30 @@
 
 ## :dart: About
 
-This is an Activities Management Application developed using AndroidFire(Android+Firebase). This Application is specially developed for team-nequit for managing and monitoring their work and activities.
-## :sparkles: Features
+This is a Team-Tasks Management Application developed using AndroidFire(Android+Firebase). This Application is specially developed for managing and monitoring team-tasks.
+## :sparkles: Admin-Features
+
+:heavy_check_mark: Admin Authentication\
+:heavy_check_mark: Password Resetting\
+:heavy_check_mark: Admin dashboard\
+:heavy_check_mark: Assign task to users/teams\
+:heavy_check_mark: Edit assigned task\
+:heavy_check_mark: Send notifications to users/teams
+
+
+## :sparkles: User-Features
 
 :heavy_check_mark: User Authentication\
 :heavy_check_mark: Password Resetting\
-:heavy_check_mark: Adding/Updating Attendance\
-:heavy_check_mark: Polls\
-:heavy_check_mark: List of Members\
-:heavy_check_mark: Feedbacks\
-:heavy_check_mark: Manage User Profile
+:heavy_check_mark: User login\
+:heavy_check_mark: User tasks\
+:heavy_check_mark: Navigation drawer\
+:heavy_check_mark: Submit task to admin with status\
+:heavy_check_mark: User profile\
+:heavy_check_mark: Edit User name\
+:heavy_check_mark: Tasks stats
+
+
 
 ## :checkered_flag: Illustrations
 
