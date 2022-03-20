@@ -44,19 +44,19 @@ This is an Activities Management Application developed using AndroidFire(Android
 
 Here are some Illustration of App Screens
 
-| ![](screen-shots/AdminPanel.png) | ![](screen-shots/UserList.png) | ![](screen-shots/UserTask%AdminViewpng) |
+| ![](screen-shots/AdminPanel.png) | ![](screen-shots/UserList.png) | ![](screen-shots/UserTaskAdminView.png) |
 | :--------------------------------: | :---------------------------------------: | :----------------------------------: |
 |            Admin Dashboard             |            Team Member List             |            User Profile             |
 
-| ![](screen-shots/splash-screen.png) | ![](screen-shots/sign-in.png) | ![](screen-shots/forgot-pass.png) |
+| ![](screen-shots/SendNotification.png) | ![](screen-shots/AssignTask.png) | ![](screen-shots/EditTaskAdminView.png) |
 | :----------------------------------: | :----------------------------: | :----------------------------: |
-|        Splash Screen         |         Sign In Screen         |         Sign Up Screen         |
+|        Send Notification         |         Assign Task        |         Edit/View Task        |
 
-| ![](screen-shots/member-list.png) | ![](screen-shots/attendance.png) | ![](screen-shots/poll-percentage.png) |
+| ![](screen-shots/UserLogin.png) | ![](screen-shots/UserDashBoard.png) | ![](screen-shots/SubmitTask.png) |
 | :------------------------------------: | :----------------------------------------: | :-------------------------------------------: |
-|         List Of Members         |         Attendance Of Members        |         Poll Results         |
+|         User Login       |         User Tasks        |         Submit Task         |
 
-| ![](screen-shots/poll-replies.png) | ![](screen-shots/team-rules.png) | ![](screen-shots/news-letter.png) |
+| ![](screen-shots/UserNavigation.png) | ![](screen-shots/UserProfile.png) | ![](screen-shots/UserNotifications.png) |
 | :---------------------------------: | :------------------------------------: | :---------------------------------: |
-|         Poll Replies         |         Team Rules         |         News Letter        |
+|         Navigation Drawer         |         User Profile     |         User Notificaions        |
 
