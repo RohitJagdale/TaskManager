@@ -3,7 +3,6 @@ package com.taskmanager.horkrux.Adapters;
 import android.content.Context;
 import android.content.Intent;
 import android.content.res.ColorStateList;
-import android.graphics.Color;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -13,7 +12,6 @@ import androidx.recyclerview.widget.RecyclerView;
 
 import com.taskmanager.horkrux.Activites.AssignTaskActivity;
 import com.taskmanager.horkrux.Activites.SubmitTaskActivity;
-import com.taskmanager.horkrux.AdminPanel.EditTaskActivity;
 import com.taskmanager.horkrux.Models.Task;
 import com.taskmanager.horkrux.R;
 import com.taskmanager.horkrux.databinding.TaskLayoutBinding;
@@ -21,9 +19,9 @@ import com.taskmanager.horkrux.databinding.TaskLayoutBinding;
 import java.util.ArrayList;
 
 public class TaskAdapter extends RecyclerView.Adapter<TaskAdapter.TaskViewHolder> {
-    Context context;
-    ArrayList<Task> tasks;
-    String from;
+    private final Context context;
+    private ArrayList<Task> tasks;
+    private final String from;
 
     public TaskAdapter(Context context, ArrayList<Task> tasks, String from) {
         this.context = context;
@@ -50,8 +48,7 @@ public class TaskAdapter extends RecyclerView.Adapter<TaskAdapter.TaskViewHolder
             holder.binding.priorityShow.setTextColor(ColorStateList.valueOf(context.getResources().getColor(R.color.white)));
             holder.binding.userTaskTitle.setTextColor(ColorStateList.valueOf(context.getResources().getColor(R.color.title_text)));
             holder.binding.userTaskDescription.setTextColor(ColorStateList.valueOf(context.getResources().getColor(R.color.desc_text)));
-        }else if(priority.equals(Task.MEDIUM))
-        {
+        } else if (priority.equals(Task.MEDIUM)) {
             holder.binding.taskItem.setCardBackgroundColor(context.getResources().getColor(R.color.low_yellow));
             holder.binding.startingDate.setTextColor(context.getResources().getColor(R.color.dark_yellow));
             holder.binding.deadlineDate.setTextColor(context.getResources().getColor(R.color.dark_yellow));
@@ -59,7 +56,7 @@ public class TaskAdapter extends RecyclerView.Adapter<TaskAdapter.TaskViewHolder
             holder.binding.priorityShow.setTextColor(ColorStateList.valueOf(context.getResources().getColor(R.color.white)));
             holder.binding.userTaskTitle.setTextColor(ColorStateList.valueOf(context.getResources().getColor(R.color.title_text)));
             holder.binding.userTaskDescription.setTextColor(ColorStateList.valueOf(context.getResources().getColor(R.color.desc_text)));
-        }else{
+        } else {
             holder.binding.taskItem.setCardBackgroundColor(context.getResources().getColor(R.color.low_red));
             holder.binding.startingDate.setTextColor(context.getResources().getColor(R.color.dark_red));
             holder.binding.deadlineDate.setTextColor(context.getResources().getColor(R.color.dark_red));
@@ -117,8 +114,6 @@ public class TaskAdapter extends RecyclerView.Adapter<TaskAdapter.TaskViewHolder
         public TaskViewHolder(@NonNull View itemView) {
             super(itemView);
             binding = binding.bind(itemView);
-
-
         }
     }
 }

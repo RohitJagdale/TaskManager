@@ -21,16 +21,14 @@ import com.taskmanager.horkrux.databinding.UserItemBinding;
 import java.util.ArrayList;
 
 public class UserAdapter extends RecyclerView.Adapter<UserAdapter.UsersViewHolder> {
-    Context context;
-    ArrayList<Users> users;
-    ArrayList<Users> backUsers;
-    String from;
+    private final Context context;
+    private final ArrayList<Users> users;
+    private final String from;
 
 
     public UserAdapter(Context context, ArrayList<Users> users, String from) {
         this.context = context;
         this.users = users;
-        this.backUsers = users;
         this.from = from;
     }
 
@@ -73,10 +71,6 @@ public class UserAdapter extends RecyclerView.Adapter<UserAdapter.UsersViewHolde
             }
         });
     }
-
-    public void reset() {
-    }
-
     public void removeItem(int poi) {
         if (from != null && !from.equals("SendNotification")) {
 

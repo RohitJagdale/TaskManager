@@ -18,9 +18,8 @@ import com.taskmanager.horkrux.databinding.NotificationLayoutBinding;
 import java.util.ArrayList;
 
 public class NotificationAdapter extends RecyclerView.Adapter<NotificationAdapter.NotificationViewHolder> {
-    Context context;
-    ArrayList<NotificationData> notificationData;
-    ArrayList<Users> backUsers;
+    private final Context context;
+    private final ArrayList<NotificationData> notificationData;
 
     public NotificationAdapter(Context context, ArrayList<NotificationData> notificationData) {
         this.context = context;
