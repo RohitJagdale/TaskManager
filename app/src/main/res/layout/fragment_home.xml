@@ -76,8 +76,7 @@
             android:id="@+id/linearLayout"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:orientation="vertical"
-            >
+            android:orientation="vertical">
 
             <com.google.android.material.textfield.TextInputLayout
                 android:id="@+id/TaskCategory"
@@ -85,36 +84,45 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginHorizontal="@dimen/_10sdp"
-                android:fontFamily="@font/inter_medium"
                 android:layout_marginTop="@dimen/_10sdp"
+                android:fontFamily="@font/inter_medium"
                 app:boxCornerRadiusBottomEnd="@dimen/_15sdp"
                 app:boxCornerRadiusBottomStart="@dimen/_15sdp"
                 app:boxCornerRadiusTopEnd="@dimen/_15sdp"
-                app:boxCornerRadiusTopStart="@dimen/_15sdp"
-                >
+                app:boxCornerRadiusTopStart="@dimen/_15sdp">
 
                 <AutoCompleteTextView
                     android:id="@+id/taskCategory"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:backgroundTint="@color/white"
+                    android:fontFamily="@font/inter_medium"
                     android:inputType="none"
                     android:text="All Tasks"
-                    android:fontFamily="@font/inter_medium"
-                    tools:ignore="SpeakableTextPresentCheck,SpeakableTextPresentCheck"
-                    />
+                    tools:ignore="SpeakableTextPresentCheck,SpeakableTextPresentCheck" />
 
             </com.google.android.material.textfield.TextInputLayout>
 
         </LinearLayout>
+
+        <TextView
+            android:id="@+id/taskEmptyMsg"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_gravity="center"
+            android:gravity="center"
+            android:text="TextView"
+            android:textSize="16sp"
+            android:visibility="visible" />
 
         <androidx.recyclerview.widget.RecyclerView
             android:id="@+id/userTaskRecylerView"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:layout_marginHorizontal="10dp"
-            android:layoutAnimation="@anim/layout_animation"
             android:layout_marginVertical="20dp"
+            android:layoutAnimation="@anim/layout_animation"
+            android:visibility="visible"
             tools:listitem="@layout/task_layout" />
 
     </LinearLayout>

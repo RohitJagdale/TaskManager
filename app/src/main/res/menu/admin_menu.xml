@@ -10,4 +10,7 @@
     <item
         android:id="@+id/createUser"
         android:title="Create User" />
+    <item
+        android:id="@+id/admin_logout"
+        android:title="Logout" />
 </menu>

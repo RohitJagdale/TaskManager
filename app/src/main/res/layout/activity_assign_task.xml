@@ -391,6 +391,7 @@
                     android:gravity="top"
                     android:hint="This is where you write description....."
                     android:padding="@dimen/_10sdp"
+                    android:backgroundTint="@color/white"
                     android:textColor="@color/task_text"
                     android:textSize="@dimen/_12ssp" />
 

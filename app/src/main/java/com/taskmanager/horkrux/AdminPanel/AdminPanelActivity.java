@@ -6,12 +6,14 @@ import android.os.Bundle;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.PopupMenu;
+import android.widget.Toast;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import com.google.firebase.auth.FirebaseAuth;
 import com.taskmanager.horkrux.Activites.AssignTaskActivity;
 import com.taskmanager.horkrux.Activites.MainActivity;
-import com.taskmanager.horkrux.Activites.Profile;
+import com.taskmanager.horkrux.AuthNew.NewLoginActivity;
 import com.taskmanager.horkrux.AuthNew.NewSignUp;
 import com.taskmanager.horkrux.Models.Users;
 import com.taskmanager.horkrux.R;
@@ -61,6 +63,14 @@ public class AdminPanelActivity extends AppCompatActivity {
                             startActivity(new Intent(context, NewSignUp.class));
                             return true;
                         }
+
+                        if (menuItem.getItemId() == R.id.admin_logout) {
+                            FirebaseAuth.getInstance().signOut();
+                            startActivity(new Intent(context, NewLoginActivity.class));
+                            finishAffinity();
+                            Toast.makeText(context, "Logout success", Toast.LENGTH_SHORT).show();
+                            return true;
+                        }
                         return false;
 
 
@@ -104,7 +114,7 @@ public class AdminPanelActivity extends AppCompatActivity {
                 startActivity(new Intent(AdminPanelActivity.this, SendNotificationsActivity.class));
             }
         });
-        
+
     }
 
 }

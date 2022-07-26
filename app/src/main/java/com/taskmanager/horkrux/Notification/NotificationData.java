@@ -1,7 +1,27 @@
 package com.taskmanager.horkrux.Notification;
 
 public class NotificationData {
-    private String notificationTitle, notificationMessage;
+    private String notificationTitle;
+    private String notificationMessage;
+    private String notificationDate;
+
+    public String getNotificationDate() {
+        return notificationDate;
+    }
+
+    public void setNotificationDate(String notificationDate) {
+        this.notificationDate = notificationDate;
+    }
+
+    public String getNotificationTime() {
+        return notificationTime;
+    }
+
+    public void setNotificationTime(String notificationTime) {
+        this.notificationTime = notificationTime;
+    }
+
+    private String notificationTime;
 
 
     public NotificationData() {

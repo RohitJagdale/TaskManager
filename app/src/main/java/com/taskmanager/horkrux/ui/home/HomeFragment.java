@@ -159,6 +159,16 @@ public class HomeFragment extends Fragment {
                         try {
 
                             binding.homeProgress.setVisibility(View.GONE);
+
+                            if (userTasks.isEmpty()) {
+                                binding.taskEmptyMsg.setText("No tasks available");
+                                binding.taskEmptyMsg.setVisibility(View.VISIBLE);
+                            }
+                            else
+                            {
+                                binding.taskEmptyMsg.setVisibility(View.GONE);
+
+                            }
                         } catch (Exception e) {
 
                         }

@@ -37,7 +37,6 @@ import com.taskmanager.horkrux.R;
 import com.taskmanager.horkrux.databinding.ActivityAssignTaskBinding;
 
 import java.util.ArrayList;
-import java.util.Date;
 
 import retrofit2.Call;
 import retrofit2.Callback;
@@ -308,7 +307,7 @@ public class AssignTaskActivity extends AppCompatActivity {
                         @Override
                         synchronized public void onComplete(@NonNull com.google.android.gms.tasks.Task<Void> task) {
                             if (count == assignedList.size() - 1) {
-                                progressDialog.dismiss();
+
                                 if (!isEdit) {
 
                                     resetAllInputs();
@@ -322,6 +321,8 @@ public class AssignTaskActivity extends AppCompatActivity {
 
                         }
                     });
+
+            progressDialog.dismiss();
 
 
         }

@@ -171,20 +171,7 @@ public class Profile extends AppCompatActivity {
                 Uri uri;
                 uri = data.getData();
                 binding.profileImage.setImageURI(uri);
-//                selectedImage = data.getData();
-//                binding.UploadProfile.setVisibility(View.GONE);
-//                binding.SaveProfile.setVisibility(View.VISIBLE);
-//                Cursor returnCursor = getContentResolver().query(uri, null, null, null, null);
-////                int nameIndex = returnCursor.getColumnIndex(OpenableColumns.DISPLAY_NAME);
-//                int sizeIndex = returnCursor.getColumnIndex(OpenableColumns.SIZE);
-//                returnCursor.moveToFirst();
-////                long imageSize = returnCursor.getLong(sizeIndex) / 1000;
-//                if (imageSize > 200) {
-//                    Toast.makeText(SelfUserProfileActivity.this, "Please select image whose size is less than 200KB", Toast.LENGTH_SHORT).show();
-//                    return;
-//                } else {
 
-//                }
             }
         }
     }

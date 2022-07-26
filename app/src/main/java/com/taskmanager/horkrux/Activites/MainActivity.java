@@ -22,7 +22,7 @@ import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.ValueEventListener;
 import com.google.firebase.messaging.FirebaseMessaging;
-import com.taskmanager.horkrux.Authentication.LoginAndSignUp;
+import com.taskmanager.horkrux.AuthNew.NewLoginActivity;
 import com.taskmanager.horkrux.Models.Count;
 import com.taskmanager.horkrux.Models.Users;
 import com.taskmanager.horkrux.R;
@@ -141,7 +141,7 @@ public class MainActivity extends AppCompatActivity {
                 }
                 if (item.getItemId() == R.id.nav_sign_out) {
                     auth.signOut();
-                    startActivity(new Intent(MainActivity.this, LoginAndSignUp.class));
+                    startActivity(new Intent(MainActivity.this, NewLoginActivity.class));
                     finishAffinity();
                     return false;
                 }
