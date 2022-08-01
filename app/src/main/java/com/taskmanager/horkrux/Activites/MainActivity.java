@@ -15,6 +15,7 @@ import androidx.fragment.app.Fragment;
 import androidx.fragment.app.FragmentTransaction;
 import androidx.navigation.ui.AppBarConfiguration;
 
+import com.bumptech.glide.Glide;
 import com.google.android.material.navigation.NavigationView;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.database.DataSnapshot;
@@ -113,6 +114,7 @@ public class MainActivity extends AppCompatActivity {
                 Users user = snapshot.getValue(Users.class);
                 navHeaderMainBinding.loggedInUserName.setText(user.getUserName());
                 navHeaderMainBinding.loggedInUserMail.setText(user.getUserEmail());
+                Glide.with(MainActivity.this).load(user.getUserProfile()).placeholder(R.drawable.profile_avatar).into(navHeaderMainBinding.loggedInUserProfile);
             }
 
             @Override

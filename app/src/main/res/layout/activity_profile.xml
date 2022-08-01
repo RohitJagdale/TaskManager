@@ -55,8 +55,8 @@
             android:layout_height="@dimen/_80sdp"
             android:layout_centerHorizontal="true"
             android:layout_marginTop="@dimen/_80sdp"
-            app:civ_border_width="@dimen/_2sdp"
-            android:src="@drawable/profile_avatar" />
+            android:src="@drawable/profile_avatar"
+            app:civ_border_width="@dimen/_2sdp" />
 
 
         <ImageView
@@ -232,25 +232,26 @@
 
 
     <RelativeLayout
-        android:visibility="gone"
-        android:id="@+id/userSignOut"
+        android:id="@+id/updateProfile"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_gravity="center"
         android:layout_marginBottom="@dimen/_35sdp"
         android:background="@drawable/ic_assignbtn"
         android:padding="@dimen/_5sdp"
+        android:visibility="gone"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent">
 
         <TextView
+            android:id="@+id/updateProfileText"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_centerInParent="true"
             android:fontFamily="@font/inter_medium"
             android:paddingBottom="@dimen/_5sdp"
-            android:text="Sign Out"
+            android:text="Update Profile"
             android:textColor="@color/white"
             android:textSize="@dimen/_14ssp" />
 
