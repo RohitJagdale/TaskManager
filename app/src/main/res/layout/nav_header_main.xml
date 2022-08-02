@@ -2,7 +2,7 @@
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
-    android:layout_height="@dimen/_140sdp"
+    android:layout_height="@dimen/_145sdp"
     android:background="@color/bg_color"
     android:padding="@dimen/_10sdp"
     >
@@ -51,11 +51,11 @@
         android:id="@+id/loggedInUserMail"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:fontFamily="@font/inter_medium"
         android:layout_below="@id/loggedInUserName"
-        android:layout_toRightOf="@+id/loggedInUserProfile"
         android:layout_marginLeft="@dimen/_8sdp"
-        android:textSize="@dimen/_10ssp"
         android:layout_marginTop="@dimen/_4sdp"
-        android:text="@string/nav_header_subtitle" />
+        android:layout_toRightOf="@+id/loggedInUserProfile"
+        android:fontFamily="@font/inter_medium"
+        android:text="@string/nav_header_subtitle"
+        android:textSize="@dimen/_10ssp" />
 </RelativeLayout>
