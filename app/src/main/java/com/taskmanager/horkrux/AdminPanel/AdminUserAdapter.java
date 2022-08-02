@@ -10,7 +10,9 @@ import android.view.ViewGroup;
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
+import com.bumptech.glide.Glide;
 import com.taskmanager.horkrux.Activites.AssignTaskActivity;
+import com.taskmanager.horkrux.Activites.Profile;
 import com.taskmanager.horkrux.Models.Users;
 import com.taskmanager.horkrux.R;
 import com.taskmanager.horkrux.databinding.AdminUserListBinding;
@@ -42,6 +44,7 @@ public class AdminUserAdapter extends RecyclerView.Adapter<AdminUserAdapter.Admi
     public void onBindViewHolder(@NonNull AdminUserViewHolder holder, int position) {
 
         holder.binding.adminUserName.setText(users.get(position).getUserName());
+        Glide.with(context).load(users.get(position).getUserProfile()).into(holder.binding.profileImage);
         holder.binding.userDetailSee.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {

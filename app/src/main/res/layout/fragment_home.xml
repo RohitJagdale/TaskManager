@@ -33,12 +33,13 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent">
 
-        <ImageView
+        <com.mikhaellopez.circularimageview.CircularImageView
             android:id="@+id/selectedUserImage"
             android:layout_width="@dimen/_80sdp"
             android:layout_height="@dimen/_80sdp"
             android:contentDescription="@string/nav_header_desc"
             android:layout_marginTop="@dimen/_5sdp"
+            app:civ_border_width="1dp"
             app:srcCompat="@drawable/profile_avatar" />
 
         <TextView

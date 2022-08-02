@@ -1,8 +1,11 @@
 package com.taskmanager.horkrux;
 
 import android.content.Context;
+import android.os.Build;
 import android.util.Log;
 import android.widget.Toast;
+
+import androidx.annotation.RequiresApi;
 
 import com.google.firebase.database.FirebaseDatabase;
 import com.taskmanager.horkrux.Models.Task;
@@ -11,6 +14,8 @@ import com.taskmanager.horkrux.Notification.ApiUtils;
 import com.taskmanager.horkrux.Notification.NotificationData;
 import com.taskmanager.horkrux.Notification.PushNotification;
 
+import java.time.LocalDateTime;
+import java.time.format.DateTimeFormatter;
 import java.util.ArrayList;
 import java.util.Date;
 
@@ -54,6 +59,7 @@ public class CommonUtils {
 
     }
 
+    @RequiresApi(api = Build.VERSION_CODES.O)
     static public void sendNotificationToUser(ArrayList<Users> users, Context context, String title, String desc) {
         database = FirebaseDatabase.getInstance();
         for (Users user : users) {
@@ -61,6 +67,7 @@ public class CommonUtils {
             NotificationData data = new NotificationData();
             data.setNotificationTitle(title);
             data.setNotificationMessage(desc);
+            data.setNotificationDate(getCurrentDateAndTime());
             PushNotification notification = new PushNotification(data, topic);
             Log.d("NOTI", "sendNotificationToUser: " + data.getNotificationTitle());
             ApiUtils.getClient().sendNotification(notification).enqueue(new Callback<PushNotification>() {
@@ -84,6 +91,17 @@ public class CommonUtils {
         }
 
 
+    }
+
+    @RequiresApi(api = Build.VERSION_CODES.O)
+    static public String getCurrentDateAndTime() {
+        LocalDateTime myDateObj = LocalDateTime.now();
+        System.out.println("Before Formatting: " + myDateObj);
+        DateTimeFormatter myFormatObj = DateTimeFormatter.ofPattern("E,MMM dd yyyy HH:mm");
+
+        String formattedDate = myDateObj.format(myFormatObj);
+
+        return formattedDate;
     }
 
     static public String generateId() {

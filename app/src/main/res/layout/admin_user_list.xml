@@ -16,7 +16,7 @@
         app:layout_constraintTop_toTopOf="parent"
         android:background="?selectableItemBackground">
 
-        <ImageView
+        <com.mikhaellopez.circularimageview.CircularImageView
             android:id="@+id/profileImage"
             android:layout_width="@dimen/_50sdp"
             android:layout_height="@dimen/_50sdp"

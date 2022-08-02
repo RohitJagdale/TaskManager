@@ -14,6 +14,7 @@ import androidx.fragment.app.Fragment;
 import androidx.lifecycle.ViewModelProvider;
 import androidx.recyclerview.widget.LinearLayoutManager;
 
+import com.bumptech.glide.Glide;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
@@ -70,6 +71,7 @@ public class HomeFragment extends Fragment {
 
             binding.selectedUserName.setText(user.getUserName());
             binding.selectedUserMail.setText(user.getUserEmail());
+            Glide.with(getContext()).load(user.getUserProfile()).into(binding.selectedUserImage);
 
         } else {
             binding.selectedUserView.setVisibility(View.GONE);

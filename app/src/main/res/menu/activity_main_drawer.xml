@@ -23,6 +23,9 @@
             android:icon="@drawable/ic_sign_out"
             android:title="@string/sign_out"
             android:fontFamily="@font/inter_medium"/>
+        <item
+            android:id="@+id/credits"
+            android:title="About us" />
 
     </group>
 </menu>

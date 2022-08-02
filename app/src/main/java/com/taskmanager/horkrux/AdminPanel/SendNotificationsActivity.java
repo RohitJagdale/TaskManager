@@ -1,6 +1,7 @@
 package com.taskmanager.horkrux.AdminPanel;
 
 import android.content.Context;
+import android.os.Build;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.AdapterView;
@@ -9,6 +10,7 @@ import android.widget.ListPopupWindow;
 import android.widget.Toast;
 
 import androidx.annotation.NonNull;
+import androidx.annotation.RequiresApi;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.recyclerview.widget.GridLayoutManager;
 
@@ -24,6 +26,7 @@ import com.taskmanager.horkrux.databinding.ActivitySendNotificationsBinding;
 
 import java.util.ArrayList;
 
+@RequiresApi(api = Build.VERSION_CODES.O)
 public class SendNotificationsActivity extends AppCompatActivity {
 
     private ActivitySendNotificationsBinding binding;
@@ -143,11 +146,11 @@ public class SendNotificationsActivity extends AppCompatActivity {
 
 
             CommonUtils.sendNotificationToUser(assignedList, context, title, desc);
-
             assignedList.clear();
             adapter.notifyDataSetChanged();
-
             loadUsers();
+
+            Toast.makeText(context, "Notification sent", Toast.LENGTH_SHORT).show();
         }
 
     };

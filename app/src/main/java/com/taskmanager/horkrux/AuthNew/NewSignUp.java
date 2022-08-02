@@ -1,5 +1,6 @@
 package com.taskmanager.horkrux.AuthNew;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
@@ -81,7 +82,6 @@ public class NewSignUp extends AppCompatActivity {
                     user.setUserName(binding.crateUserName.getText().toString().trim());
                     user.setUserProfile(Users.NO_PROFILE);
 
-                    Toast.makeText(NewSignUp.this, user.getUserDept(), Toast.LENGTH_SHORT).show();
                     //register user
                     firebaseAuth.createUserWithEmailAndPassword(email, password).addOnCompleteListener(new OnCompleteListener<AuthResult>() {
                         @Override
@@ -92,6 +92,8 @@ public class NewSignUp extends AppCompatActivity {
                                 sendEmailVerification();
                                 user.setFireuserid(firebaseAuth.getUid());
                                 updateUser(user);
+//                                resetAttributes();
+
 
                             } else {
                                 Toast.makeText(getApplicationContext(), "Resgistration Unsuccesfull", Toast.LENGTH_SHORT).show();
@@ -104,6 +106,14 @@ public class NewSignUp extends AppCompatActivity {
             }
         });
 
+    }
+
+    private void resetAttributes() {
+
+        binding.crateUserName.setText("");
+        binding.createUserEmail.setText(null);
+        binding.createUserPass.setText(null);
+        binding.createUserField.setText(null);
     }
 
 
@@ -131,7 +141,8 @@ public class NewSignUp extends AppCompatActivity {
             public void onComplete(@NonNull Task<Void> task) {
 
                 if (task.isSuccessful()) {
-                    Toast.makeText(getApplicationContext(), "user is in database", Toast.LENGTH_SHORT).show();
+//                    Toast.makeText(getApplicationContext(), "user is in database", Toast.LENGTH_SHORT).show();
+                    startActivity(new Intent(NewSignUp.this, NewLoginActivity.class));
                     Log.d("result", "onComplete: " + task.getException());
                 } else {
                     Toast.makeText(getApplicationContext(), "user is not add in database", Toast.LENGTH_SHORT).show();

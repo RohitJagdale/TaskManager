@@ -148,6 +148,12 @@ public class MainActivity extends AppCompatActivity {
                     return false;
                 }
 
+                if (item.getItemId() == R.id.credits) {
+                    auth.signOut();
+                    startActivity(new Intent(MainActivity.this, NewLoginActivity.class));
+                    return false;
+                }
+
                 FragmentTransaction transaction = getSupportFragmentManager().beginTransaction();
                 transaction.replace(R.id.currentActivity, fragment);
                 transaction.commit();

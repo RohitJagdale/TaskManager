@@ -53,7 +53,7 @@ public class NewLoginActivity extends AppCompatActivity {
 //        login user
 
         //        if user is already logged in
-        if (firebaseUser != null) {
+        if (firebaseUser != null && firebaseUser.isEmailVerified()) {
             startActivity(new Intent(getApplicationContext(), AdminPanelActivity.class));
             finish();
         }
@@ -111,10 +111,10 @@ public class NewLoginActivity extends AppCompatActivity {
 
             Toast.makeText(getApplicationContext(), "Logged in", Toast.LENGTH_SHORT).show();
             startActivity(new Intent(getApplicationContext(), MainActivity.class));
-
             dialog.dismiss();
             finish();
         } else {
+            dialog.dismiss();
             Toast.makeText(getApplicationContext(), "User Not verified", Toast.LENGTH_SHORT).show();
         }
     }

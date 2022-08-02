@@ -9,7 +9,7 @@
     <androidx.cardview.widget.CardView
         android:id="@+id/taskItem"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
+        android:layout_height="@dimen/_100sdp"
         android:layout_marginBottom="@dimen/_6sdp"
         app:cardCornerRadius="@dimen/_20sdp"
         app:contentPadding="@dimen/_15sdp"
@@ -48,10 +48,10 @@
                     android:id="@+id/notificationDesc"
                     android:layout_width="wrap_content"
                     android:layout_height="@dimen/_30sdp"
-                    android:layout_marginTop="@dimen/_20sdp"
+                    android:layout_marginTop="@dimen/_22sdp"
                     android:ellipsize="end"
                     android:layout_marginLeft="@dimen/_35sdp"
-                    android:layout_gravity="bottom"
+                    android:layout_gravity="left"
                     android:fontFamily="@font/inter_medium"
                     android:maxLines="2"
                     android:scrollHorizontally="true"
@@ -59,14 +59,15 @@
                     android:textSize="@dimen/_11ssp" />
 
 
-            <TextView
-                android:id="@+id/notificationDate"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_gravity="right"
-                android:text="16/23/33"
-                android:textSize="@dimen/_10ssp"
-                android:fontFamily="@font/inter_medium"/>
+        <TextView
+            android:id="@+id/notificationDate"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="bottom |right"
+            android:fontFamily="@font/inter_medium"
+            android:text="16/23/33"
+            android:textSize="@dimen/_8ssp"
+            android:visibility="visible" />
 
 
 

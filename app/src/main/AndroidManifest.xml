@@ -11,13 +11,13 @@
         android:label="@string/app_name"
         android:roundIcon="@drawable/task_manager_icon"
         android:supportsRtl="true"
-        android:theme="@style/Theme.TaskManager.NoActionBar"><![CDATA[>]]>
-
+        android:theme="@style/Theme.TaskManager.NoActionBar">
+        <activity
+            android:name=".Activites.AboutUs"
+            android:exported="false" />
         <activity
             android:name=".Activites.ViewNotificationsActivity"
-            android:exported="true">
-
-        </activity>
+            android:exported="true"></activity>
         <activity
             android:name=".AuthNew.NewLoginActivity"
             android:exported="true">
@@ -30,8 +30,7 @@
         <activity android:name=".Activites.Profile" />
         <activity
             android:name=".AuthNew.NewSignUp"
-            android:exported="true">
-        </activity>
+            android:exported="true"></activity>
         <activity
             android:name=".AdminPanel.SendNotificationsActivity"
             android:exported="false" />
@@ -46,7 +45,7 @@
             android:exported="false" />
         <activity
             android:name=".AdminPanel.AdminPanelActivity"
-            android:exported="true"></activity>
+            android:exported="true" />
         <activity
             android:name=".Activites.SubmitTaskActivity"
             android:exported="false" />
@@ -60,11 +59,7 @@
             android:name=".Authentication.LoginAndSignUp"
             android:exported="true"
             android:label="@string/app_name"
-            android:theme="@style/Theme.TaskManager.NoActionBar">
-
-        </activity>
-
-
+            android:theme="@style/Theme.TaskManager.NoActionBar"></activity>
 
         <service
             android:name=".Notification.NotificationService"

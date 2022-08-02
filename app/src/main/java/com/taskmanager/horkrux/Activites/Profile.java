@@ -159,7 +159,7 @@ public class Profile extends AppCompatActivity {
                 Users user = snapshot.getValue(Users.class);
                 binding.profileName.setText(user.getUserName());
                 binding.profileEmail.setText(user.getUserEmail());
-                Glide.with(Profile.this).load(user.getUserProfile()).placeholder(R.drawable.profile_avatar).into(binding.profileImage);
+                Glide.with(Profile.this).load(user.getUserProfile()).into(binding.profileImage);
             }
 
             @Override
