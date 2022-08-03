@@ -28,7 +28,6 @@ import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.ValueEventListener;
 import com.google.firebase.storage.FirebaseStorage;
 import com.google.firebase.storage.StorageReference;
-import com.google.firebase.storage.UploadTask;
 import com.taskmanager.horkrux.Models.Users;
 import com.taskmanager.horkrux.R;
 import com.taskmanager.horkrux.databinding.ActivityProfileBinding;
@@ -39,7 +38,7 @@ public class Profile extends AppCompatActivity {
 
     private FirebaseAuth firebaseAuth;
     private FirebaseDatabase database;
-    private Context context = Profile.this;
+    private final Context context = Profile.this;
     private String USER_PATH;
     private String m_Text;
     private Uri selectedImage = null;
@@ -63,59 +62,46 @@ public class Profile extends AppCompatActivity {
         binding.inProgressCount.setText(String.valueOf(MainActivity.count.getInProgress()));
         binding.doneCount.setText(String.valueOf(MainActivity.count.getDone()));
 
-        binding.editUserName.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                AlertDialog.Builder builder = new AlertDialog.Builder(context);
-                builder.setTitle("Enter User Name");
+        binding.editUserName.setOnClickListener(v -> {
+            AlertDialog.Builder builder = new AlertDialog.Builder(context);
+            builder.setTitle("Enter User Name");
 
 
-                final EditText input = new EditText(context);
+            final EditText input = new EditText(context);
 
-                input.setInputType(InputType.TYPE_CLASS_TEXT);
-                builder.setView(input);
+            input.setInputType(InputType.TYPE_CLASS_TEXT);
+            builder.setView(input);
 
-                builder.setPositiveButton("OK", new DialogInterface.OnClickListener() {
-                    @Override
-                    public void onClick(DialogInterface dialog, int which) {
-                        m_Text = input.getText().toString();
-                        if (m_Text.isEmpty()) {
-                            Toast.makeText(context, "Username cant be empty!!", Toast.LENGTH_SHORT).show();
-                        } else {
-                            database.getReference(USER_PATH).child("userName").setValue(m_Text).addOnCompleteListener(new OnCompleteListener<Void>() {
-                                @Override
-                                public void onComplete(@NonNull Task<Void> task) {
-                                    Toast.makeText(context, "Username updated successfully", Toast.LENGTH_SHORT).show();
-                                }
-                            });
-
+            builder.setPositiveButton("OK", (dialog, which) -> {
+                m_Text = input.getText().toString();
+                if (m_Text.isEmpty()) {
+                    Toast.makeText(context, "Username cant be empty!!", Toast.LENGTH_SHORT).show();
+                } else {
+                    database.getReference(USER_PATH).child("userName").setValue(m_Text).addOnCompleteListener(new OnCompleteListener<Void>() {
+                        @Override
+                        public void onComplete(@NonNull Task<Void> task) {
+                            Toast.makeText(context, "Username updated successfully", Toast.LENGTH_SHORT).show();
                         }
-                    }
-                });
-                builder.setNegativeButton("Cancel", new DialogInterface.OnClickListener() {
-                    @Override
-                    public void onClick(DialogInterface dialog, int which) {
-                        dialog.cancel();
-                    }
-                });
+                    });
 
-                builder.show();
-            }
+                }
+            });
+            builder.setNegativeButton("Cancel", new DialogInterface.OnClickListener() {
+                @Override
+                public void onClick(DialogInterface dialog, int which) {
+                    dialog.cancel();
+                }
+            });
+
+            builder.show();
         });
 
 
-        binding.profileImage.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                ImagePicker.with(Profile.this)
-                        .cropSquare()                    //Crop image(Optional), Check Customization for more option
-                        .compress(1024)            //Final image size will be less than 1 MB(Optional)
-                        .maxResultSize(1080, 1080)    //Final image resolution will be less than 1080 x 1080(Optional)
-                        .start();
-
-
-            }
-        });
+        binding.profileImage.setOnClickListener(v -> ImagePicker.with(Profile.this)
+                .cropSquare()                    //Crop image(Optional), Check Customization for more option
+                .compress(1024)            //Final image size will be less than 1 MB(Optional)
+                .maxResultSize(1080, 1080)    //Final image resolution will be less than 1080 x 1080(Optional)
+                .start());
 
         binding.updateProfile.setOnClickListener(view -> {
 
@@ -126,24 +112,21 @@ public class Profile extends AppCompatActivity {
             StorageReference reference = storage.getReference().child("usersprofiles")
                     .child(firebaseAuth.getUid());
 
-            reference.putFile(selectedImage).addOnCompleteListener(new OnCompleteListener<UploadTask.TaskSnapshot>() {
-                @Override
-                public void onComplete(@NonNull Task<UploadTask.TaskSnapshot> task) {
-                    if (task.isSuccessful()) {
-                        reference.getDownloadUrl().addOnSuccessListener(new OnSuccessListener<Uri>() {
-                            @Override
-                            public void onSuccess(Uri uri) {
-                                database.getReference().child("Users").child(firebaseAuth.getUid()).child("userProfile").setValue(uri.toString());
+            reference.putFile(selectedImage).addOnCompleteListener(task -> {
+                if (task.isSuccessful()) {
+                    reference.getDownloadUrl().addOnSuccessListener(new OnSuccessListener<Uri>() {
+                        @Override
+                        public void onSuccess(Uri uri) {
+                            database.getReference().child("Users").child(firebaseAuth.getUid()).child("userProfile").setValue(uri.toString());
 
-                                Toast.makeText(Profile.this, "Uploaded", Toast.LENGTH_SHORT).show();
-                                dialog.dismiss();
-                                binding.updateProfile.setVisibility(View.GONE);
-                            }
-                        });
-                    } else {
-                        Toast.makeText(Profile.this, task.getException().toString(), Toast.LENGTH_SHORT).show();
+                            Toast.makeText(Profile.this, "Uploaded", Toast.LENGTH_SHORT).show();
+                            dialog.dismiss();
+                            binding.updateProfile.setVisibility(View.GONE);
+                        }
+                    });
+                } else {
+                    Toast.makeText(Profile.this, task.getException().toString(), Toast.LENGTH_SHORT).show();
 
-                    }
                 }
             });
         });
@@ -159,7 +142,8 @@ public class Profile extends AppCompatActivity {
                 Users user = snapshot.getValue(Users.class);
                 binding.profileName.setText(user.getUserName());
                 binding.profileEmail.setText(user.getUserEmail());
-                Glide.with(Profile.this).load(user.getUserProfile()).into(binding.profileImage);
+                binding.userProfileCategory.setText(user.getUserDept());
+                Glide.with(Profile.this).load(user.getUserProfile()).placeholder(R.drawable.place_holder).into(binding.profileImage);
             }
 
             @Override
@@ -176,9 +160,12 @@ public class Profile extends AppCompatActivity {
     protected void onActivityResult(int requestCode, int resultCode, @Nullable Intent data) {
         super.onActivityResult(requestCode, resultCode, data);
         if (data != null) {
-            selectedImage = data.getData();
-            binding.profileImage.setImageURI(selectedImage);
-            binding.updateProfile.setVisibility(View.VISIBLE);
+            if (data.getData() != null) {
+                selectedImage = data.getData();
+                binding.profileImage.setImageURI(selectedImage);
+                binding.updateProfile.setVisibility(View.VISIBLE);
+            }
+
 
         }
     }

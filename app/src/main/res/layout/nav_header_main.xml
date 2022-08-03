@@ -32,7 +32,7 @@
         android:layout_marginTop="@dimen/_20sdp"
         android:contentDescription="@string/nav_header_desc"
         app:civ_border_width="@dimen/_1sdp"
-        app:srcCompat="@drawable/profile_avatar" />
+        app:srcCompat="@drawable/place_holder" />
 
     <TextView
         android:id="@+id/loggedInUserName"

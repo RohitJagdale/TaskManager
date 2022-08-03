@@ -4,6 +4,9 @@ public class NotificationData {
     private String notificationTitle;
     private String notificationMessage;
     private String notificationDate;
+    private String notificationId;
+    private String notificationTime;
+
 
     public String getNotificationDate() {
         return notificationDate;
@@ -21,7 +24,13 @@ public class NotificationData {
         this.notificationTime = notificationTime;
     }
 
-    private String notificationTime;
+    public String getNotificationId() {
+        return notificationId;
+    }
+
+    public void setNotificationId(String notificationId) {
+        this.notificationId = notificationId;
+    }
 
 
     public NotificationData() {

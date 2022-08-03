@@ -56,7 +56,7 @@
             android:layout_centerHorizontal="true"
             android:layout_marginTop="@dimen/_80sdp"
             android:src="@drawable/profile_avatar"
-            app:civ_border_width="@dimen/_2sdp" />
+            app:civ_border_width="@dimen/_1sdp" />
 
 
         <ImageView

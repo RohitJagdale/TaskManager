@@ -71,7 +71,7 @@ public class HomeFragment extends Fragment {
 
             binding.selectedUserName.setText(user.getUserName());
             binding.selectedUserMail.setText(user.getUserEmail());
-            Glide.with(getContext()).load(user.getUserProfile()).into(binding.selectedUserImage);
+            Glide.with(getContext()).load(user.getUserProfile()).placeholder(R.drawable.place_holder).into(binding.selectedUserImage);
 
         } else {
             binding.selectedUserView.setVisibility(View.GONE);

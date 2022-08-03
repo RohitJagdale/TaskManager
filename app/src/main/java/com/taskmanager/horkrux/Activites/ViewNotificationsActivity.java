@@ -58,6 +58,12 @@ public class ViewNotificationsActivity extends AppCompatActivity {
                     Log.d("TAG", "onDataChange: ");
                 }
                 binding.notificationProgress.setVisibility(View.GONE);
+                if (notifications.isEmpty()) {
+                    binding.notificationEmptyMessage.setVisibility(View.VISIBLE);
+                } else {
+                    binding.notificationEmptyMessage.setVisibility(View.GONE);
+
+                }
                 Collections.reverse(notifications);
                 adapter.notifyDataSetChanged();
             }

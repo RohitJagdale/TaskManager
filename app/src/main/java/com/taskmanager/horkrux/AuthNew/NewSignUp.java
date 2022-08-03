@@ -96,7 +96,7 @@ public class NewSignUp extends AppCompatActivity {
 
 
                             } else {
-                                Toast.makeText(getApplicationContext(), "Resgistration Unsuccesfull", Toast.LENGTH_SHORT).show();
+                                Toast.makeText(getApplicationContext(), task.getException().getMessage(), Toast.LENGTH_SHORT).show();
                             }
 
                         }

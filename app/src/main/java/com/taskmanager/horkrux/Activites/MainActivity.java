@@ -24,6 +24,7 @@ import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.ValueEventListener;
 import com.google.firebase.messaging.FirebaseMessaging;
 import com.taskmanager.horkrux.AuthNew.NewLoginActivity;
+import com.taskmanager.horkrux.CommonUtils;
 import com.taskmanager.horkrux.Models.Count;
 import com.taskmanager.horkrux.Models.Users;
 import com.taskmanager.horkrux.R;
@@ -114,7 +115,7 @@ public class MainActivity extends AppCompatActivity {
                 Users user = snapshot.getValue(Users.class);
                 navHeaderMainBinding.loggedInUserName.setText(user.getUserName());
                 navHeaderMainBinding.loggedInUserMail.setText(user.getUserEmail());
-                Glide.with(MainActivity.this).load(user.getUserProfile()).placeholder(R.drawable.profile_avatar).into(navHeaderMainBinding.loggedInUserProfile);
+                Glide.with(MainActivity.this).load(user.getUserProfile()).placeholder(R.drawable.place_holder).into(navHeaderMainBinding.loggedInUserProfile);
             }
 
             @Override
@@ -143,14 +144,15 @@ public class MainActivity extends AppCompatActivity {
                 }
                 if (item.getItemId() == R.id.nav_sign_out) {
                     auth.signOut();
+                    CommonUtils.showToast(getApplicationContext(), "Signed out");
                     startActivity(new Intent(MainActivity.this, NewLoginActivity.class));
+
                     finishAffinity();
                     return false;
                 }
 
                 if (item.getItemId() == R.id.credits) {
-                    auth.signOut();
-                    startActivity(new Intent(MainActivity.this, NewLoginActivity.class));
+                    startActivity(new Intent(MainActivity.this, AboutUs.class));
                     return false;
                 }
 
