@@ -49,7 +49,7 @@ This is a Team-Tasks Management Application developed using AndroidFire(Android+
 :heavy_check_mark: Navigation drawer\
 :heavy_check_mark: Submit task to admin with status\
 :heavy_check_mark: User profile\
-:heavy_check_mark: Edit User name\
+:heavy_check_mark: Edit User Profile\
 :heavy_check_mark: Tasks stats
 
 
@@ -58,19 +58,33 @@ This is a Team-Tasks Management Application developed using AndroidFire(Android+
 
 Here are some Illustration of App Screens
 
-| ![](screen-shots/AdminPanel.png) | ![](screen-shots/UserList.png) | ![](screen-shots/UserTaskAdminView.png) |
-| :--------------------------------: | :---------------------------------------: | :----------------------------------: |
-|            Admin Dashboard             |            Team Member List             |            User Profile             |
+| ![](screen-shots/Login.png) |
+| :--------------------------------:| 
+|            Login         |
 
-| ![](screen-shots/SendNotification.png) | ![](screen-shots/AssignTask.png) | ![](screen-shots/EditTaskAdminView.png) |
-| :----------------------------------: | :----------------------------: | :----------------------------: |
-|        Send Notification         |         Assign Task        |         Edit/View Task        |
+| ![](screen-shots/create-task.png) |
+| :--------------------------------:| 
+|            Create Task         |
 
-| ![](screen-shots/UserLogin.png) | ![](screen-shots/UserDashBoard.png) | ![](screen-shots/SubmitTask.png) |
-| :------------------------------------: | :----------------------------------------: | :-------------------------------------------: |
-|         User Login       |         User Tasks        |         Submit Task         |
+| ![](screen-shots/home.png) |
+| :--------------------------------:| 
+|            Home         |
 
-| ![](screen-shots/UserNavigation.png) | ![](screen-shots/UserProfile.png) | ![](screen-shots/UserNotifications.png) |
-| :---------------------------------: | :------------------------------------: | :---------------------------------: |
-|         Navigation Drawer         |         User Profile     |         User Notificaions        |
+| ![](screen-shots/notification.png) |
+| :--------------------------------:| 
+|            Notifications         |
+
+| ![](screen-shots/profile.png) |
+| :--------------------------------:| 
+|            User Profile         |
+
+
+| ![](screen-shots/sign-up.png) |
+| :--------------------------------:| 
+|            Sign up         |
+
+| ![](screen-shots/view-task.png) |
+| :--------------------------------:| 
+|            View Task         |
+
 
